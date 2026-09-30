@@ -176,7 +176,7 @@ export const projects: Project[] = [
     index: "02",
     title: "Aminta",
     kind: "AI writing companion for X",
-    role: "Design and build",
+    role: "Founder",
     summary:
       "A browser extension that lives inside X. It learns how you write, drafts posts and replies in your voice, and grows a companion that evolves the more you post.",
     url: "https://www.amintaapp.com",
