@@ -51,6 +51,12 @@
 .linkedin:hover {
   color: var(--accent);
 }
+/* A quiet aside under the intro */
+.teaser {
+  margin: 8px 0 0;
+  color: var(--dim);
+  font-size: clamp(14px, 1.15vw, 17px);
+}
 .more {
   pointer-events: auto;
   color: var(--dim);

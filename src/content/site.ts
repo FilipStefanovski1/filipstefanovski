@@ -77,6 +77,7 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/filipstefanovskii/",
   hero: {
     intro: "I build products. Idea to shipped.",
+    teaser: "Podcast coming soon",
     meta: ["Product Developer", "Macedonia / Belgium"],
   },
   about: {

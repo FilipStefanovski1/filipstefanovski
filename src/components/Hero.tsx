@@ -7,19 +7,32 @@ export default function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.top}>
-        <p className={styles.intro}>
-          {site.hero.intro}{" "}
-          <a href="#about" className={styles.more}>
-            [more]
-          </a>
-        </p>
+        <div className={styles.lead}>
+          <p className={styles.intro}>
+            {site.hero.intro}{" "}
+            <a href="#about" className={styles.more}>
+              [more]
+            </a>
+          </p>
+          <p className={styles.teaser}>
+            {site.hero.teaser}{" "}
+            <span role="img" aria-label="shh">
+              🤫
+            </span>
+          </p>
+        </div>
         <div className={styles.meta}>
           <p>
             {site.hero.meta.map((l) => (
               <span key={l}>{l}</span>
             ))}
           </p>
-          <a href={site.linkedin} className={styles.linkedin} target="_blank" rel="noreferrer">
+          <a
+            href={site.linkedin}
+            className={styles.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
             LinkedIn
             <Icon name="arrow-up-right" size={14} />
             <span className="visually-hidden"> (opens in a new tab)</span>
@@ -28,16 +41,33 @@ export default function Hero() {
       </div>
 
       <h1 id="hero-title" className={styles.name}>
-        <svg className={styles.nameWide} viewBox="0 0 1000 116" preserveAspectRatio="xMidYMax meet" aria-hidden>
+        <svg
+          className={styles.nameWide}
+          viewBox="0 0 1000 116"
+          preserveAspectRatio="xMidYMax meet"
+          aria-hidden
+        >
           <text x="0" y="115" textLength="1000" lengthAdjust="spacing">
             {site.name.toUpperCase()}
           </text>
         </svg>
         <svg className={styles.nameStacked} viewBox="0 0 1000 646" aria-hidden>
-          <text x="0" y="451" textLength="1000" lengthAdjust="spacing" fontSize="683">
+          <text
+            x="0"
+            y="451"
+            textLength="1000"
+            lengthAdjust="spacing"
+            fontSize="683"
+          >
             FILIP
           </text>
-          <text x="0" y="645" textLength="1000" lengthAdjust="spacing" fontSize="239">
+          <text
+            x="0"
+            y="645"
+            textLength="1000"
+            lengthAdjust="spacing"
+            fontSize="239"
+          >
             STEFANOVSKI
           </text>
         </svg>
