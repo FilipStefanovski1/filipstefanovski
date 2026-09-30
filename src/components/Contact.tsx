@@ -1,46 +1,29 @@
 import { site } from "@/content/site";
+import Icon from "./Icon";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
-  const { email, links } = site.contact;
   const year = new Date().getFullYear();
   return (
-    <footer id="contact" className={styles.footer} aria-labelledby="contact-title">
+    <footer id="contact" className={styles.finale} aria-labelledby="contact-title" data-surface="neon">
       <div className={`wrap ${styles.inner}`}>
-        <p className={`mono ${styles.label}`}>Contact</p>
-        <h2 id="contact-title" className={styles.title}>
-          Got a product
-          <br />
-          that needs <em>both</em>
-          <br />
-          halves?
+        <h2 id="contact-title" className={`condensed ${styles.title}`}>
+          {site.close.heading}
         </h2>
-        <p className={styles.lede}>Design and build, handled by the same person. Tell me what you are working on.</p>
-        {(email || links.length > 0) && (
-          <ul className={styles.links}>
-            {email && (
-              <li>
-                <a href={`mailto:${email}`} className={styles.email}>
-                  {email}
-                </a>
-              </li>
-            )}
-            {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className={styles.link} target="_blank" rel="noreferrer">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+        <p className={styles.body}>{site.close.body}</p>
+        <a href={site.linkedin} className={styles.action} target="_blank" rel="noreferrer">
+          {site.close.action}
+          <Icon name="arrow-up-right" size={18} />
+          <span className="visually-hidden"> (opens in a new tab)</span>
+        </a>
         <div className={styles.base}>
-          <span className="mono">
-            {site.name}, {year}
+          <span>
+            {site.name}, {site.role}
           </span>
-          <span className="mono">Macedonia / Belgium</span>
-          <a href="#main" className={`mono ${styles.top}`}>
+          <span>Macedonia / Belgium, {year}</span>
+          <a href="#main" className={styles.top}>
             Back to top
+            <Icon name="arrow-down" size={14} />
           </a>
         </div>
       </div>

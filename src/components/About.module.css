@@ -1,70 +1,66 @@
 .section {
-  padding: clamp(80px, 11vw, 160px) 0;
-  background: var(--paper-deep);
-  border-top: 1px solid var(--ink);
+  background: var(--stage);
+  color: var(--light);
+  padding-block: clamp(80px, 12vh, 140px) clamp(140px, 22vh, 240px);
+  border-top: 1px solid var(--line-stage);
 }
 .grid {
   display: grid;
-  gap: 28px;
-}
-@media (min-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
-    row-gap: 56px;
-  }
-  .label {
-    grid-column: 1 / span 3;
-  }
-  .headWrap {
-    grid-column: 4 / span 9;
-  }
-  .copy {
-    grid-column: 4 / span 5;
-  }
-  .facts {
-    grid-column: 10 / span 3;
-  }
-}
-.label {
-  margin: 0;
-  padding-top: 14px;
-  color: var(--ink-soft);
+  gap: 32px;
 }
 .heading {
   margin: 0;
-  max-width: 16ch;
-  font: 400 clamp(40px, 5.4vw, 84px) / 1 var(--font-serif);
-  letter-spacing: -0.015em;
+  font-size: clamp(56px, 7vw, 104px);
 }
 .copy p {
   margin: 0 0 1.1em;
-  max-width: 54ch;
+  max-width: 60ch;
+  color: var(--dim);
+  font-size: clamp(16px, 1.2vw, 18px);
 }
-.disciplines {
-  margin-top: 28px !important;
-  font: 500 12px/1.9 var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.disciplines i {
-  font-style: normal;
-  color: var(--accent-ink);
+.copy .lead {
+  max-width: 28ch;
+  margin-bottom: 1.2em;
+  color: var(--light);
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1.2;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 .facts {
-  margin: 0;
-  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0 24px;
+  margin: 24px 0 0;
+  border-top: 1px solid var(--line-stage);
 }
 .fact {
-  display: grid;
-  gap: 6px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--ink);
+  padding: 16px 0 20px;
+  border-bottom: 1px solid var(--line-stage);
 }
 .fact dt {
-  color: var(--ink-soft);
+  color: var(--dim);
+  font-size: 13.5px;
+  margin-bottom: 6px;
 }
 .fact dd {
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    column-gap: 24px;
+  }
+  .heading {
+    grid-column: 1 / -1;
+    margin-bottom: 16px;
+  }
+  .copy,
+  .facts {
+    grid-column: 2;
+  }
 }

@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { site } from "@/content/site";
+import Icon from "./Icon";
 import styles from "./SiteHeader.module.css";
 
-export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
+/** Header for inner pages, which sit on the dark stage. */
+export default function SiteHeader() {
   return (
-    <header className={`${styles.header} ${overlay ? styles.overlay : ""}`}>
+    <header className={styles.header}>
       <div className={`wrap ${styles.inner}`}>
         <Link href="/" className={styles.brand} aria-label={`${site.name}, home`}>
-          <span className={styles.mark} aria-hidden>
-            FS
-          </span>
-          <span className={styles.name}>{site.name}</span>
+          <span className={`condensed ${styles.name}`}>{site.name}</span>
+          <span className={styles.role}>{site.role}</span>
         </Link>
         <nav aria-label="Primary">
           <ul className={styles.nav}>
@@ -21,7 +21,11 @@ export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
               <Link href="/#about">About</Link>
             </li>
             <li>
-              <Link href="/#contact">Contact</Link>
+              <a href={site.linkedin} target="_blank" rel="noreferrer" className={styles.linkedin}>
+                LinkedIn
+                <Icon name="arrow-up-right" size={13} />
+                <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
             </li>
           </ul>
         </nav>

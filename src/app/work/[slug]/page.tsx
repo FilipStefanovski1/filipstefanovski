@@ -5,9 +5,10 @@ import { notFound } from "next/navigation";
 import { getProject, projects } from "@/content/site";
 import SiteHeader from "@/components/SiteHeader";
 import Contact from "@/components/Contact";
+import LightUp from "@/components/LightUp";
+import Icon from "@/components/Icon";
 import ProjectVisual from "@/components/visuals/ProjectVisual";
 import { Illustration } from "@/components/visuals/Illustrations";
-import Reveal from "@/components/Reveal";
 import styles from "./case.module.css";
 
 export const dynamicParams = false;
@@ -28,6 +29,8 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   };
 }
 
+const narrowIds = new Set(["internal-overview", "smcc-member"]);
+
 export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
   const { slug } = await params;
   const p = getProject(slug);
@@ -38,124 +41,115 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
 
   return (
     <>
-      <SiteHeader />
-      <main id="main">
-        <article>
-          <header className={`wrap ${styles.head}`}>
-            <Link href="/#work" className={`mono ${styles.back}`}>
-              <svg width="14" height="10" viewBox="0 0 14 10" aria-hidden>
-                <path d="M14 5H1.5M5.5 1l-4 4 4 4" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-              All work
-            </Link>
-            <div className={styles.titleRow}>
-              <span className={styles.index} aria-hidden>
-                {p.index}
-              </span>
-              <h1 className={styles.title}>{p.title}</h1>
-            </div>
-            <p className={styles.lede}>{cs.lede}</p>
-            <dl className={styles.spec}>
-              <div>
-                <dt className="mono">Project</dt>
-                <dd>{p.kind}</dd>
-              </div>
-              <div>
-                <dt className="mono">My role</dt>
-                <dd>{p.role}</dd>
-              </div>
-              <div>
-                <dt className="mono">Areas</dt>
-                <dd>{p.tags.join(", ")}</dd>
-              </div>
-              {p.url && (
+      <div className={styles.page}>
+        <SiteHeader />
+        <main id="main">
+          <article>
+            <header className={`wrap ${styles.head}`}>
+              <Link href="/#work" className={styles.back}>
+                <Icon name="arrow-left" size={14} />
+                All work
+              </Link>
+              <h1 className={`condensed ${styles.title}`}>{p.title}</h1>
+              <p className={styles.lede}>{cs.lede}</p>
+              <dl className={styles.spec}>
                 <div>
-                  <dt className="mono">Live</dt>
-                  <dd>
-                    <a href={p.url} target="_blank" rel="noreferrer" className={styles.ext}>
-                      {p.url.replace(/^https?:\/\//, "")}
-                      <span aria-hidden> ↗</span>
-                      <span className="visually-hidden"> (opens in a new tab)</span>
-                    </a>
-                  </dd>
+                  <dt>My role</dt>
+                  <dd>{p.role}</dd>
                 </div>
-              )}
-            </dl>
-          </header>
+                <div>
+                  <dt>Areas</dt>
+                  <dd>{p.tags.join(", ")}</dd>
+                </div>
+                {p.url && (
+                  <div>
+                    <dt>Live</dt>
+                    <dd>
+                      <a href={p.url} target="_blank" rel="noreferrer" className={styles.ext}>
+                        {p.url.replace(/^https?:\/\//, "")}
+                        <Icon name="arrow-up-right" size={14} />
+                        <span className="visually-hidden"> (opens in a new tab)</span>
+                      </a>
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            </header>
 
-          <div className={`wrap ${styles.hero} row-hover`}>
-            <ProjectVisual slug={p.slug} priority />
-          </div>
+            <LightUp className={styles.hero}>
+              <div className="row-hover">
+                <ProjectVisual slug={p.slug} priority />
+              </div>
+            </LightUp>
 
-          <section className={`wrap ${styles.block}`} aria-labelledby="problem">
-            <h2 id="problem" className={`mono ${styles.blockLabel}`}>
-              The problem
-            </h2>
-            <p className={styles.problem}>{cs.problem}</p>
-          </section>
+            <section className={`wrap ${styles.block}`} aria-labelledby="problem">
+              <h2 id="problem" className={styles.blockTitle}>
+                The problem
+              </h2>
+              <p className={styles.problem}>{cs.problem}</p>
+            </section>
 
-          <section className={`wrap ${styles.block}`} aria-labelledby="contribution">
-            <h2 id="contribution" className={`mono ${styles.blockLabel}`}>
-              What I worked on
-            </h2>
-            <ul className={styles.contrib}>
-              {cs.contribution.map((c, n) => (
-                <li key={c}>
-                  <span className="mono">{String(n + 1).padStart(2, "0")}</span>
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </section>
+            <section className={`wrap ${styles.block}`} aria-labelledby="contribution">
+              <h2 id="contribution" className={styles.blockTitle}>
+                What I built
+              </h2>
+              <ul className={styles.contrib}>
+                {cs.contribution.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </section>
 
-          <section className={`wrap ${styles.block}`} aria-labelledby="decisions">
-            <h2 id="decisions" className={`mono ${styles.blockLabel}`}>
-              Decisions
-            </h2>
-            <ol className={styles.decisions}>
-              {cs.decisions.map((d) => (
-                <li key={d.title}>
-                  <h3>{d.title}</h3>
-                  <p>{d.body}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
+            <section className={`wrap ${styles.block}`} aria-labelledby="decisions">
+              <h2 id="decisions" className={styles.blockTitle}>
+                Decisions
+              </h2>
+              <ul className={styles.decisions}>
+                {cs.decisions.map((d) => (
+                  <li key={d.title}>
+                    <h3 className="condensed">{d.title}</h3>
+                    <p>{d.body}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-          <section className={`wrap ${styles.block}`} aria-labelledby="evidence">
-            <h2 id="evidence" className={`mono ${styles.blockLabel}`}>
-              The work
-            </h2>
-            <div className={styles.evidence}>
-              {cs.evidence.map((e, n) => (
-                <Reveal key={n} className={`${styles.figureWrap} ${e.kind === "illustration" && (e.id === "internal-overview" || e.id === "smcc-member") ? styles.narrow : ""}`}>
-                  <figure className={styles.figure}>
-                    {e.kind === "screenshot" ? (
-                      <Image src={e.src} alt={e.alt} width={e.width} height={e.height} sizes="(max-width: 900px) 92vw, 80vw" />
-                    ) : (
-                      <Illustration id={e.id} />
-                    )}
-                    <figcaption className="mono">{e.caption}</figcaption>
-                  </figure>
-                </Reveal>
-              ))}
-            </div>
-            {cs.note && <p className={styles.note}>{cs.note}</p>}
-          </section>
+            <section className={styles.evidenceBlock} aria-labelledby="evidence">
+              <h2 id="evidence" className={`wrap ${styles.blockTitle} ${styles.evidenceTitle}`}>
+                The work
+              </h2>
+              <div className={styles.evidence}>
+                {cs.evidence.map((e, n) => (
+                  <LightUp
+                    key={n}
+                    className={`${styles.figureWrap} ${e.kind === "illustration" && narrowIds.has(e.id) ? styles.narrow : ""}`}
+                  >
+                    <figure className={styles.figure}>
+                      {e.kind === "screenshot" ? (
+                        <Image src={e.src} alt={e.alt} width={e.width} height={e.height} sizes="(max-width: 900px) 92vw, 1100px" />
+                      ) : (
+                        <Illustration id={e.id} />
+                      )}
+                      <figcaption>{e.caption}</figcaption>
+                    </figure>
+                  </LightUp>
+                ))}
+              </div>
+              {cs.note && <p className={`wrap ${styles.note}`}>{cs.note}</p>}
+            </section>
 
-          <nav className={`wrap ${styles.next}`} aria-label="Next project">
-            <Link href={`/work/${next.slug}`} className={styles.nextLink}>
-              <span className="mono">Next project</span>
-              <span className={styles.nextTitle}>
-                {next.title}
-                <svg width="0.6em" height="0.45em" viewBox="0 0 14 10" aria-hidden>
-                  <path d="M0 5h12.5M8.5 1l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.2" />
-                </svg>
-              </span>
-            </Link>
-          </nav>
-        </article>
-      </main>
+            <nav className={`wrap ${styles.next}`} aria-label="Next project">
+              <Link href={`/work/${next.slug}`} className={styles.nextLink}>
+                <span className={`condensed ${styles.nextTitle}`}>
+                  <span className="visually-hidden">Next project: </span>
+                  {next.title}
+                  <Icon name="arrow-right" size={48} />
+                </span>
+              </Link>
+            </nav>
+          </article>
+        </main>
+      </div>
       <Contact />
     </>
   );

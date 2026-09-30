@@ -1,45 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders, Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const display = Big_Shoulders({
-  variable: "--font-display",
-  subsets: ["latin", "latin-ext"],
-  weight: ["800"],
-  display: "swap",
-  fallback: ["Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
-  adjustFontFallback: false,
-});
-
-/** Signature face for the name: condensed, heavy, with ink traps. */
-const nameFont = Bricolage_Grotesque({
+/** One family for the whole site: condensed 800 for names, text widths for everything else. */
+const bricolage = Bricolage_Grotesque({
   variable: "--font-name",
   subsets: ["latin", "latin-ext"],
   weight: "variable",
   axes: ["wdth", "opsz"],
-  display: "swap",
-});
-
-const serif = Instrument_Serif({
-  variable: "--font-serif",
-  subsets: ["latin", "latin-ext"],
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const sans = Instrument_Sans({
-  variable: "--font-sans",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: "500",
   display: "swap",
 });
 
@@ -69,14 +38,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f3efe6",
+  themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${nameFont.variable} ${serif.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={bricolage.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         <a className="skip" href="#main">
           Skip to content

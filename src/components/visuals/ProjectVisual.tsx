@@ -14,7 +14,7 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
               alt="The public Q4 website hero."
               width={1728}
               height={792}
-              sizes="(max-width: 900px) 90vw, 50vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 72vw, 1080px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : "auto"}
             />
@@ -52,25 +52,17 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
     case "nordgate":
       return (
         <div className={`${s.comp} ${s.nordgate}`}>
-          <p className={s.ngQuote} aria-hidden>
-            Your route
-            <br />
-            into the Nordics.
-          </p>
           <div className={`${s.layer} ${s.ngShot}`}>
             <Image
               src="/work/nordgate-site.jpg"
               alt="The Nordgate website hero on a deep blue background."
               width={1728}
               height={792}
-              sizes="(max-width: 900px) 90vw, 50vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 90vw, 1330px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : "auto"}
             />
           </div>
-          <span className={s.ngUrl} aria-hidden>
-            thenordgate.com
-          </span>
         </div>
       );
     default:

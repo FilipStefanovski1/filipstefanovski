@@ -1,0 +1,112 @@
+{
+  "title": "Choose the visual world",
+  "question": "The roll assigned Keynote Stage. Keep it, take an alternate, or re-roll. The minimal badge hero stays either way.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Keynote Stage",
+      "kicker": "THE ROLL",
+      "lineage": "product launch keynotes: dark stage, one product lit at a time",
+      "thesis": "Every project gets revealed like a launch: one product on stage, one sentence, lights.",
+      "palette": ["#0b0b0c", "#f5f4f0", "#ff4a1c", "#2a2a2e"],
+      "materials": ["stage black with spotlight falloff", "full-bleed product screens", "the vermilion strap as the only live colour"],
+      "viewport": "The badge hero stays quiet and light; scrolling dims the room to black and each project enters as a full-viewport segment with a giant name and its real screens lit.",
+      "risk": "Keynote pomp reads as bravado if the claims inflate; every line must stay factual.",
+      "raised": [
+        {"from": "challenger-automata", "raise": "Vermilion is reserved for whatever is currently on stage, never sprinkled as decoration."},
+        {"from": "challenger-nixie", "raise": "Segment counters and indices use one engineered tabular digit form, fixed places, no ornament."},
+        {"from": "challenger-icepress", "raise": "Illustrative screens are stamped as such on stage, the honest slide footnote."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Release Notes",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "product changelogs founders read every week",
+      "thesis": "The portfolio as a changelog: each project a shipped release with what changed and why.",
+      "palette": ["#fbfbfa", "#16161a", "#6b6b73", "#ff4a1c"],
+      "materials": ["dense typographic entries", "inline product screens", "version rail"],
+      "viewport": "Minimal badge hero, then a single scrolling release log with a sticky rail of projects.",
+      "risk": "Familiar: the direction most product-dev sites land on, and there are no real dates to anchor releases."
+    },
+    {
+      "id": "challenger-zine",
+      "label": "Napkin Explainer",
+      "verdict": "competitive",
+      "lineage": "hand-drawn technical zines",
+      "thesis": "The shipped screen with Filip's napkin sketch of the decision drawn right next to it.",
+      "palette": ["#ffffff", "#111111", "#ffe14d", "#ff4a1c"],
+      "materials": ["marker ink", "highlighter swipes", "draw-on SVG arrows"],
+      "viewport": "Badge hero, then each project as a panel: real screen, marker annotations tracing the decision.",
+      "case": "Holds product clarity (decisions become visible) but founders read it as less senior than a launch.",
+      "risk": "Sloppy sketches read junior; needs real illustration discipline."
+    },
+    {
+      "id": "challenger-automata",
+      "label": "Paper Automata",
+      "verdict": "declined",
+      "lineage": "hand-cranked paper menageries",
+      "palette": ["#f1e7d6", "#2b2b2b", "#c8102e"],
+      "materials": ["cut paper", "kraft board"],
+      "case": "Charming mechanism, but founders do not see themselves in paper toys.",
+      "kept": "One accent reserved for the thing currently in motion.",
+      "hero": "https://impeccable.style/worlds/cards/kinetic-sculpture-automata-crank-paper-menagerie-hero.webp"
+    },
+    {
+      "id": "challenger-nixie",
+      "label": "Nixie Counter",
+      "verdict": "declined",
+      "lineage": "laboratory nixie counters",
+      "palette": ["#101010", "#ff7a1a", "#6b6b6b"],
+      "materials": ["glass tubes", "steel chassis"],
+      "case": "Its interface is numbers, and there are no real metrics to show.",
+      "kept": "One engineered digit form with fixed places.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter-hero.webp"
+    },
+    {
+      "id": "challenger-icepress",
+      "label": "Ice Press",
+      "verdict": "declined",
+      "lineage": "expedition newspapers printed on the ice",
+      "palette": ["#e9e4d8", "#151515"],
+      "materials": ["rag paper", "uneven hand pull"],
+      "case": "Beautiful but archival; wrong era for a startup founder.",
+      "kept": "Leave the honest marks standing: label what is illustrative.",
+      "hero": "https://impeccable.style/worlds/cards/graphic-worlds-publishing-expedition-ice-press-hero.webp"
+    },
+    {
+      "id": "challenger-neon",
+      "label": "Neon Circuit",
+      "verdict": "declined",
+      "lineage": "hand-bent neon signs",
+      "palette": ["#07070a", "#3a6bff", "#ff3b2f"],
+      "materials": ["glass tube", "gas glow"],
+      "case": "Glow-on-black is the neon-dev-portfolio cliché founders scroll past.",
+      "kept": "One continuous line of motion rather than scattered effects.",
+      "hero": "https://impeccable.style/worlds/cards/magnetism-electricity-plasma-hand-bent-neon-circuit-hero.webp"
+    },
+    {
+      "id": "challenger-highlife",
+      "label": "Highlife Sleeve",
+      "verdict": "declined",
+      "lineage": "hand-lettered record sleeves",
+      "palette": ["#ff9f1c", "#2e7d32", "#f3ead8", "#d62828"],
+      "materials": ["painted lettering", "colour fields"],
+      "case": "Joyful, but tells founders nothing about shipping software.",
+      "kept": "Colour that owns whole regions instead of timid accents.",
+      "hero": "https://impeccable.style/worlds/cards/highlife-sleeve-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean developer portfolio: intro, project card grid, about, contact, executed impeccably.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "product screenshots in cards"],
+    "viewport": "Badge hero, then a tidy two-column grid of project cards.",
+    "risk": "Indistinguishable from every other dev portfolio by design."
+  },
+  "steer": true
+}

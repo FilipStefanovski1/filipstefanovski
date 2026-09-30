@@ -1,156 +1,155 @@
+/* Products on stage: no boxes, just the screens, lit by the segment's spotlight. */
 .comp {
   container-type: inline-size;
   position: relative;
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 16 / 10;
 }
 
 .layer {
   position: absolute;
-  transition: transform 700ms var(--ease-out);
+  transition: transform 900ms var(--ease-out);
   will-change: transform;
 }
 .layer img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
-  box-shadow:
-    0 0 0 1px rgb(20 20 18 / 0.12),
-    0 30px 60px -30px rgb(20 20 18 / 0.4);
+  border-radius: 8px;
 }
-
-/* Hover/focus of the parent row spreads the stack a little. */
-:global(.row-hover):hover .layer,
-:global(.row-hover):focus-within .layer {
-  transition-duration: 900ms;
+.layer img,
+.layer > * {
+  box-shadow:
+    0 0 0 1px rgb(244 244 242 / 0.1),
+    0 50px 90px -40px rgb(0 0 0 / 0.9),
+    0 18px 36px -24px rgb(0 0 0 / 0.7);
+}
+.layer > :global(*) {
+  border-radius: 8px;
 }
 
 /* ---------- Q4 ---------- */
-.q4 {
-  background:
-    radial-gradient(circle at 70% 30%, rgb(20 20 18 / 0.06), transparent 60%),
-    var(--paper-deep);
-}
 .q4Shot {
-  top: 7%;
-  right: 5%;
+  top: 2%;
+  right: 3%;
   width: 72%;
-  transform: rotate(1.5deg);
 }
 .q4Answer {
-  left: 5%;
-  bottom: 7%;
-  width: 60%;
-  transform: rotate(-1.2deg);
+  left: 2%;
+  bottom: 1%;
+  width: 52%;
 }
 .q4Source {
-  right: 5%;
-  bottom: 6%;
-  width: 31%;
-  transform: rotate(4deg);
-}
-:global(.row-hover):hover .q4Shot,
-:global(.row-hover):focus-within .q4Shot {
-  transform: translate(2%, -3%) rotate(2.5deg);
-}
-:global(.row-hover):hover .q4Answer,
-:global(.row-hover):focus-within .q4Answer {
-  transform: translate(-2%, 2%) rotate(-2deg);
-}
-:global(.row-hover):hover .q4Source,
-:global(.row-hover):focus-within .q4Source {
-  transform: translate(3%, -4%) rotate(7deg);
+  right: 7%;
+  bottom: 0;
+  width: 24%;
 }
 
 /* ---------- Q4 Internal ---------- */
-.internal {
-  background: var(--ink);
-}
 .intBoard {
-  top: 9%;
+  top: 3%;
   left: 6%;
-  width: 72%;
-  transform: rotate(-1deg);
+  width: 68%;
 }
 .intPhone {
-  right: 8%;
-  bottom: -6%;
-  width: 26%;
-  transform: rotate(5deg);
+  right: 10%;
+  bottom: -2%;
+  width: 22%;
 }
-:global(.row-hover):hover .intBoard,
-:global(.row-hover):focus-within .intBoard {
-  transform: translate(-2%, -2%) rotate(-2deg);
-}
-:global(.row-hover):hover .intPhone,
-:global(.row-hover):focus-within .intPhone {
-  transform: translate(2%, -6%) rotate(8deg);
+.intPhone > * {
+  box-shadow: 0 50px 90px -40px rgb(0 0 0 / 0.9);
 }
 
 /* ---------- SMCC ---------- */
-.smcc {
-  background:
-    repeating-linear-gradient(0deg, transparent 0 23px, rgb(20 20 18 / 0.07) 23px 24px),
-    var(--paper-deep);
-}
 .smccPublic {
-  top: 8%;
-  right: 5%;
-  width: 70%;
-  transform: rotate(1deg);
+  top: 3%;
+  right: 4%;
+  width: 68%;
 }
 .smccMember {
   left: 6%;
-  bottom: 5%;
-  width: 38%;
-  transform: rotate(-3deg);
-}
-:global(.row-hover):hover .smccPublic,
-:global(.row-hover):focus-within .smccPublic {
-  transform: translate(2%, -2%) rotate(2deg);
-}
-:global(.row-hover):hover .smccMember,
-:global(.row-hover):focus-within .smccMember {
-  transform: translate(-3%, 2%) rotate(-6deg);
+  bottom: 0;
+  width: 31%;
 }
 
 /* ---------- Nordgate ---------- */
-.nordgate {
-  overflow: hidden;
-  background: #013d9f;
-  color: #fff;
-}
-.ngQuote {
-  position: absolute;
-  left: 7%;
-  top: 8%;
-  margin: 0;
-  font: 400 9.4cqw/0.96 var(--font-serif);
-  letter-spacing: -0.01em;
-}
 .ngShot {
-  right: -10%;
-  bottom: -8%;
-  width: 84%;
-  transform: rotate(-2deg);
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
 }
-.ngShot img {
-  box-shadow:
-    0 0 0 1px rgb(255 255 255 / 0.25),
-    0 40px 80px -30px rgb(0 0 0 / 0.6);
+
+/* Phones: the stack becomes a column with a small overlap, so nothing clips or shrinks to nothing */
+@media (max-width: 640px) {
+  .comp {
+    aspect-ratio: auto;
+    display: grid;
+  }
+  .layer {
+    position: relative;
+    inset: auto;
+    transform: none;
+  }
+  .q4Shot,
+  .intBoard,
+  .smccPublic,
+  .ngShot {
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    transform: none;
+  }
+  .q4Answer {
+    width: 100%;
+    margin-top: -8%;
+    bottom: auto;
+    left: auto;
+  }
+  .q4Source {
+    display: none;
+  }
+  .intPhone {
+    justify-self: end;
+    width: 44%;
+    margin: -22% 4% 0 0;
+    right: auto;
+    bottom: auto;
+  }
+  .smccMember {
+    width: 62%;
+    margin-top: -14%;
+    left: auto;
+    bottom: auto;
+  }
 }
-.ngUrl {
-  position: absolute;
-  left: 7%;
-  bottom: 7%;
-  font: 500 2cqw/1 var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.75;
-}
-:global(.row-hover):hover .ngShot,
-:global(.row-hover):focus-within .ngShot {
-  transform: translate(-3%, -4%) rotate(-3.5deg);
+
+/* The stack spreads a little when the segment is hovered or focused. */
+@media (hover: hover) {
+  :global(.row-hover):hover .q4Shot {
+    transform: translate(1.5%, -2%);
+  }
+  :global(.row-hover):hover .q4Answer {
+    transform: translate(-1.5%, 1.5%);
+  }
+  :global(.row-hover):hover .q4Source {
+    transform: translate(2%, -3%) rotate(2deg);
+  }
+  :global(.row-hover):hover .intBoard {
+    transform: translate(-1.5%, -1.5%);
+  }
+  :global(.row-hover):hover .intPhone {
+    transform: translate(2%, -5%);
+  }
+  :global(.row-hover):hover .smccPublic {
+    transform: translate(1.5%, -1.5%);
+  }
+  :global(.row-hover):hover .smccMember {
+    transform: translate(-2%, 2%);
+  }
+  :global(.row-hover):hover .ngShot {
+    transform: translate(-50%, -51.5%) scale(1.015);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

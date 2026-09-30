@@ -1,5 +1,7 @@
 .hero {
   position: relative;
+  background: var(--stage);
+  color: var(--light);
   height: 100svh;
   min-height: 560px;
   max-height: 1200px;
@@ -18,27 +20,46 @@
   animation: fade 900ms var(--ease-out) 150ms both;
 }
 .intro,
-.meta {
+.meta p {
   margin: 0;
   max-width: 21em;
   font-size: clamp(14px, 1.15vw, 17px);
   line-height: 1.4;
 }
 .meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
   text-align: right;
 }
 .meta span {
   display: block;
 }
+.linkedin {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0;
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--accent);
+  transition: color 160ms ease;
+}
+.linkedin:hover {
+  color: var(--accent);
+}
 .more {
   pointer-events: auto;
-  color: var(--ink-soft);
+  color: var(--dim);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 160ms ease;
 }
 .more:hover {
-  color: var(--accent-ink);
+  color: var(--accent);
 }
 
 /* The name, set edge to edge along the bottom */
@@ -59,11 +80,16 @@
   overflow: visible;
 }
 .name text {
-  fill: var(--ink);
+  fill: var(--light);
   font-family: var(--font-name);
   font-weight: 800;
   font-stretch: 75%;
+}
+.nameWide text {
   font-size: 172.5px;
+}
+.nameStacked {
+  display: none !important;
 }
 
 .stage {
@@ -90,12 +116,21 @@
     gap: 10px;
   }
   .meta {
+    align-items: flex-start;
     text-align: left;
-    color: var(--ink-soft);
+    color: var(--dim);
+  }
+  .linkedin {
+    color: var(--light);
   }
   /* The lanyard hangs from a rule under the text instead of crossing it */
   .stage {
-    top: 150px;
-    border-top: 1px solid var(--ink);
+    top: 186px;
+  }
+  .nameWide {
+    display: none !important;
+  }
+  .nameStacked {
+    display: block !important;
   }
 }

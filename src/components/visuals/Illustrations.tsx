@@ -2,12 +2,13 @@ import type { IllustrationId } from "@/content/site";
 import s from "./illustrations.module.css";
 
 /**
- * Illustrative screens rendered in code. All names and figures are synthetic.
- * They show interface patterns, never real product data.
+ * Illustrative product screens rendered in code. Every name and figure is synthetic.
+ * They show interface patterns, never real product data. Product UIs use their own
+ * neutral hues; the site's vermilion never appears inside them.
  */
 
-function Tag({ children = "Synthetic data" }: { children?: string }) {
-  return <span className={s.tag}>{children}</span>;
+function Note({ children = "Illustrative, synthetic data" }: { children?: string }) {
+  return <span className={s.note}>{children}</span>;
 }
 
 export function Q4Answer() {
@@ -17,7 +18,7 @@ export function Q4Answer() {
         <span className={s.brand}>Q4</span>
         <span className={s.barLabel}>Research</span>
         <span className={s.select}>Model</span>
-        <Tag />
+        <Note />
       </div>
       <div className={s.q4Body}>
         <p className={s.question}>Compare revenue growth for Company A and Company B since 2022.</p>
@@ -69,12 +70,9 @@ export function Q4Source() {
         <span>Annual report 2025</span>
         <span>p. 42</span>
       </div>
-      <span className={s.lineFull} />
-      <span className={s.lineFull} />
-      <span className={s.lineShort} />
+      <p className={s.docText}>Operating income for the year increased on higher financing and investment income.</p>
       <p className={s.highlight}>Revenue for the year amounted to 46,310 million, compared with 41,200 million in 2022.</p>
-      <span className={s.lineFull} />
-      <span className={s.lineShort} />
+      <p className={s.docText}>The Board has recommended a final dividend, subject to approval.</p>
     </div>
   );
 }
@@ -89,8 +87,8 @@ export function Q4Sheet() {
   return (
     <div className={`${s.screen} ${s.sheet}`} role="img" aria-label="Illustration of a spreadsheet model built from a research answer, using synthetic figures.">
       <div className={s.bar}>
-        <span className={s.barLabel}>Model / Company A / FY2023 to FY2025</span>
-        <Tag />
+        <span className={s.barLabel}>Model, Company A, FY2023 to FY2025</span>
+        <Note />
       </div>
       <div className={s.fx}>
         <b>fx</b> =B2+B3
@@ -135,7 +133,7 @@ export function InternalBoard() {
       <div className={s.bar}>
         <span className={s.brand}>Q4</span>
         <span className={s.barLabel}>Features</span>
-        <Tag />
+        <Note />
       </div>
       <div className={s.cols}>
         {(["short", "long"] as const).map((k) => (
@@ -148,7 +146,9 @@ export function InternalBoard() {
                 <div className={s.cardTitle}>{c.t}</div>
                 <div className={s.cardMeta}>
                   <span className={s.owner}>{c.o}</span>
-                  <span className={`${s.status} ${c.st === "In progress" ? s.statusOn : ""}`}>{c.st}</span>
+                  <span className={s.status} data-state={c.st === "In progress" ? "on" : "off"}>
+                    {c.st}
+                  </span>
                   <span className={s.due}>{c.d}</span>
                 </div>
               </div>
@@ -161,8 +161,13 @@ export function InternalBoard() {
 }
 
 export function InternalOverview() {
+  const goals: [string, number][] = [
+    ["Ship export flow", 72],
+    ["Pilot onboarding", 45],
+    ["Docs refresh", 88],
+  ];
   return (
-    <div className={`${s.phone}`} role="img" aria-label="Illustration of the overview on a phone: goals progress and a revenue card with a USD and SAR switch. Figures are hidden.">
+    <div className={s.phone} role="img" aria-label="Illustration of the overview on a phone: goals progress and a revenue card with a USD and SAR switch. Figures are hidden. Synthetic content.">
       <div className={s.phoneInner}>
         <div className={s.phoneTop}>
           <b>Overview</b>
@@ -177,19 +182,23 @@ export function InternalOverview() {
           <em>Figures hidden</em>
         </div>
         <div className={s.goals}>
-          <span>Goals</span>
-          {[72, 45, 88].map((v, i) => (
-            <div key={i} className={s.goal}>
+          <span className={s.phoneLabel}>Goals</span>
+          {goals.map(([label, v]) => (
+            <div key={label} className={s.goal}>
+              <span className={s.goalRow}>
+                <span>{label}</span>
+                <span>{v}%</span>
+              </span>
               <span className={s.goalBar}>
                 <i style={{ width: `${v}%` }} />
               </span>
             </div>
           ))}
         </div>
-        <div className={s.meetings}>
-          <span>Next meeting</span>
-          <span className={s.lineFull} />
-          <span className={s.lineShort} />
+        <div className={s.meeting}>
+          <span className={s.phoneLabel}>Next meeting</span>
+          <b>Weekly sync</b>
+          <span>Monday, 10:00. Recap attached.</span>
         </div>
       </div>
     </div>
@@ -198,55 +207,57 @@ export function InternalOverview() {
 
 export function SmccPublic() {
   return (
-    <div className={`${s.screen} ${s.smcc}`} role="img" aria-label="Illustration of a chamber of commerce public page layout with placeholder content.">
+    <div className={`${s.screen} ${s.smcc}`} role="img" aria-label="Illustration of a chamber of commerce public page with illustrative content.">
       <div className={s.smccNav}>
         <b>SMCC</b>
-        <span className={s.navBars}>
-          <i />
-          <i />
-          <i />
+        <span className={s.navLinks}>
+          <span>About</span>
+          <span>Members</span>
+          <span>Events</span>
+          <span>News</span>
         </span>
         <span className={s.lang}>EN</span>
         <span className={s.join}>Become a member</span>
       </div>
       <div className={s.smccHero}>
-        <span className={s.kicker} />
-        <span className={s.h1} />
-        <span className={s.h1b} />
-        <span className={s.lineFull} />
-        <span className={s.lineShort} />
+        <p className={s.smccH1}>Where member companies meet.</p>
+        <p className={s.smccSub}>Events, introductions and support for businesses in the chamber&apos;s network.</p>
       </div>
       <div className={s.smccRow}>
-        {[0, 1, 2].map((i) => (
-          <div key={i} className={s.smccTile}>
-            <span className={s.tileImg} />
-            <span className={s.lineFull} />
-            <span className={s.lineShort} />
+        {[
+          ["12 Nov", "Member breakfast"],
+          ["28 Nov", "Trade briefing"],
+          ["04 Dec", "Annual reception"],
+        ].map(([d, t]) => (
+          <div key={t} className={s.smccTile}>
+            <span className={s.tileDate}>{d}</span>
+            <span className={s.tileTitle}>{t}</span>
           </div>
         ))}
       </div>
-      <Tag>Placeholder content</Tag>
+      <span className={s.smccNote}>
+        <Note>Illustrative content</Note>
+      </span>
     </div>
   );
 }
 
 export function SmccMember() {
   return (
-    <div className={`${s.screen} ${s.member}`} role="img" aria-label="Illustration of the member sign in form and a welcome email, placeholder content.">
+    <div className={`${s.screen} ${s.member}`} role="img" aria-label="Illustration of the member sign in form and a welcome email, illustrative content.">
       <b className={s.memberTitle}>Member sign in</b>
-      <label className={s.field}>
+      <div className={s.field}>
         <span>Email</span>
-        <i />
-      </label>
-      <label className={s.field}>
+        <i>name@company.com</i>
+      </div>
+      <div className={s.field}>
         <span>Password</span>
-        <i className={s.dots}>••••••••••</i>
-      </label>
+        <i>••••••••••</i>
+      </div>
       <span className={s.btn}>Sign in</span>
       <div className={s.email}>
         <span className={s.emailHead}>Welcome to the chamber</span>
-        <span className={s.lineFull} />
-        <span className={s.lineShort} />
+        <span className={s.emailBody}>Your membership is active. Here is how to get the most from it.</span>
       </div>
     </div>
   );

@@ -378,7 +378,7 @@ function Badge({
             {/* Printed card */}
             <group position={[0, CARD_Y, 0]}>
               <mesh geometry={body} castShadow>
-                <meshStandardMaterial color="#e9e4d8" roughness={0.6} />
+                <meshStandardMaterial color="#2bd10c" roughness={0.6} />
               </mesh>
               <mesh geometry={face} position={[0, 0, DIM.cardT / 2 + 0.0008]}>
                 <meshPhysicalMaterial map={textures.front} roughness={0.55} specularIntensity={0.12} envMapIntensity={0} />

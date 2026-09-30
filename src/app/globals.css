@@ -1,19 +1,32 @@
 :root {
-  --paper: #f3efe6;
-  --paper-deep: #e8e2d5;
-  --ink: #141412;
-  --ink-soft: #5c5a54;
-  --line: rgb(20 20 18 / 0.16);
-  --accent: #ff4a1c;
-  --accent-ink: #c2320d; /* accent darkened for text on paper (AA) */
+  /* Black ground, off-white type, one neon green. */
+  --stage: #0a0a0a;
+  --stage-raised: #151515;
+  --house: var(--stage);
+  --ink: #0a0a0a;
+  --light: #f2f2ee;
+  --dim: rgb(242 242 238 / 0.62);
+  --line-stage: rgb(242 242 238 / 0.14);
+  --line: rgb(10 10 10 / 0.18);
+  --ink-soft: rgb(10 10 10 / 0.72);
+
+  /* Neon: what is live right now, and the one action */
+  --accent: #39ff14;
+
+  /* Light paper for illustrative product UI and the badge fallback */
+  --paper: #f2f2ee;
+  --paper-deep: #e4e4df;
+
+  --font-display: var(--font-name), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-name), system-ui, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif; /* illustrative product UI only */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace; /* data in illustrative UI only */
 
   --gutter: clamp(16px, 3.2vw, 44px);
   --max: 1440px;
-  --header-h: 64px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 *,
@@ -25,17 +38,21 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: var(--stage);
+  scrollbar-color: rgb(242 242 238 / 0.24) transparent;
 }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  color: var(--light);
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
   font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-variant-numeric: tabular-nums;
+  caret-color: var(--accent);
   overflow-x: clip;
 }
 
@@ -47,17 +64,35 @@ img {
 
 a {
   color: inherit;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
 }
 
 ::selection {
   background: var(--accent);
   color: var(--ink);
 }
+/* On the green close, selection inverts */
+[data-surface="neon"] ::selection {
+  background: var(--ink);
+  color: var(--accent);
+}
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 4px;
   border-radius: 2px;
+}
+
+/* Condensed display voice */
+.condensed {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 75%;
+  font-variation-settings: "opsz" 96;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.86;
 }
 
 .skip {
@@ -66,11 +101,9 @@ a {
   top: -60px;
   z-index: 100;
   padding: 10px 14px;
-  background: var(--ink);
-  color: var(--paper);
-  font: 500 12px/1 var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 600;
   text-decoration: none;
 }
 .skip:focus {
@@ -82,15 +115,6 @@ a {
   max-width: var(--max);
   margin-inline: auto;
   padding-inline: var(--gutter);
-}
-
-.mono {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 11.5px;
-  line-height: 1.3;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .visually-hidden {
