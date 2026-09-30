@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { projects, supporting } from "@/content/site";
-import ProjectVisual from "./visuals/ProjectVisual";
-import LightUp from "./LightUp";
-import Icon from "./Icon";
-import StageCounter from "./StageCounter";
+import ProjectFan from "./visuals/ProjectFan";
 import styles from "./Work.module.css";
 
 export default function Work() {
@@ -12,45 +9,23 @@ export default function Work() {
       <h2 id="work-title" className="visually-hidden">
         Selected work
       </h2>
-      <StageCounter titles={projects.map((p) => p.title)} />
 
-      <ol className={styles.segments}>
-        {projects.map((p, i) => (
-          <li key={p.slug} className={styles.segment} data-segment={i}>
-            <article aria-labelledby={`seg-${p.slug}`}>
-              <div className={`wrap ${styles.segHead}`}>
-                <h3 id={`seg-${p.slug}`} className={`condensed ${styles.name}`}>
-                  {p.title}
-                </h3>
+      <ul className={styles.list}>
+        {projects.map((p) => (
+          <li key={p.slug} className={`${styles.row} fan-row`}>
+            <Link href={`/work/${p.slug}`} className={`wrap ${styles.rowLink}`}>
+              <div className={styles.text}>
+                <h3 className={`condensed ${styles.name}`}>{p.title}</h3>
                 <p className={styles.line}>{p.line}</p>
+                <p className={styles.role}>{p.role}</p>
               </div>
-
-              <LightUp className={styles.spot}>
-                <Link href={`/work/${p.slug}`} className={`${styles.visual} row-hover`} tabIndex={-1} aria-hidden>
-                  <ProjectVisual slug={p.slug} />
-                </Link>
-              </LightUp>
-
-              <div className={`wrap ${styles.segFoot}`}>
-                <div className={styles.actions}>
-                  <Link href={`/work/${p.slug}`} className={styles.cta}>
-                    Case study
-                    <Icon name="arrow-right" />
-                    <span className="visually-hidden">: {p.title}</span>
-                  </Link>
-                  {p.url && (
-                    <a href={p.url} className={styles.ext} target="_blank" rel="noreferrer">
-                      {p.url.replace(/^https?:\/\//, "")}
-                      <Icon name="arrow-up-right" size={14} />
-                      <span className="visually-hidden"> (opens in a new tab)</span>
-                    </a>
-                  )}
-                </div>
+              <div className={styles.fanWrap}>
+                <ProjectFan slug={p.slug} />
               </div>
-            </article>
+            </Link>
           </li>
         ))}
-      </ol>
+      </ul>
 
       <div className={`wrap ${styles.also}`}>
         <h3 className={`condensed ${styles.alsoTitle}`}>Also</h3>
