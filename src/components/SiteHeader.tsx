@@ -8,7 +8,11 @@ export default function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={`wrap ${styles.inner}`}>
-        <Link href="/" className={styles.brand} aria-label={`${site.name}, home`}>
+        <Link
+          href="/"
+          className={styles.brand}
+          aria-label={`${site.name}, home`}
+        >
           <span className={`condensed ${styles.name}`}>{site.name}</span>
           <span className={styles.role}>{site.role}</span>
         </Link>
@@ -18,13 +22,30 @@ export default function SiteHeader() {
               <Link href="/#work">Work</Link>
             </li>
             <li>
-              <Link href="/#about">About</Link>
-            </li>
-            <li>
-              <a href={site.linkedin} target="_blank" rel="noreferrer" className={styles.linkedin}>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.linkedin}
+              >
                 LinkedIn
                 <Icon name="arrow-up-right" size={13} />
                 <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.x}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.linkedin}
+              >
+                X
+                <Icon name="arrow-up-right" size={13} />
+                <span className="visually-hidden">
+                  {" "}
+                  {site.xHandle} (opens in a new tab)
+                </span>
               </a>
             </li>
           </ul>

@@ -29,19 +29,31 @@
 
 /* ---------- Q4 ---------- */
 .q4Shot {
-  top: 2%;
-  right: 3%;
-  width: 72%;
+  top: 0;
+  right: 4%;
+  width: 62%;
 }
 .q4Answer {
   left: 2%;
-  bottom: 1%;
-  width: 52%;
+  top: 30%;
+  width: 44%;
 }
 .q4Source {
-  right: 7%;
-  bottom: 0;
-  width: 24%;
+  right: 0;
+  bottom: 2%;
+  width: 42%;
+}
+
+/* ---------- Blockchain Skopje ---------- */
+.bksSite {
+  top: 2%;
+  right: 3%;
+  width: 66%;
+}
+.bksPhoto {
+  left: 2%;
+  bottom: 2%;
+  width: 40%;
 }
 
 /* ---------- Aminta ---------- */
@@ -88,6 +100,7 @@
     transform: none;
   }
   .q4Shot,
+  .bksSite,
   .amSite,
   .smccPublic,
   .ngShot {
@@ -98,13 +111,20 @@
     transform: none;
   }
   .q4Answer {
-    width: 100%;
-    margin-top: -8%;
+    width: 88%;
+    top: auto;
+    margin-top: -10%;
     bottom: auto;
     left: auto;
   }
   .q4Source {
     display: none;
+  }
+  .bksPhoto {
+    width: 72%;
+    margin-top: -12%;
+    left: auto;
+    bottom: auto;
   }
   .amForms {
     justify-self: start;

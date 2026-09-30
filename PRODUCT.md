@@ -26,7 +26,7 @@ Filip is a **Product Developer**: one person who takes a product from the first 
 
 ## Capabilities and Constraints
 
-- Selected work: Q4 (AI financial research for the Saudi market, https://q4.sa), Aminta (AI writing companion for X, browser extension, https://www.amintaapp.com; Filip is the founder, confirmed by Filip), SMCC (chamber of commerce website and member portal), Nordgate (brand website, https://thenordgate.com). Q4 Internal (private internal operating tool) exists but is no longer featured.
+- Selected work: Q4 (AI financial research for the Saudi market, https://q4.sa), Aminta (AI writing companion for X, browser extension, https://www.amintaapp.com; Filip is the founder, confirmed by Filip), Blockchain Skopje (Web3 community, https://blockchainskopje.com; Filip is a co-founder; its line is exactly "Building Macedonia's onchain identity.", pinned by Filip), SMCC (chamber of commerce website and member portal), Nordgate (brand website, https://thenordgate.com). Q4 Internal (private internal operating tool) exists but is no longer featured.
 - Currently: Playground AI (designer) and Blockchain Skopje (co-founder). Supporting: collaborated with Avalanche Team1, involved in SMCC digital operations.
 - Background: from Macedonia; lived and studied in Belgium; graduated Thomas More University, Digital Experience Design, 180 ECTS; speaks four languages (which ones are unconfirmed); previously played professional basketball.
 - Never invent employers, dates, titles, metrics, testimonials, client logos or outcomes. Filip is a co-founder of Q4 (confirmed by Filip). No other formal titles (such as CTO) without confirmation.
@@ -37,11 +37,12 @@ Filip is a **Product Developer**: one person who takes a product from the first 
 ## Brand Commitments
 
 - Name: Filip Stefanovski. Role: Product Developer.
-- Contact: LinkedIn only, https://www.linkedin.com/in/filipstefanovskii/ . No email published unless Filip provides one.
+- Contact: LinkedIn https://www.linkedin.com/in/filipstefanovskii/ and X @filiplesterr https://x.com/filiplesterr . No email published unless Filip provides one.
 - Macedonia and Belgium may be referenced.
 
 ## Evidence on Hand
 
+- Q4: `public/work/q4-{laptop,chat,ask,verify,model}.jpg` (official mockup and q4.sa product demos). Blockchain Skopje: `public/work/bks-site.jpg` and recap photos `bks-{squad,winners,hackathon,summit}.jpg`.
 - Public website screenshots: `public/work/q4-site.jpg`, `public/work/nordgate-site.jpg`, Aminta: `public/work/aminta-{hero,inside,features,forms}.jpg` (site captures) and `aminta-{extension,xp}.jpg` (official Chrome Web Store screenshots).
 - No approved product screenshots for Q4, Q4 Internal or SMCC yet; illustrative screens are used and labelled.
 - No Playground AI work samples; do not fabricate any.

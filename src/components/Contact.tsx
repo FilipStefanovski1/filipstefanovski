@@ -5,16 +5,38 @@ import styles from "./Contact.module.css";
 export default function Contact() {
   const year = new Date().getFullYear();
   return (
-    <footer id="contact" className={styles.finale} aria-labelledby="contact-title" data-surface="neon">
+    <footer
+      id="contact"
+      className={styles.finale}
+      aria-labelledby="contact-title"
+      data-surface="neon"
+    >
       <div className={`wrap ${styles.inner}`}>
         <h2 id="contact-title" className={`condensed ${styles.title}`}>
           {site.close.heading}
         </h2>
-        <a href={site.linkedin} className={styles.action} target="_blank" rel="noreferrer">
-          {site.close.action}
-          <Icon name="arrow-up-right" size={18} />
-          <span className="visually-hidden"> (opens in a new tab)</span>
-        </a>
+        <div className={styles.actions}>
+          <a
+            href={site.linkedin}
+            className={styles.action}
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+            <Icon name="arrow-up-right" size={18} />
+            <span className="visually-hidden"> (opens in a new tab)</span>
+          </a>
+          <a
+            href={site.x}
+            className={styles.action}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {site.xHandle}
+            <Icon name="arrow-up-right" size={18} />
+            <span className="visually-hidden"> on X (opens in a new tab)</span>
+          </a>
+        </div>
         <div className={styles.base}>
           <span>
             {site.name}, {site.role}

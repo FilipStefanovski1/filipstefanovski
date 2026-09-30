@@ -14,11 +14,17 @@
   font-size: clamp(72px, 14vw, 232px);
   line-height: 0.82;
 }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 48px;
+}
 .action {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  margin-top: 48px;
   padding: 20px 30px;
   background: var(--ink);
   color: var(--accent);

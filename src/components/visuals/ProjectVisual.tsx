@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Q4Answer, Q4Source, SmccMember, SmccPublic } from "./Illustrations";
+import { SmccMember, SmccPublic } from "./Illustrations";
 import s from "./composition.module.css";
 
 /** Each project gets its own composition instead of a repeated image-in-a-box. */
@@ -10,20 +10,57 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
         <div className={`${s.comp} ${s.q4}`}>
           <div className={`${s.layer} ${s.q4Shot}`}>
             <Image
-              src="/work/q4-site.jpg"
-              alt="The public Q4 website hero."
-              width={1728}
-              height={792}
-              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 72vw, 1080px"
+              src="/work/q4-laptop.jpg"
+              alt="Q4 on a laptop: an answer beside its cited source."
+              width={2000}
+              height={1422}
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 60vw, 900px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : "auto"}
             />
           </div>
           <div className={`${s.layer} ${s.q4Answer}`}>
-            <Q4Answer />
+            <Image
+              src="/work/q4-ask.jpg"
+              alt="A cited answer comparing STC and Mobily."
+              width={1600}
+              height={738}
+              sizes="(max-width: 640px) 100vw, 45vw"
+            />
           </div>
           <div className={`${s.layer} ${s.q4Source}`}>
-            <Q4Source />
+            <Image
+              src="/work/q4-verify.jpg"
+              alt="A figure next to its source passage."
+              width={1600}
+              height={738}
+              sizes="(max-width: 640px) 100vw, 40vw"
+            />
+          </div>
+        </div>
+      );
+    case "blockchain-skopje":
+      return (
+        <div className={`${s.comp} ${s.bks}`}>
+          <div className={`${s.layer} ${s.bksSite}`}>
+            <Image
+              src="/work/bks-site.jpg"
+              alt="The Blockchain Skopje website."
+              width={1600}
+              height={1000}
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 64vw, 950px"
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+            />
+          </div>
+          <div className={`${s.layer} ${s.bksPhoto}`}>
+            <Image
+              src="/work/bks-squad.jpg"
+              alt="The full squad at Base42."
+              width={1478}
+              height={1072}
+              sizes="(max-width: 640px) 100vw, 40vw"
+            />
           </div>
         </div>
       );

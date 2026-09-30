@@ -10,7 +10,7 @@ export default function Hero() {
         <div className={styles.lead}>
           <p className={styles.intro}>
             {site.hero.intro}{" "}
-            <a href="#about" className={styles.more}>
+            <a href="#work" className={styles.more}>
               [more]
             </a>
           </p>
@@ -27,16 +27,31 @@ export default function Hero() {
               <span key={l}>{l}</span>
             ))}
           </p>
-          <a
-            href={site.linkedin}
-            className={styles.linkedin}
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-            <Icon name="arrow-up-right" size={14} />
-            <span className="visually-hidden"> (opens in a new tab)</span>
-          </a>
+          <span className={styles.socials}>
+            <a
+              href={site.linkedin}
+              className={styles.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+              <Icon name="arrow-up-right" size={14} />
+              <span className="visually-hidden"> (opens in a new tab)</span>
+            </a>
+            <a
+              href={site.x}
+              className={styles.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {site.xHandle}
+              <Icon name="arrow-up-right" size={14} />
+              <span className="visually-hidden">
+                {" "}
+                on X (opens in a new tab)
+              </span>
+            </a>
+          </span>
         </div>
       </div>
 

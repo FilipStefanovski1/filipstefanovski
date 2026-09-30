@@ -36,6 +36,10 @@
 .meta span {
   display: block;
 }
+.socials {
+  display: flex;
+  gap: 20px;
+}
 .linkedin {
   pointer-events: auto;
   display: inline-flex;
