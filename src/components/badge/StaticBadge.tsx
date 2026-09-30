@@ -22,9 +22,9 @@ export default function StaticBadge() {
           <div className={styles.sFoot}>
             <em>From</em>
             <span className={styles.sFrom}>{CARD_COPY.from}</span>
-            <em>Previously</em>
+            <em>Currently</em>
             <span className={styles.sPills}>
-              {CARD_COPY.previously.map((p) => (
+              {CARD_COPY.currently.map((p) => (
                 <i key={p.label} data-style={p.style}>
                   {p.label}
                 </i>

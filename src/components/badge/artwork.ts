@@ -102,10 +102,9 @@ export const CARD_COPY = {
   first: "Filip",
   last: "Stefanovski",
   from: "Macedonia, studied in Belgium",
-  previously: [
+  currently: [
     { label: "Playground AI", style: "ink" as const },
     { label: "Blockchain Skopje", style: "ink" as const },
-    { label: "Thomas More", style: "outline" as const },
   ],
 };
 
@@ -147,11 +146,11 @@ export function drawFront(f: Fonts) {
   ctx.fillStyle = P.ink;
   ctx.font = `600 38px ${f.name}`;
   ctx.fillStyle = P.inkSoft;
-  ctx.fillText("Previously", M, y);
+  ctx.fillText("Currently", M, y);
   let x = M;
   let py = y + 34;
   const font = `600 31px ${f.name}`;
-  for (const p of CARD_COPY.previously) {
+  for (const p of CARD_COPY.currently) {
     ctx.font = font;
     const w = ctx.measureText(p.label).width + 44;
     if (x + w > M + W) {
