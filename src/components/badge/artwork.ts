@@ -103,6 +103,7 @@ export const CARD_COPY = {
   last: "Stefanovski",
   from: "Macedonia, studied in Belgium",
   currently: [
+    { label: "Aminta", style: "ink" as const },
     { label: "Playground AI", style: "ink" as const },
     { label: "Blockchain Skopje", style: "ink" as const },
   ],
