@@ -32,15 +32,9 @@ export default function Work() {
               </LightUp>
 
               <div className={`wrap ${styles.segFoot}`}>
-                <ul className={styles.built} aria-label="What I built">
-                  {p.built.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
                 <div className={styles.actions}>
-                  <p className={styles.role}>{p.role}</p>
                   <Link href={`/work/${p.slug}`} className={styles.cta}>
-                    How it was built
+                    Case study
                     <Icon name="arrow-right" />
                     <span className="visually-hidden">: {p.title}</span>
                   </Link>
@@ -65,7 +59,6 @@ export default function Work() {
             <li key={w.title}>
               <span className={styles.alsoName}>{w.title}</span>
               <span className={styles.alsoRole}>{w.role}</span>
-              <span className={styles.alsoBody}>{w.body}</span>
             </li>
           ))}
         </ul>

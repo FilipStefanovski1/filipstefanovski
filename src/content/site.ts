@@ -76,28 +76,22 @@ export const site = {
     "Filip Stefanovski is a product developer. He takes products from the first idea to the version people use: product thinking, interface, frontend and AI.",
   linkedin: "https://www.linkedin.com/in/filipstefanovskii/",
   hero: {
-    intro: "I take products from the first idea to the version people actually use.",
-    meta: ["Product Developer.", "From Macedonia, studied in Belgium."],
+    intro: "I build products. Idea to shipped.",
+    meta: ["Product Developer", "Macedonia / Belgium"],
   },
   about: {
     heading: "Backstage",
-    paragraphs: [
-      "I'm a product developer from Macedonia. I studied Digital Experience Design at Thomas More University in Belgium and finished the full 180 ECTS programme.",
-      "I work where the product decisions and the code meet: figuring out what should exist, designing how it works and building it. Along the way I designed at Playground AI, co-founded Blockchain Skopje, collaborated with Avalanche Team1 and helped run SMCC's digital side.",
-      "Before any of that, I played professional basketball. Small teams, fast feedback and owning your part still feel familiar.",
-    ],
+    line: "Product developer. Macedonian, trained in Belgium. Played pro basketball first.",
     facts: [
       { label: "From", value: "Macedonia" },
-      { label: "Studied", value: "Thomas More University, Belgium" },
-      { label: "Degree", value: "Digital Experience Design, 180 ECTS" },
-      { label: "Languages", value: "Four" },
-      { label: "Before this", value: "Professional basketball" },
+      { label: "Studied", value: "Thomas More, Belgium" },
+      { label: "Speaks", value: "Four languages" },
+      { label: "Before", value: "Pro basketball" },
     ],
   },
   close: {
     heading: "Let's build yours.",
-    body: "Hiring someone to own a product end to end? Tell me what you're working on.",
-    action: "Message me on LinkedIn",
+    action: "LinkedIn",
   },
   /** Only verified links. */
   contact: {
@@ -109,7 +103,7 @@ export const site = {
 export const projects: Project[] = [
   {
     slug: "q4",
-    line: "Saudi market research you can check. Every answer points to the page it came from.",
+    line: "AI research for the Saudi market. Every answer cited.",
     built: ["Research across filings, documents and earnings calls", "Cited answers and spreadsheet workflows", "Model selection and AI integrations"],
     index: "01",
     title: "Q4",
@@ -177,7 +171,7 @@ export const projects: Project[] = [
   },
   {
     slug: "q4-internal",
-    line: "The team\u2019s goals, clients, meetings and roadmap in one installable app.",
+    line: "Internal tool for the Q4 team.",
     built: ["Features board with owners, deadlines and horizons", "Role-based access and USD / SAR switching", "Responsive layouts and a PWA"],
     index: "02",
     title: "Q4 Internal",
@@ -240,7 +234,7 @@ export const projects: Project[] = [
   },
   {
     slug: "smcc",
-    line: "A chamber of commerce website and the member portal behind it, speaking one language.",
+    line: "Chamber of commerce site and member portal.",
     built: ["Public site design and frontend", "Member login, admin and onboarding emails", "Multilingual, responsive layouts"],
     index: "03",
     title: "SMCC",
@@ -295,7 +289,7 @@ export const projects: Project[] = [
   },
   {
     slug: "nordgate",
-    line: "Your route into the Nordics. A calm site in one confident blue for a market-entry firm.",
+    line: "Your route into the Nordics.",
     built: ["Website design in a strong blue identity", "Responsive frontend", "Multilingual structure"],
     index: "04",
     title: "Nordgate",
@@ -352,7 +346,7 @@ export const supporting: SupportingWork[] = [
   {
     title: "Playground AI",
     role: "Designer",
-    body: "Graphics and visual systems for an AI image product.",
+    body: "",
   },
   {
     title: "Blockchain Skopje",

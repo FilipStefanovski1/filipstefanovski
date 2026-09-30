@@ -10,7 +10,6 @@ export default function Contact() {
         <h2 id="contact-title" className={`condensed ${styles.title}`}>
           {site.close.heading}
         </h2>
-        <p className={styles.body}>{site.close.body}</p>
         <a href={site.linkedin} className={styles.action} target="_blank" rel="noreferrer">
           {site.close.action}
           <Icon name="arrow-up-right" size={18} />
