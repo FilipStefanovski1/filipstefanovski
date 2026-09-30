@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Filip Stefanovski, portfolio
 
-## Getting Started
+Personal portfolio built with Next.js (App Router), TypeScript, React Three Fiber, Drei, Rapier and Motion. Designed for static deployment on Vercel.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run start      # serve the production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What |
+| --- | --- |
+| `src/content/site.ts` | All copy, projects, supporting work and contact links. Edit this to update the site. |
+| `src/components/badge/` | The hanging badge. `BadgeScene.tsx` (physics scene, tuning constants at the top), `artwork.ts` (front, back and strap artwork drawn to canvas), `geometry.ts` (card and sleeve dimensions), `StaticBadge.tsx` (HTML fallback for loading, reduced motion and no WebGL). |
+| `src/components/visuals/` | Project compositions and the illustrative screens (synthetic data). |
+| `src/app/work/[slug]/` | Case study pages, generated statically from `projects`. |
+| `public/work/` | Screenshots of the public Q4 and Nordgate websites. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+| Name | Required | Purpose |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | No | Canonical URL used for metadata, sitemap and robots. Defaults to `https://filipstefanovski.vercel.app`. Set it to the real domain in Vercel. |
 
-To learn more about Next.js, take a look at the following resources:
+No secrets are used. There is no backend.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## The badge
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Real physics: a fixed anchor, three rope joints and a spherical joint to the card (Rapier).
+- Dragging pulls the grabbed point with a damped spring, so the card tilts and twists naturally. Release keeps its momentum.
+- Velocities are capped and a gentle yaw return turns the printed face back toward the viewer.
+- The scene is lazy loaded. A matching static badge renders first and cross-fades out.
+- Rendering and physics pause when the hero is offscreen or the tab is hidden, with a two-frame hold on resume.
+- `prefers-reduced-motion` or missing WebGL keeps the static badge.
+- On touch devices the page scrolls normally everywhere except while the badge is being dragged.
 
-## Deploy on Vercel
+## Content notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Q4 Internal and SMCC screens are illustrative recreations with synthetic or placeholder content, and are labelled as such.
+- Contact links are empty until verified ones are added to `site.contact` in `src/content/site.ts`.

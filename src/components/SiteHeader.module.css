@@ -1,0 +1,81 @@
+.header {
+  position: relative;
+  z-index: 10;
+  height: var(--header-h);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+.overlay {
+  background: transparent;
+}
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.mark {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 800 17px/1 var(--font-display);
+  letter-spacing: 0.02em;
+  transition: background 180ms ease;
+}
+.brand:hover .mark {
+  background: var(--accent);
+  color: var(--ink);
+}
+.name {
+  font: 500 11.5px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav {
+  display: flex;
+  gap: clamp(14px, 2.4vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  font: 500 11.5px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--ease-out);
+}
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 520px) {
+  .name {
+    display: none;
+  }
+}

@@ -1,0 +1,70 @@
+.section {
+  padding: clamp(80px, 11vw, 160px) 0;
+  background: var(--paper-deep);
+  border-top: 1px solid var(--ink);
+}
+.grid {
+  display: grid;
+  gap: 28px;
+}
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    row-gap: 56px;
+  }
+  .label {
+    grid-column: 1 / span 3;
+  }
+  .headWrap {
+    grid-column: 4 / span 9;
+  }
+  .copy {
+    grid-column: 4 / span 5;
+  }
+  .facts {
+    grid-column: 10 / span 3;
+  }
+}
+.label {
+  margin: 0;
+  padding-top: 14px;
+  color: var(--ink-soft);
+}
+.heading {
+  margin: 0;
+  max-width: 16ch;
+  font: 400 clamp(40px, 5.4vw, 84px) / 1 var(--font-serif);
+  letter-spacing: -0.015em;
+}
+.copy p {
+  margin: 0 0 1.1em;
+  max-width: 54ch;
+}
+.disciplines {
+  margin-top: 28px !important;
+  font: 500 12px/1.9 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.disciplines i {
+  font-style: normal;
+  color: var(--accent-ink);
+}
+.facts {
+  margin: 0;
+  border-top: 1px solid var(--ink);
+}
+.fact {
+  display: grid;
+  gap: 6px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ink);
+}
+.fact dt {
+  color: var(--ink-soft);
+}
+.fact dd {
+  margin: 0;
+  font-weight: 500;
+}

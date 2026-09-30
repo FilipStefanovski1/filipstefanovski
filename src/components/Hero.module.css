@@ -1,0 +1,100 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  max-height: 1200px;
+  overflow: hidden;
+}
+
+/* Two quiet lines of text in the top corners */
+.top {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: clamp(28px, 6vh, 64px) var(--gutter) 0;
+  pointer-events: none;
+  animation: fade 900ms var(--ease-out) 150ms both;
+}
+.intro,
+.meta {
+  margin: 0;
+  max-width: 21em;
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.4;
+}
+.meta {
+  text-align: right;
+}
+.meta span {
+  display: block;
+}
+.more {
+  pointer-events: auto;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+.more:hover {
+  color: var(--accent-ink);
+}
+
+/* The name, set edge to edge along the bottom */
+.name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0 calc(var(--gutter) * 0.5) calc(var(--gutter) * 0.4);
+  line-height: 0;
+  animation: rise 1100ms var(--ease-out) both;
+}
+.name svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.name text {
+  fill: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 141.5px;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8%);
+  }
+}
+
+@media (max-width: 640px) {
+  .top {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .meta {
+    text-align: left;
+    color: var(--ink-soft);
+  }
+  /* The lanyard hangs from a rule under the text instead of crossing it */
+  .stage {
+    top: 150px;
+    border-top: 1px solid var(--ink);
+  }
+}
