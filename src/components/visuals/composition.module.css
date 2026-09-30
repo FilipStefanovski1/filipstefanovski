@@ -44,19 +44,16 @@
   width: 24%;
 }
 
-/* ---------- Q4 Internal ---------- */
-.intBoard {
-  top: 3%;
-  left: 6%;
-  width: 68%;
+/* ---------- Aminta ---------- */
+.amSite {
+  top: 2%;
+  right: 3%;
+  width: 74%;
 }
-.intPhone {
-  right: 10%;
-  bottom: -2%;
-  width: 22%;
-}
-.intPhone > * {
-  box-shadow: 0 50px 90px -40px rgb(0 0 0 / 0.9);
+.amForms {
+  left: 2%;
+  bottom: 2%;
+  width: 46%;
 }
 
 /* ---------- SMCC ---------- */
@@ -91,7 +88,7 @@
     transform: none;
   }
   .q4Shot,
-  .intBoard,
+  .amSite,
   .smccPublic,
   .ngShot {
     top: auto;
@@ -109,11 +106,11 @@
   .q4Source {
     display: none;
   }
-  .intPhone {
-    justify-self: end;
-    width: 44%;
-    margin: -22% 4% 0 0;
-    right: auto;
+  .amForms {
+    justify-self: start;
+    width: 80%;
+    margin-top: -10%;
+    left: auto;
     bottom: auto;
   }
   .smccMember {
@@ -135,11 +132,11 @@
   :global(.row-hover):hover .q4Source {
     transform: translate(2%, -3%) rotate(2deg);
   }
-  :global(.row-hover):hover .intBoard {
-    transform: translate(-1.5%, -1.5%);
+  :global(.row-hover):hover .amSite {
+    transform: translate(1.5%, -2%);
   }
-  :global(.row-hover):hover .intPhone {
-    transform: translate(2%, -5%);
+  :global(.row-hover):hover .amForms {
+    transform: translate(-2%, 2%);
   }
   :global(.row-hover):hover .smccPublic {
     transform: translate(1.5%, -1.5%);

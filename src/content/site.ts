@@ -123,7 +123,7 @@ export const projects: Project[] = [
         "Answer views with source citations that lead back to the original document",
         "Financial data and spreadsheet workflows, so research can end up in a model",
         "Model selection and AI integrations inside the product",
-        "Internal tools for the team (see Q4 Internal)",
+        "Internal tools for the team",
       ],
       decisions: [
         {
@@ -170,66 +170,65 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "q4-internal",
-    line: "Internal tool for the Q4 team.",
-    built: ["Features board with owners, deadlines and horizons", "Role-based access and USD / SAR switching", "Responsive layouts and a PWA"],
+    slug: "aminta",
+    line: "An X companion that writes in your voice and levels up as you post.",
+    built: ["Browser extension that works inside X", "Voice profile from your own posts", "XP, streaks and evolving forms"],
     index: "02",
-    title: "Q4 Internal",
-    kind: "Internal operating tool",
+    title: "Aminta",
+    kind: "AI writing companion for X",
     role: "Design and build",
     summary:
-      "An operating tool for the Q4 team. Goals, revenue, clients, meeting recaps and a features board, in one installable app that knows who is looking.",
-    tags: ["Internal tools", "PWA", "Role-based access", "Dashboards"],
+      "A browser extension that lives inside X. It learns how you write, drafts posts and replies in your voice, and grows a companion that evolves the more you post.",
+    url: "https://www.amintaapp.com",
+    tags: ["Product", "Browser extension", "AI", "Gamification"],
     caseStudy: {
-      lede:
-        "A private operating tool I designed and built for the Q4 team. It keeps priorities, commercial work and meetings in one place, so the team spends less time asking where things are.",
+      lede: "Aminta lives inside X. It learns how you write and turns a rough idea into a post, a reply or a thread that sounds like you.",
       problem:
-        "A small team building a product moves fast. Goals, client conversations, meeting outcomes and feature priorities end up scattered across chats and documents. The team needed one shared place that shows what matters this week and what matters this year.",
+        "Most people know what they want to say on X and stall on how to say it. Generic AI writers sound like everyone else, and separate tools pull you out of the timeline.",
       contribution: [
-        "Overview and goals",
-        "Revenue and client views",
-        "Meetings with recaps attached",
-        "A features board with owners, statuses, deadlines and short or long term planning",
-        "Role-based access",
-        "USD and SAR display switching",
-        "Responsive layouts and an installable PWA",
+        "Browser extension that generates inside X",
+        "Voice profile built from your recent posts",
+        "Generate, reply, polish and thread tools",
+        "XP, streaks and a companion with evolving forms",
+        "Included AI credits or your own key (Groq, Gemini, OpenRouter)",
+        "Landing site and pricing",
       ],
       decisions: [
         {
-          title: "Two horizons on one board",
-          body:
-            "Features are tagged short term or long term. The same board answers what ships next and where the product is heading, without a separate roadmap document drifting out of date.",
+          title: "Live in the timeline",
+          body: "No new tab and no scheduler. Aminta sits where you already write and inserts straight into X.",
         },
         {
-          title: "Access follows the role",
-          body:
-            "Role-based access means people see what they need. Sensitive commercial views stay with the people responsible for them.",
+          title: "Your voice, not AI voice",
+          body: "Every draft is shaped by a profile of your own posts, refreshed weekly.",
         },
         {
-          title: "Currency as a display choice",
-          body:
-            "The team works across USD and SAR. Switching is a view setting, so everyone reads numbers in the currency they think in.",
+          title: "A reason to come back",
+          body: "Posting earns XP. The companion evolves through forms, from Dormant to Legendary.",
         },
         {
-          title: "Installable, because meetings happen away from desks",
-          body:
-            "As a PWA the tool lives on a phone home screen, and the layouts are built for small screens first.",
+          title: "Bring your own key",
+          body: "Credits are included, and anyone who prefers their own model can switch any time.",
         },
       ],
       evidence: [
         {
-          kind: "illustration",
-          id: "internal-board",
-          caption: "Illustrative. Features board recreated with synthetic items and owners.",
+          kind: "screenshot",
+          src: "/work/aminta-site.jpg",
+          alt: "The Aminta website hero: Feed Aminta. Grow on X, beside the extension panel drafting a post inside X.",
+          caption: "Public website, amintaapp.com",
+          width: 1728,
+          height: 880,
         },
         {
-          kind: "illustration",
-          id: "internal-overview",
-          caption: "Illustrative. Overview with currency switch, synthetic figures only.",
+          kind: "screenshot",
+          src: "/work/aminta-forms.jpg",
+          alt: "A grid of Aminta companion forms, from Dormant and Curious to Mischievous and Confident, each in its own pixel-art scene.",
+          caption: "The companion's evolving forms, amintaapp.com",
+          width: 1728,
+          height: 752,
         },
       ],
-      note:
-        "Q4 Internal is private software. Every screen on this page is an illustrative recreation with synthetic data. No real revenue, clients or team information is shown.",
     },
   },
   {

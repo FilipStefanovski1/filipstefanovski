@@ -26,8 +26,8 @@ Filip is a **Product Developer**: one person who takes a product from the first 
 
 ## Capabilities and Constraints
 
-- Selected work: Q4 (AI financial research for the Saudi market, https://q4.sa), Q4 Internal (private internal operating tool), SMCC (chamber of commerce website and member portal), Nordgate (brand website, https://thenordgate.com).
-- Supporting: designer at Playground AI (graphics and visual systems), co-founder of Blockchain Skopje, collaborated with Avalanche Team1, involved in SMCC digital operations.
+- Selected work: Q4 (AI financial research for the Saudi market, https://q4.sa), Aminta (AI writing companion for X, browser extension, https://www.amintaapp.com; Filip's role recorded as design and build), SMCC (chamber of commerce website and member portal), Nordgate (brand website, https://thenordgate.com). Q4 Internal (private internal operating tool) exists but is no longer featured.
+- Currently: Playground AI (designer) and Blockchain Skopje (co-founder). Supporting: collaborated with Avalanche Team1, involved in SMCC digital operations.
 - Background: from Macedonia; lived and studied in Belgium; graduated Thomas More University, Digital Experience Design, 180 ECTS; speaks four languages (which ones are unconfirmed); previously played professional basketball.
 - Never invent employers, dates, titles, metrics, testimonials, client logos or outcomes. No formal Q4 title (co-founder, CTO) without evidence; use "product design and development".
 - Q4 Internal is private: only synthetic, clearly labelled illustrative screens. No real revenue, clients, emails, routes or infrastructure.
@@ -42,7 +42,7 @@ Filip is a **Product Developer**: one person who takes a product from the first 
 
 ## Evidence on Hand
 
-- Public website screenshots: `public/work/q4-site.jpg`, `public/work/nordgate-site.jpg`.
+- Public website screenshots: `public/work/q4-site.jpg`, `public/work/nordgate-site.jpg`, `public/work/aminta-site.jpg`, `public/work/aminta-forms.jpg`.
 - No approved product screenshots for Q4, Q4 Internal or SMCC yet; illustrative screens are used and labelled.
 - No Playground AI work samples; do not fabricate any.
 - No testimonials, metrics or client logos exist. Do not fabricate them.

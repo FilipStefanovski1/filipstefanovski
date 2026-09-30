@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { InternalBoard, InternalOverview, Q4Answer, Q4Source, SmccMember, SmccPublic } from "./Illustrations";
+import { Q4Answer, Q4Source, SmccMember, SmccPublic } from "./Illustrations";
 import s from "./composition.module.css";
 
 /** Each project gets its own composition instead of a repeated image-in-a-box. */
@@ -27,14 +27,28 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
           </div>
         </div>
       );
-    case "q4-internal":
+    case "aminta":
       return (
-        <div className={`${s.comp} ${s.internal}`}>
-          <div className={`${s.layer} ${s.intBoard}`}>
-            <InternalBoard />
+        <div className={`${s.comp} ${s.aminta}`}>
+          <div className={`${s.layer} ${s.amSite}`}>
+            <Image
+              src="/work/aminta-site.jpg"
+              alt="The Aminta website hero with the extension drafting a post inside X."
+              width={1728}
+              height={880}
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 72vw, 1080px"
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+            />
           </div>
-          <div className={`${s.layer} ${s.intPhone}`}>
-            <InternalOverview />
+          <div className={`${s.layer} ${s.amForms}`}>
+            <Image
+              src="/work/aminta-forms.jpg"
+              alt="Aminta's evolving companion forms."
+              width={1728}
+              height={752}
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 46vw, 680px"
+            />
           </div>
         </div>
       );
