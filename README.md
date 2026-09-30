@@ -26,7 +26,7 @@ npm run lint
 
 | Name | Required | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | No | Canonical URL used for metadata, sitemap and robots. Defaults to `https://filipstefanovski.vercel.app`. Set it to the real domain in Vercel. |
+| `NEXT_PUBLIC_SITE_URL` | No | Canonical URL used for metadata, sitemap and robots. Set in Vercel production to `https://filipstefanovski.com`; falls back to `https://filipstefanovski.vercel.app`. |
 
 No secrets are used. There is no backend.
 

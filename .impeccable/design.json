@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T00:00:00Z",
+  "title": "Design System: Filip Stefanovski",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Live Neon", "canonical": "#39ff14", "tonalRamp": ["oklch(22% 0.07 142)", "oklch(34% 0.11 142)", "oklch(46% 0.15 142)", "oklch(58% 0.19 142)", "oklch(70% 0.23 142)", "oklch(80% 0.26 142)", "oklch(88% 0.28 142)", "oklch(95% 0.12 142)"] },
+      "stage": { "role": "neutral", "displayName": "Stage Black", "canonical": "#0a0a0a", "tonalRamp": ["oklch(15% 0 0)", "oklch(19% 0 0)", "oklch(26% 0 0)", "oklch(38% 0 0)", "oklch(52% 0 0)", "oklch(66% 0 0)", "oklch(80% 0 0)", "oklch(95% 0 0)"] },
+      "stage-raised": { "role": "neutral", "displayName": "Raised Stage", "canonical": "#151515" },
+      "light": { "role": "neutral", "displayName": "House Light", "canonical": "#f2f2ee", "tonalRamp": ["oklch(15% 0.004 106)", "oklch(26% 0.004 106)", "oklch(38% 0.004 106)", "oklch(52% 0.004 106)", "oklch(66% 0.004 106)", "oklch(80% 0.004 106)", "oklch(90% 0.004 106)", "oklch(96% 0.004 106)"] },
+      "dim": { "role": "neutral", "displayName": "Dimmed House Light", "canonical": "rgb(242 242 238 / 0.62)" },
+      "line-stage": { "role": "neutral", "displayName": "Stage Hairline", "canonical": "rgb(242 242 238 / 0.14)" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#0a0a0a" },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "rgb(10 10 10 / 0.72)" },
+      "line": { "role": "neutral", "displayName": "Ink Hairline", "canonical": "rgb(10 10 10 / 0.18)" },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f2f2ee" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Project names on stage, the close heading, case-study titles, the edge-to-edge hero name." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles (Also, About) and the next-project link." },
+      "title": { "displayName": "Title", "purpose": "Case-study block titles and decision titles." },
+      "lede": { "displayName": "Lede", "purpose": "The one sentence under a product name; About lead; case lede and problem." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs, usually dimmed, max 60ch." },
+      "label": { "displayName": "Label", "purpose": "Roles, fact terms and values, nav, buttons." }
+    },
+    "shadows": [
+      { "name": "screen-edge", "value": "0 0 0 1px rgb(244 244 242 / 0.1)", "purpose": "Hairline separating a product screen from the black stage." },
+      { "name": "screen-drop", "value": "0 50px 90px -40px rgb(0 0 0 / 0.9), 0 18px 36px -24px rgb(0 0 0 / 0.7)", "purpose": "Long fall shadow under product screens on stage." },
+      { "name": "spotlight", "value": "radial-gradient(ellipse 46% 50% at 50% 48%, rgb(244 244 242 / 0.26), rgb(244 244 242 / 0.08) 45%, transparent 72%)", "purpose": "Off-white light behind the product on stage; case pages use a dimmer pass (0.11 / 0.03)." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The one easing for entrances, arrow nudges and the counter." },
+      { "name": "color-hover", "value": "160ms ease", "purpose": "Link and nav colour changes." },
+      { "name": "button-hover", "value": "180ms ease", "purpose": "Button fill swap and 1px press." },
+      { "name": "arrow-nudge", "value": "260ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Trailing arrow moves 3 to 4px toward its direction on hover." },
+      { "name": "light-up", "value": "1200ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Product rises 48px and brightens from 0.3 to 1 as it enters view." },
+      { "name": "hero-entrance", "value": "900ms fade / 1100ms rise, cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Corner text fades, the name rises 8% on load." }
+    ],
+    "breakpoints": [
+      { "name": "header-compact", "value": "560px" },
+      { "name": "phone", "value": "640px" },
+      { "name": "split", "value": "900px" },
+      { "name": "counter", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Neon square button with a trailing arrow; the one action in each product act.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">How it was built <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; padding: 15px 22px; background: var(--accent, #39ff14); color: var(--ink, #0a0a0a); font-family: var(--font-sans, system-ui, sans-serif); font-size: 15px; font-weight: 650; text-decoration: none; border-radius: 0; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary svg { transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: var(--light, #f2f2ee); } .ds-btn-primary:hover svg { transform: translateX(4px); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #39ff14); outline-offset: 4px; border-radius: 2px; }"
+    },
+    {
+      "name": "Close Button",
+      "kind": "button",
+      "refersTo": "button-close",
+      "description": "Ink button on the neon close; the single LinkedIn action.",
+      "html": "<div class=\"ds-neon\"><a class=\"ds-btn-close\" href=\"#\">Message me on LinkedIn <svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4.5 11.5 11.5 4.5M5.5 4.5h6v6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ".ds-neon { background: var(--accent, #39ff14); padding: 40px; } .ds-btn-close { display: inline-flex; align-items: center; gap: 14px; padding: 20px 30px; background: var(--ink, #0a0a0a); color: var(--accent, #39ff14); font-family: var(--font-sans, system-ui, sans-serif); font-size: 20px; font-weight: 700; text-decoration: none; border-radius: 0; transition: background 180ms ease, color 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-close svg { transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-close:hover { background: var(--light, #f2f2ee); color: var(--ink, #0a0a0a); } .ds-btn-close:hover svg { transform: translate(3px, -3px); } .ds-btn-close:active { transform: translateY(1px); } .ds-btn-close:focus-visible { outline: 2px solid var(--ink, #0a0a0a); outline-offset: 4px; border-radius: 2px; }"
+    },
+    {
+      "name": "Live Link",
+      "kind": "custom",
+      "refersTo": "link-live",
+      "description": "Light link with a 1.5px neon underline; turns neon on hover.",
+      "html": "<div class=\"ds-stage\"><a class=\"ds-link-live\" href=\"#\">LinkedIn <svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4.5 11.5 11.5 4.5M5.5 4.5h6v6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ".ds-stage { background: var(--stage, #0a0a0a); padding: 32px; } .ds-link-live { display: inline-flex; align-items: center; gap: 6px; padding: 6px 0; color: var(--light, #f2f2ee); font-family: var(--font-sans, system-ui, sans-serif); font-size: 17px; font-weight: 600; text-decoration: none; border-bottom: 1.5px solid var(--accent, #39ff14); transition: color 160ms ease; } .ds-link-live:hover { color: var(--accent, #39ff14); } .ds-link-live:focus-visible { outline: 2px solid var(--accent, #39ff14); outline-offset: 4px; border-radius: 2px; }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "link-quiet",
+      "description": "Slim header on case and 404 pages: condensed name, dim role, quiet links, one hairline.",
+      "html": "<div class=\"ds-stage\"><header class=\"ds-header\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-brand-name\">FILIP STEFANOVSKI</span><span class=\"ds-brand-role\">Product Developer</span></a><ul class=\"ds-nav\"><li><a href=\"#\">Work</a></li><li><a href=\"#\">About</a></li><li><a class=\"ds-nav-strong\" href=\"#\">LinkedIn</a></li></ul></header></div>",
+      "css": ".ds-stage { background: var(--stage, #0a0a0a); padding: 0 32px; } .ds-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; color: var(--light, #f2f2ee); border-bottom: 1px solid var(--line-stage, rgb(242 242 238 / 0.14)); font-family: var(--font-sans, system-ui, sans-serif); } .ds-brand { display: inline-flex; align-items: baseline; gap: 12px; text-decoration: none; color: inherit; } .ds-brand-name { font-family: var(--font-display, 'Arial Narrow', sans-serif); font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: 26px; line-height: 1; transition: color 160ms ease; } .ds-brand:hover .ds-brand-name { color: var(--accent, #39ff14); } .ds-brand-role { color: var(--dim, rgb(242 242 238 / 0.62)); font-size: 14px; } .ds-nav { display: flex; gap: 32px; margin: 0; padding: 0; list-style: none; } .ds-nav a { display: inline-flex; padding: 10px 0; font-size: 15px; font-weight: 550; text-decoration: none; color: var(--dim, rgb(242 242 238 / 0.62)); transition: color 160ms ease; } .ds-nav a:hover { color: var(--light, #f2f2ee); } .ds-nav .ds-nav-strong { color: var(--light, #f2f2ee); } .ds-nav a:focus-visible { outline: 2px solid var(--accent, #39ff14); outline-offset: 4px; border-radius: 2px; }"
+    },
+    {
+      "name": "Hairline Fact Rows",
+      "kind": "card",
+      "refersTo": "hairline-row",
+      "description": "The stand-in for cards: term and value between 1px stage hairlines.",
+      "html": "<div class=\"ds-stage\"><dl class=\"ds-facts\"><div><dt>Based in</dt><dd>Macedonia / Belgium</dd></div><div><dt>Studied</dt><dd>Digital Experience Design</dd></div><div><dt>Role</dt><dd>Product Developer</dd></div></dl></div>",
+      "css": ".ds-stage { background: var(--stage, #0a0a0a); padding: 32px; } .ds-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0 24px; margin: 0; border-top: 1px solid var(--line-stage, rgb(242 242 238 / 0.14)); font-family: var(--font-sans, system-ui, sans-serif); color: var(--light, #f2f2ee); } .ds-facts > div { padding: 16px 0 20px; border-bottom: 1px solid var(--line-stage, rgb(242 242 238 / 0.14)); } .ds-facts dt { color: var(--dim, rgb(242 242 238 / 0.62)); font-size: 13.5px; margin-bottom: 6px; } .ds-facts dd { margin: 0; font-weight: 600; font-size: 16px; }"
+    },
+    {
+      "name": "Product On Stage",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Signature act: condensed name, one lede sentence, the product screen under an off-white spotlight.",
+      "html": "<div class=\"ds-stage ds-act\"><h3 class=\"ds-act-name\">NORDGATE</h3><p class=\"ds-act-line\">Brand website.</p><div class=\"ds-spot\"><div class=\"ds-screen\"></div></div></div>",
+      "css": ".ds-stage { background: var(--stage, #0a0a0a); } .ds-act { display: grid; justify-items: center; text-align: center; padding: 64px 24px; color: var(--light, #f2f2ee); font-family: var(--font-sans, system-ui, sans-serif); } .ds-act-name { margin: 0; font-family: var(--font-display, 'Arial Narrow', sans-serif); font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: -0.01em; font-size: 96px; line-height: 0.82; } .ds-act-line { max-width: 32ch; margin: 28px 0 0; font-size: 22px; line-height: 1.25; font-weight: 450; text-wrap: balance; } .ds-spot { position: relative; width: 100%; max-width: 560px; margin-top: 48px; } .ds-spot::before { content: ''; position: absolute; inset: -14% -4% -10%; background: radial-gradient(ellipse 46% 50% at 50% 48%, rgb(244 244 242 / 0.26), rgb(244 244 242 / 0.08) 45%, transparent 72%); pointer-events: none; } .ds-screen { position: relative; aspect-ratio: 16 / 10; border-radius: 8px; background: #fbfaf7; box-shadow: 0 0 0 1px rgb(244 244 242 / 0.1), 0 50px 90px -40px rgb(0 0 0 / 0.9), 0 18px 36px -24px rgb(0 0 0 / 0.7); }"
+    },
+    {
+      "name": "Stage Counter",
+      "kind": "custom",
+      "refersTo": "stage-counter",
+      "description": "Gutter rail showing which product is on stage: neon condensed digit over a dim total.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-counter\"><span class=\"ds-counter-digit\">02</span><span class=\"ds-counter-of\">/04</span></div></div>",
+      "css": ".ds-stage { background: var(--stage, #0a0a0a); padding: 32px; } .ds-counter { display: inline-grid; justify-items: center; gap: 4px; font-family: var(--font-sans, system-ui, sans-serif); font-variant-numeric: tabular-nums; } .ds-counter-digit { font-family: var(--font-display, 'Arial Narrow', sans-serif); font-weight: 800; font-stretch: 75%; font-size: 30px; line-height: 0.8; color: var(--accent, #39ff14); } .ds-counter-of { color: var(--dim, rgb(242 242 238 / 0.62)); font-size: 12px; font-weight: 600; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Keynote Stage",
+    "overview": "Every surface is a dark auditorium and each product walks on like a launch: one thing lit, one sentence says what it is, then the house lights stay down while the next one comes up. The ground is near-black everywhere, type is a warm off-white, and a single neon green marks whatever is live right now. Nothing is boxed into cards; products stand on the stage in a soft off-white spotlight with their own screen shadows.\n\nThe density is theatrical rather than dense. Condensed uppercase display type fills the width at enormous sizes, the supporting copy is short and set in the same family at text widths, and the spacing between acts is generous (100 to 240px). Secondary information lives in hairline-ruled rows, never in panels.\n\nThe neon is not decoration. It lights the lanyard and badge, the stage counter, the primary action, the live-link underline, and finally floods the whole closing section, where the colours invert: black type and a black button on green.",
+    "keyCharacteristics": [
+      "Near-black ground, off-white type, one neon green for live things only.",
+      "One variable family, Bricolage Grotesque: condensed 800 uppercase for names and titles, text widths for everything else.",
+      "Soft radial off-white spotlight behind whatever is on stage; no boxes, no cards.",
+      "Square buttons, hairline rules, 8px corners only on product screens.",
+      "Motion is a light coming up: rise, brighten, settle on one long ease-out."
+    ],
+    "rules": [
+      { "name": "The Live Light Rule", "body": "Neon marks what is live or the one action on screen. It never colours body copy, headings on the dark ground, or decoration.", "section": "colors" },
+      { "name": "The Inversion Rule", "body": "On the neon close (data-surface=\"neon\") roles swap: ink for type and buttons, ink focus rings, ink selection with neon text.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Everything on the site is Bricolage Grotesque. Serif and monospace stacks exist only inside illustrative product screens.", "section": "typography" },
+      { "name": "The Marquee Rule", "body": "Condensed type is always 800, width 75, uppercase, and line-height at or below 0.9. Never set it in sentence case or at text sizes.", "section": "typography" },
+      { "name": "The Spotlight Rule", "body": "Only the thing on stage is lit. One spotlight per product, off-white, never green.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every page on the black stage with off-white type; dim secondary text to 62%, never to grey hex values.",
+      "Do reserve neon for live state and the single action, and flood it only at the close.",
+      "Do light products with the off-white radial spotlight and give screens 8px corners with the screen edge and drop shadows.",
+      "Do set names and titles in condensed 800 uppercase at 0.9 line-height or tighter; everything else at text widths.",
+      "Do use hairline rows for supporting information and square buttons with trailing arrows for actions.",
+      "Do bring products in with the light-up motion (rise 48px, brightness 0.3 to 1, 1200ms on cubic-bezier(0.16, 1, 0.3, 1)) and respect reduced motion."
+    ],
+    "donts": [
+      "Don't put glows, text shadows or gradients on type; the only gradients are the spotlight and the badge's physical materials.",
+      "Don't introduce a second accent colour or tint the spotlight green.",
+      "Don't box work into cards or panels.",
+      "Don't add serif, monospace or italic type outside illustrative product screens.",
+      "Don't use pills or rounded buttons outside the badge."
+    ]
+  }
+}
