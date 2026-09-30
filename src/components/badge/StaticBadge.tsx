@@ -11,8 +11,14 @@ export default function StaticBadge() {
       <div className={styles.sSleeve}>
         <span className={styles.sSlot} />
         <div className={styles.sCard}>
-          <div className={styles.sFirst}>{CARD_COPY.first}</div>
-          <div className={styles.sLast}>{CARD_COPY.last}</div>
+          <svg className={styles.sName} viewBox="0 0 1080 1720" aria-hidden>
+            <text x="72" y="526" textLength="936" lengthAdjust="spacingAndGlyphs" fontSize="640">
+              {CARD_COPY.first.toUpperCase()}
+            </text>
+            <text x="72" y="716" textLength="936" lengthAdjust="spacingAndGlyphs" fontSize="224" className={styles.sNameLast}>
+              {CARD_COPY.last.toUpperCase()}
+            </text>
+          </svg>
           <div className={styles.sFoot}>
             <em>From</em>
             <span className={styles.sFrom}>{CARD_COPY.from}</span>

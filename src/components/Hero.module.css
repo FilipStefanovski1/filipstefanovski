@@ -60,9 +60,10 @@
 }
 .name text {
   fill: var(--ink);
-  font-family: var(--font-display);
+  font-family: var(--font-name);
   font-weight: 800;
-  font-size: 141.5px;
+  font-stretch: 75%;
+  font-size: 172.5px;
 }
 
 .stage {

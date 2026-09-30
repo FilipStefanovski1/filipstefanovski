@@ -15,13 +15,14 @@ export const PALETTE = {
 export const ART_W = 1080;
 export const ART_H = 1720;
 
-type Fonts = { display: string; serif: string; sans: string; mono: string };
+type Fonts = { display: string; name: string; serif: string; sans: string; mono: string };
 
 function readFonts(): Fonts {
   const cs = getComputedStyle(document.documentElement);
   const v = (name: string, fallback: string) => cs.getPropertyValue(name).trim() || fallback;
   return {
     display: v("--font-display", "Impact, sans-serif"),
+    name: v("--font-name", "Impact, sans-serif"),
     serif: v("--font-serif", "Georgia, serif"),
     sans: v("--font-sans", "Helvetica, Arial, sans-serif"),
     mono: v("--font-mono", "ui-monospace, monospace"),
@@ -33,6 +34,7 @@ export async function loadArtworkFonts(): Promise<Fonts> {
   if (typeof document !== "undefined" && document.fonts) {
     await Promise.allSettled([
       document.fonts.load(`800 120px ${f.display}`),
+      document.fonts.load(`800 120px ${f.name}`),
       document.fonts.load(`400 120px ${f.serif}`),
       document.fonts.load(`italic 400 120px ${f.serif}`),
       document.fonts.load(`500 40px ${f.sans}`),
@@ -135,13 +137,19 @@ export function drawFront(f: Fonts) {
   ctx.fillStyle = "#FBFAF6";
   ctx.fillRect(0, 0, ART_W, ART_H);
 
-  // Name: two lines that just touch, the surname in the accent.
+  // Name: FILIP fills the width, STEFANOVSKI sits under it in the accent.
+  const cx = ctx as CanvasRenderingContext2D & { fontStretch?: string };
+  cx.fontStretch = "condensed";
   ctx.fillStyle = P.ink;
-  ctx.font = `800 290px ${f.display}`;
-  ctx.fillText(CARD_COPY.first.toUpperCase(), M - 6, 400);
+  ctx.font = `800 640px ${f.name}`;
+  const firstTop = 104;
+  const firstAsc = ctx.measureText("FILIP").actualBoundingBoxAscent;
+  fitText(ctx, CARD_COPY.first.toUpperCase(), M, firstTop + firstAsc, W);
   ctx.fillStyle = P.accent;
-  ctx.font = `800 210px ${f.display}`;
-  fitText(ctx, CARD_COPY.last.toUpperCase(), M - 4, 562, W + 4);
+  ctx.font = `800 224px ${f.name}`;
+  const lastAsc = ctx.measureText("STEFANOVSKI").actualBoundingBoxAscent;
+  fitText(ctx, CARD_COPY.last.toUpperCase(), M, firstTop + firstAsc + 40 + lastAsc, W);
+  cx.fontStretch = "normal";
 
   // Footer
   let y = ART_H - 400;

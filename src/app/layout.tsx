@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders, IBM_Plex_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
+import { Big_Shoulders, Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -10,6 +10,15 @@ const display = Big_Shoulders({
   display: "swap",
   fallback: ["Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
   adjustFontFallback: false,
+});
+
+/** Signature face for the name: condensed, heavy, with ink traps. */
+const nameFont = Bricolage_Grotesque({
+  variable: "--font-name",
+  subsets: ["latin", "latin-ext"],
+  weight: "variable",
+  axes: ["wdth", "opsz"],
+  display: "swap",
 });
 
 const serif = Instrument_Serif({
@@ -67,7 +76,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${serif.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${nameFont.variable} ${serif.variable} ${sans.variable} ${mono.variable}`}>
       <body>
         <a className="skip" href="#main">
           Skip to content
