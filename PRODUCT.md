@@ -29,7 +29,7 @@ Filip is a **Product Developer**: one person who takes a product from the first 
 - Selected work: Q4 (AI financial research for the Saudi market, https://q4.sa), Aminta (AI writing companion for X, browser extension, https://www.amintaapp.com; Filip is the founder, confirmed by Filip), SMCC (chamber of commerce website and member portal), Nordgate (brand website, https://thenordgate.com). Q4 Internal (private internal operating tool) exists but is no longer featured.
 - Currently: Playground AI (designer) and Blockchain Skopje (co-founder). Supporting: collaborated with Avalanche Team1, involved in SMCC digital operations.
 - Background: from Macedonia; lived and studied in Belgium; graduated Thomas More University, Digital Experience Design, 180 ECTS; speaks four languages (which ones are unconfirmed); previously played professional basketball.
-- Never invent employers, dates, titles, metrics, testimonials, client logos or outcomes. No formal Q4 title (co-founder, CTO) without evidence; use "product design and development".
+- Never invent employers, dates, titles, metrics, testimonials, client logos or outcomes. Filip is a co-founder of Q4 (confirmed by Filip). No other formal titles (such as CTO) without confirmation.
 - Q4 Internal is private: only synthetic, clearly labelled illustrative screens. No real revenue, clients, emails, routes or infrastructure.
 - Do not publish compensation, private conversations, security details, health info, birth date or address.
 - Copy is short and human, with no em dashes and no corporate filler.

@@ -108,7 +108,7 @@ export const projects: Project[] = [
     index: "01",
     title: "Q4",
     kind: "AI financial research",
-    role: "Product design and development",
+    role: "Co-founder",
     summary:
       "An AI research workspace for Saudi companies. Filings, financial documents and earnings calls in one place, with answers you can trace back to the page they came from.",
     url: "https://q4.sa",
