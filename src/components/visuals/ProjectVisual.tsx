@@ -32,10 +32,10 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
         <div className={`${s.comp} ${s.aminta}`}>
           <div className={`${s.layer} ${s.amSite}`}>
             <Image
-              src="/work/aminta-site.jpg"
-              alt="The Aminta website hero with the extension drafting a post inside X."
-              width={1728}
-              height={880}
+              src="/work/aminta-hero.jpg"
+              alt="Aminta drafting a post inside X, with the extension panel open."
+              width={2000}
+              height={1194}
               sizes="(max-width: 640px) 100vw, (max-width: 1480px) 72vw, 1080px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : "auto"}
@@ -43,10 +43,10 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
           </div>
           <div className={`${s.layer} ${s.amForms}`}>
             <Image
-              src="/work/aminta-forms.jpg"
-              alt="Aminta's evolving companion forms."
-              width={1728}
-              height={752}
+              src="/work/aminta-extension.jpg"
+              alt="The Aminta extension panel: the companion, today's tasks and Create with Aminta."
+              width={1280}
+              height={800}
               sizes="(max-width: 640px) 100vw, (max-width: 1480px) 46vw, 680px"
             />
           </div>

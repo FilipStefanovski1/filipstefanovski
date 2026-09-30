@@ -42,7 +42,7 @@ Filip is a **Product Developer**: one person who takes a product from the first 
 
 ## Evidence on Hand
 
-- Public website screenshots: `public/work/q4-site.jpg`, `public/work/nordgate-site.jpg`, `public/work/aminta-site.jpg`, `public/work/aminta-forms.jpg`.
+- Public website screenshots: `public/work/q4-site.jpg`, `public/work/nordgate-site.jpg`, Aminta: `public/work/aminta-{hero,inside,features,forms}.jpg` (site captures) and `aminta-{extension,xp}.jpg` (official Chrome Web Store screenshots).
 - No approved product screenshots for Q4, Q4 Internal or SMCC yet; illustrative screens are used and labelled.
 - No Playground AI work samples; do not fabricate any.
 - No testimonials, metrics or client logos exist. Do not fabricate them.

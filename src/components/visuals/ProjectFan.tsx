@@ -14,8 +14,9 @@ const fans: Record<string, ReactNode[]> = {
     <Q4Sheet key="c" />,
   ],
   aminta: [
-    <Shot key="a" src="/work/aminta-site.jpg" alt="Aminta website" w={1728} h={880} />,
-    <Shot key="b" src="/work/aminta-forms.jpg" alt="Aminta companion forms" w={1728} h={752} />,
+    <Shot key="a" src="/work/aminta-forms.jpg" alt="Aminta companion forms" w={2000} h={1431} />,
+    <Shot key="b" src="/work/aminta-hero.jpg" alt="Aminta drafting a post inside X" w={2000} h={1194} />,
+    <Shot key="c" src="/work/aminta-extension.jpg" alt="Aminta extension panel" w={1280} h={800} />,
   ],
   smcc: [<SmccPublic key="a" />, <SmccMember key="b" />],
   nordgate: [<Shot key="a" src="/work/nordgate-site.jpg" alt="Nordgate website" w={1728} h={792} />],
