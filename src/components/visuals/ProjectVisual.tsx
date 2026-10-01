@@ -88,56 +88,6 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
           </div>
         </div>
       );
-    case "smcc":
-      return (
-        <div className={`${s.comp} ${s.smcc}`}>
-          <div className={`${s.layer} ${s.smccPublic}`}>
-            <Image
-              src="/work/smcc-hero.jpg"
-              alt="The SMCC homepage."
-              width={1800}
-              height={1125}
-              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 64vw, 950px"
-              loading={priority ? "eager" : "lazy"}
-              fetchPriority={priority ? "high" : "auto"}
-            />
-          </div>
-          <div className={`${s.layer} ${s.smccMember}`}>
-            <Image
-              src="/work/smcc-login.jpg"
-              alt="The SMCC member sign in."
-              width={1800}
-              height={1125}
-              sizes="(max-width: 640px) 100vw, 40vw"
-            />
-          </div>
-        </div>
-      );
-    case "nordgate":
-      return (
-        <div className={`${s.comp} ${s.nordgate}`}>
-          <div className={`${s.layer} ${s.ngShot}`}>
-            <Image
-              src="/work/nordgate-site.jpg"
-              alt="The Nordgate homepage."
-              width={1728}
-              height={792}
-              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 64vw, 950px"
-              loading={priority ? "eager" : "lazy"}
-              fetchPriority={priority ? "high" : "auto"}
-            />
-          </div>
-          <div className={`${s.layer} ${s.ngSecond}`}>
-            <Image
-              src="/work/ng-what.jpg"
-              alt="Nordgate services."
-              width={1800}
-              height={1125}
-              sizes="(max-width: 640px) 100vw, 40vw"
-            />
-          </div>
-        </div>
-      );
     default:
       return null;
   }

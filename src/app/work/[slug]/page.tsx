@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   };
 }
 
-const narrowIds = new Set(["internal-overview", "smcc-member"]);
+const narrowIds = new Set(["internal-overview"]);
 
 export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
   const { slug } = await params;

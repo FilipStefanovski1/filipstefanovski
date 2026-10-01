@@ -12,8 +12,6 @@ const covers: Record<string, { src: string; w: number; h: number; alt: string }>
   q4: { src: "/work/q4-laptop.jpg", w: 2000, h: 1422, alt: "Q4 on a laptop" },
   aminta: { src: "/work/aminta-hero.jpg", w: 2000, h: 1194, alt: "Aminta drafting a post inside X" },
   "blockchain-skopje": { src: "/work/bks-site.jpg", w: 1600, h: 1000, alt: "Blockchain Skopje website" },
-  smcc: { src: "/work/smcc-hero.jpg", w: 1800, h: 1125, alt: "SMCC homepage" },
-  nordgate: { src: "/work/nordgate-site.jpg", w: 1728, h: 792, alt: "Nordgate homepage" },
 };
 
 export default function WorkIndex({ projects }: { projects: Project[] }) {
