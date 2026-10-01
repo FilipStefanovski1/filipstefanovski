@@ -564,8 +564,12 @@ export const projects: Project[] = [
 
 /** Projects that didn't make it. Shown crossed out, on purpose. */
 export const graveyard = {
-  projects: [{ name: "profesija.mk", what: "Job platform", year: "2020" }],
-  rest: "+ 19ish more",
+  projects: [
+    { name: "Micori", what: "Safety status app", year: "2026" },
+    { name: "MKDiaspora", what: "Diaspora network", year: "2026" },
+    { name: "profesija.mk", what: "Job platform", year: "2020" },
+  ],
+  rest: "+ 17ish more",
 };
 
 export const supporting: SupportingWork[] = [
