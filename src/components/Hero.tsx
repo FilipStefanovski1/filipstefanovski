@@ -63,24 +63,25 @@ export default function Hero() {
           preserveAspectRatio="xMidYMax meet"
           aria-hidden
         >
-          <text x="0" y="115" textLength="1000" lengthAdjust="spacing">
+          <text x="-3.45" y="115" textLength="1006.9" lengthAdjust="spacing">
             {site.name.toUpperCase()}
           </text>
         </svg>
+        {/* x and textLength offset each line's side bearings so the ink, not the advance box, spans edge to edge */}
         <svg className={styles.nameStacked} viewBox="0 0 1000 646" aria-hidden>
           <text
-            x="0"
+            x="-13.7"
             y="451"
-            textLength="1000"
+            textLength="1018.5"
             lengthAdjust="spacing"
             fontSize="683"
           >
             FILIP
           </text>
           <text
-            x="0"
+            x="-2.4"
             y="645"
-            textLength="1000"
+            textLength="1007.2"
             lengthAdjust="spacing"
             fontSize="239"
           >
