@@ -131,53 +131,24 @@
   inset: 0;
   width: 100%;
   height: 100%;
-}
-.sName text {
   fill: var(--ink);
+}
+.sCond {
   font-family: var(--font-name);
   font-weight: 800;
   font-stretch: 75%;
 }
-.sName .sNameLast {
-  fill: var(--ink);
+.sSmall {
+  font-family: var(--font-name);
+  font-weight: 650;
 }
-.sFoot {
-  position: absolute;
-  left: 6.67cqw;
-  right: 6.67cqw;
-  top: 119cqw;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.sFoot em {
-  font-style: normal;
+.sSoft {
+  font-family: var(--font-name);
   font-weight: 600;
-  font-size: 3.5cqw;
-  color: #17520a;
+  fill: #17520a;
 }
-.sFrom {
-  margin: 1.6cqw 0 7cqw;
-  font-size: 4.3cqw;
-  font-weight: 500;
-}
-.sPills {
-  display: flex;
-  flex-wrap: wrap;
-  flex-wrap: nowrap;
-  gap: 1.1cqw;
-  margin-top: 2.4cqw;
-}
-.sPills i {
-  padding: 1.9cqw 2.2cqw;
-  border-radius: 99px;
-  font: 600 3.15cqw/1 var(--font-sans);
-  font-style: normal;
-}
-.sPills i[data-style="ink"] {
-  background: var(--ink);
-  color: var(--accent);
-}
-.sPills i[data-style="outline"] {
-  box-shadow: inset 0 0 0 0.28cqw var(--ink);
+.sPillText {
+  font-family: var(--font-name);
+  font-weight: 600;
+  fill: var(--accent);
 }

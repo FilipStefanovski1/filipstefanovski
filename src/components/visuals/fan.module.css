@@ -9,9 +9,11 @@
   --rot: 0deg;
   --x: 0%;
   --y: 0%;
+  --rest-x: 44%;
   position: absolute;
-  left: var(--x);
-  top: var(--y);
+  /* At rest every card sits in one closed stack on the right */
+  left: var(--rest-x);
+  top: 10%;
   width: 46%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -20,11 +22,16 @@
   box-shadow:
     0 0 0 1px rgb(242 242 238 / 0.12),
     0 30px 60px -24px rgb(0 0 0 / 0.9);
-  opacity: 0;
-  transform: translateY(28px) rotate(0deg) scale(0.94);
+  /* At rest: a closed, dimmed stack near the right, so the row hints at what it holds */
+  opacity: 0.42;
+  filter: grayscale(0.6) brightness(0.7);
+  transform: rotate(calc(var(--rot) * 0.4)) scale(0.86);
   transform-origin: 50% 100%;
   transition:
     opacity 380ms var(--ease-out),
+    filter 380ms var(--ease-out),
+    left 620ms var(--ease-out),
+    top 620ms var(--ease-out),
     transform 620ms var(--ease-out);
   transition-delay: calc(var(--i) * 55ms);
 }
@@ -72,7 +79,11 @@
   z-index: 2;
 }
 /* One card */
+.fan[data-count="2"] .card {
+  --rest-x: 40%;
+}
 .fan[data-count="1"] .card {
+  --rest-x: 24%;
   --x: 14%;
   --y: 2%;
   --rot: -3deg;
@@ -82,14 +93,20 @@
 /* Deal out */
 :global(.fan-row):hover .card,
 :global(.fan-row):focus-within .card {
+  left: var(--x);
+  top: var(--y);
   opacity: 1;
-  transform: translateY(0) rotate(var(--rot)) scale(1);
+  filter: none;
+  transform: rotate(var(--rot)) scale(1);
 }
 
 /* Touch screens have no hover: the fan is always dealt. */
 @media (hover: none) {
   .card {
+    left: var(--x);
+    top: var(--y);
     opacity: 1;
+    filter: none;
     transform: rotate(var(--rot));
     transition: none;
   }
@@ -98,6 +115,5 @@
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: opacity 200ms linear;
-    transform: rotate(var(--rot));
   }
 }

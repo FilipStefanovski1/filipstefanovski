@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, extend, useFrame, useThree, type ThreeElement, type ThreeEvent } from "@react-three/fiber";
-import { Environment, Lightformer } from "@react-three/drei";
+import { Environment, Lightformer, RoundedBox } from "@react-three/drei";
 import {
   BallCollider,
   CuboidCollider,
@@ -28,12 +28,12 @@ declare module "@react-three/fiber" {
 }
 
 /* ---------- Tuning ---------- */
-const GRAVITY: [number, number, number] = [0, -38, 0];
-const SPRING_K = 520; // drag spring stiffness (per unit mass)
-const SPRING_C = 34; // drag spring damping
-const MAX_ACCEL = 900;
-const MAX_LINVEL = 22;
-const MAX_ANGVEL = 13;
+const GRAVITY: [number, number, number] = [0, -24, 0]; // lighter pull: slower, heavier-feeling swings
+const SPRING_K = 240; // drag spring stiffness (per unit mass)
+const SPRING_C = 26; // drag spring damping
+const MAX_ACCEL = 420;
+const MAX_LINVEL = 12;
+const MAX_ANGVEL = 7;
 const YAW_RETURN = 3.2; // how strongly the face turns back to the viewer
 
 export type BadgeSceneProps = {
@@ -362,8 +362,8 @@ function Badge({
         position={[0, JOINT_REST_Y - DIM.jointY, 0]}
         ref={card}
         {...segProps}
-        angularDamping={1.6}
-        linearDamping={1.1}
+        angularDamping={2.4}
+        linearDamping={1.6}
         type="dynamic"
       >
         <CuboidCollider args={[DIM.sleeveW / 2, DIM.sleeveH / 2, DIM.sleeveT / 2]} mass={0.3} collisionGroups={0} />
@@ -380,10 +380,10 @@ function Badge({
               <mesh geometry={body} castShadow>
                 <meshStandardMaterial color="#2bd10c" roughness={0.6} />
               </mesh>
-              <mesh geometry={face} position={[0, 0, DIM.cardT / 2 + 0.0008]}>
-                <meshPhysicalMaterial map={textures.front} roughness={0.55} specularIntensity={0.12} envMapIntensity={0} />
+              <mesh geometry={face} position={[0, 0, DIM.cardT / 2 + 0.0042]}>
+                <meshPhysicalMaterial map={textures.front} roughness={0.42} specularIntensity={0.18} clearcoat={0.5} clearcoatRoughness={0.22} envMapIntensity={0.08} />
               </mesh>
-              <mesh geometry={face} position={[0, 0, -DIM.cardT / 2 - 0.0008]} rotation={[0, Math.PI, 0]}>
+              <mesh geometry={face} position={[0, 0, -DIM.cardT / 2 - 0.0042]} rotation={[0, Math.PI, 0]}>
                 <meshPhysicalMaterial map={textures.back} roughness={0.55} specularIntensity={0.12} envMapIntensity={0} />
               </mesh>
             </group>
@@ -415,19 +415,26 @@ function Badge({
               <planeGeometry args={[DIM.sleeveW - 0.1, 0.012]} />
               <meshBasicMaterial color="#ffffff" transparent opacity={0.55} depthWrite={false} />
             </mesh>
-            {/* Clip: split ring through the slot, swivel and crimp */}
+            {/* Clip: split ring through the slot, swivel, clamp the straps fold into, and a top loop */}
             <group position={[0, DIM.slotY, 0]}>
               <mesh position={[0, 0.07, 0]} rotation={[0, Math.PI / 2, 0]} castShadow>
-                <torusGeometry args={[0.1, 0.014, 12, 36]} />
-                <meshStandardMaterial color="#c9ccd1" metalness={1} roughness={0.22} />
+                <torusGeometry args={[0.1, 0.013, 14, 40]} />
+                <meshStandardMaterial color="#cfd2d7" metalness={1} roughness={0.18} />
               </mesh>
-              <mesh position={[0, 0.2, 0]} castShadow>
-                <cylinderGeometry args={[0.022, 0.022, 0.08, 16]} />
-                <meshStandardMaterial color="#b9bcc2" metalness={1} roughness={0.25} />
+              <mesh position={[0, 0.19, 0]} castShadow>
+                <cylinderGeometry args={[0.018, 0.024, 0.07, 18]} />
+                <meshStandardMaterial color="#b9bcc2" metalness={1} roughness={0.22} />
               </mesh>
-              <mesh position={[0, 0.3, 0]} castShadow>
-                <boxGeometry args={[0.13, 0.13, 0.05]} />
-                <meshStandardMaterial color="#e3e5e8" metalness={0.85} roughness={0.28} />
+              <RoundedBox args={[0.17, 0.12, 0.05]} radius={0.022} smoothness={4} position={[0, 0.285, 0]} castShadow>
+                <meshStandardMaterial color="#dfe2e6" metalness={1} roughness={0.2} />
+              </RoundedBox>
+              <mesh position={[0, 0.285, 0.026]}>
+                <boxGeometry args={[0.11, 0.012, 0.004]} />
+                <meshStandardMaterial color="#8d9198" metalness={1} roughness={0.35} />
+              </mesh>
+              <mesh position={[0, 0.36, 0]} rotation={[0, 0, 0]} castShadow>
+                <torusGeometry args={[0.035, 0.009, 10, 28]} />
+                <meshStandardMaterial color="#cfd2d7" metalness={1} roughness={0.2} />
               </mesh>
             </group>
           </group>

@@ -82,13 +82,6 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
               </div>
             </LightUp>
 
-            <section className={`wrap ${styles.block}`} aria-labelledby="problem">
-              <h2 id="problem" className={styles.blockTitle}>
-                The problem
-              </h2>
-              <p className={styles.problem}>{cs.problem}</p>
-            </section>
-
             <section className={`wrap ${styles.block}`} aria-labelledby="contribution">
               <h2 id="contribution" className={styles.blockTitle}>
                 What I built
@@ -96,20 +89,6 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
               <ul className={styles.contrib}>
                 {cs.contribution.map((c) => (
                   <li key={c}>{c}</li>
-                ))}
-              </ul>
-            </section>
-
-            <section className={`wrap ${styles.block}`} aria-labelledby="decisions">
-              <h2 id="decisions" className={styles.blockTitle}>
-                Decisions
-              </h2>
-              <ul className={styles.decisions}>
-                {cs.decisions.map((d) => (
-                  <li key={d.title}>
-                    <h3 className="condensed">{d.title}</h3>
-                    <p>{d.body}</p>
-                  </li>
                 ))}
               </ul>
             </section>

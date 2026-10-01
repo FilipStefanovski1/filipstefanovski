@@ -1,12 +1,34 @@
 /* A three-eyed blob peeking in from the right edge of the hero. */
 .peeker {
+  --tuck: 16%;
   position: absolute;
   right: 0;
   top: 38%;
   z-index: 4;
   width: clamp(92px, 10vw, 156px);
   pointer-events: none;
-  animation: peekIn 1100ms var(--ease-out) 1200ms both;
+  transform: translateX(110%);
+  transition: transform 900ms var(--ease-out);
+}
+.peeker[data-state="in"] {
+  transform: translateX(var(--tuck));
+}
+/* Left side: mirrored, sliding in from the left edge */
+.peeker[data-side="left"] {
+  right: auto;
+  left: 0;
+  transform: translateX(-110%);
+}
+.peeker[data-side="left"][data-state="in"] {
+  transform: translateX(calc(var(--tuck) * -1));
+}
+.peeker[data-side="left"] .svg {
+  transform: scaleX(-1);
+}
+/* Ducking out is quicker than peeking in */
+.peeker[data-state="out"] {
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.8, 0.2);
 }
 .svg {
   display: block;
@@ -67,14 +89,6 @@
   animation: blink 5.2s ease-in-out var(--d, 0ms) infinite;
 }
 
-@keyframes peekIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(16%);
-  }
-}
 @keyframes bob {
   from {
     transform: translateY(-3px);
@@ -96,15 +110,17 @@
 
 @media (max-width: 640px) {
   .peeker {
-    top: 46%;
-    width: 84px;
+    top: 33%;
+    width: 72px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .peeker,
   .bob,
   .lid {
     animation: none;
+  }
+  .peeker {
+    transition: none;
   }
 }

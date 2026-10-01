@@ -36,6 +36,29 @@ export default function Peeker() {
     let raf = 0;
     let active = true;
 
+    // Peek from the right, duck out, come back mirrored from the left, repeat.
+    const timers: number[] = [];
+    const later = (fn: () => void, ms: number) => timers.push(window.setTimeout(fn, ms));
+    const SHOW = 7600;
+    const SWAP = 900;
+    const cycle = () => {
+      el.dataset.state = "in";
+      later(() => {
+        el.dataset.state = "out";
+        later(() => {
+          el.dataset.side = el.dataset.side === "left" ? "right" : "left";
+          cycle();
+        }, SWAP);
+      }, SHOW);
+    };
+    el.dataset.side = "right";
+    if (reduce) {
+      el.dataset.state = "in";
+    } else {
+      el.dataset.state = "out";
+      later(cycle, 1200);
+    }
+
     const onMove = (e: PointerEvent) => {
       target = { x: e.clientX, y: e.clientY };
     };
@@ -45,14 +68,16 @@ export default function Peeker() {
       if (!active) return;
       const box = s.getBoundingClientRect();
       const scale = box.width / 160; // viewBox width
+      const mirrored = el.dataset.side === "left";
       EYES.forEach((eye, i) => {
-        const ex = box.left + eye.cx * scale;
+        const ex = mirrored ? box.right - eye.cx * scale : box.left + eye.cx * scale;
         const ey = box.top + (eye.cy - VB_Y) * scale;
         const dx = target.x - ex;
         const dy = target.y - ey;
         const d = Math.hypot(dx, dy) || 1;
         const reach = Math.min(1, d / 260) * eye.travel;
-        const tx = (dx / d) * reach;
+        // Mirrored with CSS, so screen-x runs the other way inside the SVG
+        const tx = (dx / d) * reach * (mirrored ? -1 : 1);
         const ty = (dy / d) * reach;
         const c = current[i];
         const k = reduce ? 1 : 0.18;
@@ -79,6 +104,7 @@ export default function Peeker() {
     raf = requestAnimationFrame(tick);
     return () => {
       io.disconnect();
+      timers.forEach((t) => window.clearTimeout(t));
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerdown", onMove);
       if (raf) cancelAnimationFrame(raf);

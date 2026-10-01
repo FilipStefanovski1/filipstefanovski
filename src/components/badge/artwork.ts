@@ -101,65 +101,138 @@ function pill(
 export const CARD_COPY = {
   first: "Filip",
   last: "Stefanovski",
-  from: "Macedonia, studied in Belgium",
+  role: "Product Developer",
+  from: "Macedonia",
+  id: "FS 0001",
   currently: [
-    { label: "Aminta", style: "ink" as const },
+    { label: "Q4", style: "ink" as const },
     { label: "Playground AI", style: "ink" as const },
     { label: "Blockchain Skopje", style: "ink" as const },
   ],
 };
+
+/** Deterministic barcode from a string. */
+function barcode(ctx: CanvasRenderingContext2D, seed: string, x: number, y: number, w: number, h: number) {
+  let n = 0;
+  for (const ch of seed) n = (n * 31 + ch.charCodeAt(0)) >>> 0;
+  const rnd = () => {
+    n ^= n << 13;
+    n ^= n >>> 17;
+    n ^= n << 5;
+    return ((n >>> 0) % 1000) / 1000;
+  };
+  let cx = x;
+  while (cx < x + w) {
+    const bw = 4 + Math.floor(rnd() * 4) * 3;
+    if (cx + bw > x + w) break;
+    ctx.fillRect(cx, y, bw, h);
+    cx += bw + 4 + Math.floor(rnd() * 3) * 4;
+  }
+}
+
+/** Holographic security sticker: an iridescent foil patch with a fine guilloche. */
+function hologram(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.roundRect(x, y, w, h, 14);
+  ctx.clip();
+  const g = ctx.createLinearGradient(x, y, x + w, y + h);
+  g.addColorStop(0, "#d9c2ff");
+  g.addColorStop(0.25, "#9ff3ff");
+  g.addColorStop(0.5, "#fdf7a8");
+  g.addColorStop(0.75, "#ffc2e6");
+  g.addColorStop(1, "#b6c8ff");
+  ctx.fillStyle = g;
+  ctx.fillRect(x, y, w, h);
+  ctx.strokeStyle = "rgba(255,255,255,0.55)";
+  ctx.lineWidth = 1.5;
+  for (let i = -h; i < w; i += 9) {
+    ctx.beginPath();
+    ctx.moveTo(x + i, y + h);
+    ctx.lineTo(x + i + h, y);
+    ctx.stroke();
+  }
+  ctx.strokeStyle = "rgba(10,10,10,0.18)";
+  for (let r = 10; r < w; r += 12) {
+    ctx.beginPath();
+    ctx.arc(x + w * 0.5, y + h * 0.5, r, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
 
 export function drawFront(f: Fonts) {
   const { c, ctx } = makeCanvas(ART_W, ART_H);
   const P = PALETTE;
   const M = 72;
   const W = ART_W - M * 2;
+  const cx = ctx as Ctx;
 
   // The card is the neon; everything printed on it is black.
   ctx.fillStyle = P.accent;
   ctx.fillRect(0, 0, ART_W, ART_H);
 
-  // Name: FILIP fills the width, STEFANOVSKI sits under it in the accent.
-  const cx = ctx as Ctx;
-  cx.fontStretch = "condensed";
+  // Header: role on the left, holographic sticker on the right
   ctx.fillStyle = P.ink;
+  ctx.font = `700 40px ${f.name}`;
+  ctx.textBaseline = "middle";
+  ctx.fillText(CARD_COPY.role.toUpperCase(), M, 118);
+  ctx.textBaseline = "alphabetic";
+  hologram(ctx, ART_W - M - 150, 70, 150, 96);
+  ctx.fillRect(M, 200, W, 4);
+
+  // Name: FILIP fills the width, STEFANOVSKI sits under it.
+  cx.fontStretch = "condensed";
   ctx.font = `800 640px ${f.name}`;
-  const firstTop = 104;
+  const firstTop = 250;
   const firstAsc = ctx.measureText("FILIP").actualBoundingBoxAscent;
   fitText(ctx, CARD_COPY.first.toUpperCase(), M, firstTop + firstAsc, W);
-  ctx.fillStyle = P.ink;
   ctx.font = `800 224px ${f.name}`;
   const lastAsc = ctx.measureText("STEFANOVSKI").actualBoundingBoxAscent;
-  fitText(ctx, CARD_COPY.last.toUpperCase(), M, firstTop + firstAsc + 40 + lastAsc, W);
+  const lastBase = firstTop + firstAsc + 36 + lastAsc;
+  fitText(ctx, CARD_COPY.last.toUpperCase(), M, lastBase, W);
   cx.fontStretch = "normal";
 
-  // Footer
-  let y = ART_H - 400;
-  ctx.fillStyle = P.ink;
-  ctx.font = `600 38px ${f.name}`;
+  // Fields
+  let y = lastBase + 110;
+  ctx.fillRect(M, y - 60, W, 2);
+  ctx.font = `600 34px ${f.name}`;
   ctx.fillStyle = P.inkSoft;
   ctx.fillText("From", M, y);
   ctx.fillStyle = P.ink;
-  ctx.font = `500 46px ${f.name}`;
+  ctx.font = `600 52px ${f.name}`;
   ctx.fillText(CARD_COPY.from, M, y + 66);
 
-  y += 170;
-  ctx.fillStyle = P.ink;
-  ctx.font = `600 38px ${f.name}`;
+  y += 160;
+  ctx.font = `600 34px ${f.name}`;
   ctx.fillStyle = P.inkSoft;
   ctx.fillText("Currently", M, y);
   let x = M;
-  let py = y + 34;
-  const font = `600 31px ${f.name}`;
+  let py = y + 30;
+  const font = `600 34px ${f.name}`;
   for (const p of CARD_COPY.currently) {
     ctx.font = font;
     const w = ctx.measureText(p.label).width + 44;
     if (x + w > M + W) {
       x = M;
-      py += 88;
+      py += 84;
     }
-    x += pill(ctx, p.label, x, py, p.style, font) + 10;
+    x += pill(ctx, p.label, x, py, p.style, font) + 12;
   }
+
+  // Barcode and ID number along the bottom
+  ctx.fillStyle = P.ink;
+  ctx.fillRect(M, ART_H - 290, W, 2);
+  barcode(ctx, "filip-stefanovski", M, ART_H - 250, 520, 150);
+  ctx.textAlign = "right";
+  ctx.font = `800 ${Math.round(64)}px ${f.name}`;
+  cx.fontStretch = "condensed";
+  ctx.fillText(CARD_COPY.id, ART_W - M, ART_H - 170);
+  cx.fontStretch = "normal";
+  ctx.font = `600 30px ${f.name}`;
+  ctx.fillStyle = P.inkSoft;
+  ctx.fillText("Valid while building", ART_W - M, ART_H - 118);
+  ctx.textAlign = "left";
 
   grain(ctx, ART_W, ART_H, 0.03);
   return c;

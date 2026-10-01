@@ -46,7 +46,14 @@ export function makeCardGeometries() {
   const { cardW: w, cardH: h, cardT: t } = DIM;
   const r = 0.07;
   const shape = roundedRect(new THREE.Shape(), w, h, r);
-  const body = new THREE.ExtrudeGeometry(shape, { depth: t, bevelEnabled: false, curveSegments: 8 });
+  const body = new THREE.ExtrudeGeometry(shape, {
+    depth: t,
+    bevelEnabled: true,
+    bevelThickness: 0.003,
+    bevelSize: 0.003,
+    bevelSegments: 2,
+    curveSegments: 10,
+  });
   body.translate(0, 0, -t / 2);
   const face = new THREE.ShapeGeometry(shape, 8);
   normalizeUV(face, w, h);
