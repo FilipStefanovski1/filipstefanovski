@@ -16,6 +16,8 @@ export type Evidence =
       caption: string;
       width: number;
       height: number;
+      /** Portrait captures (phones) render at phone width. */
+      narrow?: boolean;
     }
   | {
       kind: "illustration";
@@ -367,7 +369,7 @@ export const projects: Project[] = [
   },
   {
     slug: "smcc",
-    line: "Chamber of commerce site and member portal.",
+    line: "Swedish–Macedonian Chamber of Commerce. Site and member portal.",
     built: ["Public site design and frontend", "Member login, admin and onboarding emails", "Multilingual, responsive layouts"],
     index: "04",
     title: "SMCC",
@@ -375,10 +377,10 @@ export const projects: Project[] = [
     role: "Design, frontend and digital operations",
     summary:
       "A chamber of commerce website and the member experience behind it. One visual language from the public page to the login, onboarding and emails.",
+    url: "https://smcc.mk",
     tags: ["Web design", "Frontend", "Member portal", "Multilingual"],
     caseStudy: {
-      lede:
-        "SMCC is a chamber of commerce. I have been involved in its digital operations and helped build its digital presence, from the public website to the member experience.",
+      lede: "SMCC is the Swedish–Macedonian Chamber of Commerce. I worked on its digital side, from the public website to the member experience.",
       problem:
         "A chamber has two audiences. The public site has to explain what it is and why a business should join. Members need a place to log in, manage their membership and hear from the chamber. When those feel like two different products, trust leaks between them.",
       contribution: [
@@ -407,17 +409,54 @@ export const projects: Project[] = [
       ],
       evidence: [
         {
-          kind: "illustration",
-          id: "smcc-public",
-          caption: "Illustrative. Public page structure, placeholder content.",
+          kind: "screenshot",
+          src: "/work/smcc-hero.jpg",
+          alt: "The SMCC homepage: Where Swedish and Macedonian businesses connect, beside photos of Stockholm and Skopje.",
+          caption: "smcc.mk",
+          width: 1800,
+          height: 1125,
         },
         {
-          kind: "illustration",
-          id: "smcc-member",
-          caption: "Illustrative. Member sign in and onboarding, placeholder content.",
+          kind: "screenshot",
+          src: "/work/smcc-mk.jpg",
+          alt: "The same homepage in Macedonian.",
+          caption: "The Macedonian version, one of four languages",
+          width: 1800,
+          height: 1125,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/smcc-offers.jpg",
+          alt: "What SMCC offers: networking and representation, market intelligence, visibility.",
+          caption: "What membership offers",
+          width: 1800,
+          height: 1125,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/smcc-login.jpg",
+          alt: "The member sign in page: Connecting Sweden and North Macedonia.",
+          caption: "Member sign in",
+          width: 1800,
+          height: 1125,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/smcc-join.jpg",
+          alt: "Join the chamber, beside the Macedonian and Swedish flags.",
+          caption: "Join the chamber",
+          width: 1800,
+          height: 1125,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/smcc-launch.jpg",
+          alt: "Watch the SMCC official launch, over a photo of the launch event.",
+          caption: "The official launch",
+          width: 1800,
+          height: 1125,
         },
       ],
-      note: "Screens on this page are illustrative recreations. Approved screenshots will replace them.",
     },
   },
   {
@@ -465,10 +504,51 @@ export const projects: Project[] = [
         {
           kind: "screenshot",
           src: "/work/nordgate-site.jpg",
-          alt: "The Nordgate website hero: white serif headline Your route into the Nordics on a deep blue background.",
-          caption: "Public website, thenordgate.com",
+          alt: "The Nordgate hero: Your route into the Nordics, in white serif on deep blue.",
+          caption: "thenordgate.com",
           width: 1728,
           height: 792,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/ng-what.jpg",
+          alt: "Growth in both directions: services list beside a photo.",
+          caption: "What Nordgate does",
+          width: 1800,
+          height: 1125,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/ng-why.jpg",
+          alt: "Ambition is rarely the problem, beside a photo of Stockholm.",
+          caption: "Why local understanding matters",
+          width: 1800,
+          height: 910,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/ng-onboard.jpg",
+          alt: "Six onboarding steps from discovery to outreach.",
+          caption: "From first conversation to live outreach",
+          width: 1800,
+          height: 879,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/ng-cta.jpg",
+          alt: "Ready to test the Nordic opportunity, beside a laptop photo.",
+          caption: "The close",
+          width: 1800,
+          height: 1125,
+        },
+        {
+          kind: "screenshot",
+          src: "/work/ng-mobile.jpg",
+          alt: "The Nordgate homepage on a phone.",
+          caption: "On a phone",
+          width: 900,
+          height: 1948,
+          narrow: true,
         },
       ],
     },

@@ -199,31 +199,32 @@ export function drawStrap(f: Fonts) {
   const w = 560;
   const h = 160;
   const { c, ctx } = makeCanvas(w, h);
-  ctx.fillStyle = PALETTE.accent;
+  // Near-black woven strap
+  ctx.fillStyle = "#121212";
   ctx.fillRect(0, 0, w, h);
-  // weave
-  ctx.fillStyle = "#000";
-  ctx.globalAlpha = 0.08;
+  ctx.fillStyle = "#ffffff";
+  ctx.globalAlpha = 0.045;
   for (let x = 0; x < w; x += 5) ctx.fillRect(x, 0, 2, h);
-  ctx.globalAlpha = 0.06;
+  ctx.globalAlpha = 0.03;
   for (let y = 0; y < h; y += 5) ctx.fillRect(0, y, w, 2);
-  // stitched edges
-  ctx.globalAlpha = 0.5;
-  ctx.fillStyle = PALETTE.ink;
+  // Neon stitched edges
+  ctx.globalAlpha = 0.55;
+  ctx.fillStyle = PALETTE.accent;
   for (let x = 0; x < w; x += 20) {
     ctx.fillRect(x, 12, 11, 3);
     ctx.fillRect(x, h - 15, 11, 3);
   }
   ctx.globalAlpha = 1;
+  // The name is fitted to a fixed box so it never crosses the tile seam,
+  // whether or not the browser supports condensed canvas text.
   ctx.textBaseline = "middle";
   (ctx as Ctx).fontStretch = "condensed";
   ctx.font = `800 76px ${f.name}`;
-  const label = "FILIP STEFANOVSKI";
-  const lw = ctx.measureText(label).width;
-  const gap = (w - lw) / 2;
-  ctx.fillText(label, gap / 2, h / 2 + 4);
+  ctx.fillStyle = PALETTE.accent;
+  fitText(ctx, "FILIP STEFANOVSKI", w * 0.06, h / 2 + 4, w * 0.78);
+  (ctx as Ctx).fontStretch = "normal";
   ctx.beginPath();
-  ctx.arc(w - gap / 2, h / 2, 10, 0, Math.PI * 2);
+  ctx.arc(w * 0.93, h / 2, 9, 0, Math.PI * 2);
   ctx.fill();
   return c;
 }

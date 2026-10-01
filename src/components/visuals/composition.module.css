@@ -70,22 +70,26 @@
 
 /* ---------- SMCC ---------- */
 .smccPublic {
-  top: 3%;
-  right: 4%;
-  width: 68%;
+  top: 2%;
+  right: 3%;
+  width: 66%;
 }
 .smccMember {
-  left: 6%;
-  bottom: 0;
-  width: 31%;
+  left: 2%;
+  bottom: 2%;
+  width: 42%;
 }
 
 /* ---------- Nordgate ---------- */
 .ngShot {
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  transform: translate(-50%, -50%);
+  top: 2%;
+  right: 3%;
+  width: 70%;
+}
+.ngSecond {
+  left: 2%;
+  bottom: 2%;
+  width: 40%;
 }
 
 /* Phones: the stack becomes a column with a small overlap, so nothing clips or shrinks to nothing */
@@ -133,9 +137,15 @@
     left: auto;
     bottom: auto;
   }
+  .ngSecond {
+    width: 72%;
+    margin-top: -10%;
+    left: auto;
+    bottom: auto;
+  }
   .smccMember {
-    width: 62%;
-    margin-top: -14%;
+    width: 72%;
+    margin-top: -10%;
     left: auto;
     bottom: auto;
   }
@@ -165,7 +175,10 @@
     transform: translate(-2%, 2%);
   }
   :global(.row-hover):hover .ngShot {
-    transform: translate(-50%, -51.5%) scale(1.015);
+    transform: translate(1.5%, -2%);
+  }
+  :global(.row-hover):hover .ngSecond {
+    transform: translate(-2%, 2%);
   }
 }
 

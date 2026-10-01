@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { SmccMember, SmccPublic } from "./Illustrations";
 import s from "./fan.module.css";
 
 function Shot({ src, alt, w, h }: { src: string; alt: string; w: number; h: number }) {
@@ -23,8 +22,16 @@ const fans: Record<string, ReactNode[]> = {
     <Shot key="b" src="/work/bks-winners.jpg" alt="Demo Day winners" w={1478} h={922} />,
     <Shot key="c" src="/work/bks-squad.jpg" alt="The full squad at Base42" w={1478} h={1072} />,
   ],
-  smcc: [<SmccPublic key="a" />, <SmccMember key="b" />],
-  nordgate: [<Shot key="a" src="/work/nordgate-site.jpg" alt="Nordgate website" w={1728} h={792} />],
+  smcc: [
+    <Shot key="a" src="/work/smcc-mk.jpg" alt="SMCC in Macedonian" w={1800} h={1125} />,
+    <Shot key="b" src="/work/smcc-login.jpg" alt="SMCC member sign in" w={1800} h={1125} />,
+    <Shot key="c" src="/work/smcc-hero.jpg" alt="SMCC homepage" w={1800} h={1125} />,
+  ],
+  nordgate: [
+    <Shot key="a" src="/work/ng-why.jpg" alt="Nordgate why section" w={1800} h={910} />,
+    <Shot key="b" src="/work/ng-what.jpg" alt="Nordgate services" w={1800} h={1125} />,
+    <Shot key="c" src="/work/nordgate-site.jpg" alt="Nordgate homepage" w={1728} h={792} />,
+  ],
 };
 
 /** A fan of screen cards that deals out when its row is hovered or focused. */

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { SmccMember, SmccPublic } from "./Illustrations";
 import s from "./composition.module.css";
 
 /** Each project gets its own composition instead of a repeated image-in-a-box. */
@@ -93,10 +92,24 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
       return (
         <div className={`${s.comp} ${s.smcc}`}>
           <div className={`${s.layer} ${s.smccPublic}`}>
-            <SmccPublic />
+            <Image
+              src="/work/smcc-hero.jpg"
+              alt="The SMCC homepage."
+              width={1800}
+              height={1125}
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 64vw, 950px"
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+            />
           </div>
           <div className={`${s.layer} ${s.smccMember}`}>
-            <SmccMember />
+            <Image
+              src="/work/smcc-login.jpg"
+              alt="The SMCC member sign in."
+              width={1800}
+              height={1125}
+              sizes="(max-width: 640px) 100vw, 40vw"
+            />
           </div>
         </div>
       );
@@ -106,12 +119,21 @@ export default function ProjectVisual({ slug, priority = false }: { slug: string
           <div className={`${s.layer} ${s.ngShot}`}>
             <Image
               src="/work/nordgate-site.jpg"
-              alt="The Nordgate website hero on a deep blue background."
+              alt="The Nordgate homepage."
               width={1728}
               height={792}
-              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 90vw, 1330px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1480px) 64vw, 950px"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : "auto"}
+            />
+          </div>
+          <div className={`${s.layer} ${s.ngSecond}`}>
+            <Image
+              src="/work/ng-what.jpg"
+              alt="Nordgate services."
+              width={1800}
+              height={1125}
+              sizes="(max-width: 640px) 100vw, 40vw"
             />
           </div>
         </div>
