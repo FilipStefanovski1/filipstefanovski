@@ -1,14 +1,17 @@
-/* A three-eyed blob peeking in from the right edge of the hero. */
+/* A three-eyed creature lurking past the edge of the hero. Decorative: no pointer events anywhere. */
 .peeker {
-  --tuck: 16%;
+  --tuck: 4%;
   position: absolute;
   right: 0;
-  top: 38%;
+  top: 30%;
   z-index: 4;
-  width: clamp(92px, 10vw, 156px);
+  width: clamp(120px, 12vw, 190px);
   pointer-events: none;
   transform: translateX(110%);
-  transition: transform 900ms var(--ease-out);
+  transition: transform 1000ms var(--ease-out);
+}
+.peeker * {
+  pointer-events: none;
 }
 .peeker[data-state="in"] {
   transform: translateX(var(--tuck));
@@ -25,102 +28,129 @@
 .peeker[data-side="left"] .svg {
   transform: scaleX(-1);
 }
-/* Ducking out is quicker than peeking in */
+/* Ducking out is quicker than lurking in */
 .peeker[data-state="out"] {
   transition-duration: 600ms;
   transition-timing-function: cubic-bezier(0.55, 0, 0.8, 0.2);
 }
+
 .svg {
   display: block;
   width: 100%;
   height: auto;
   overflow: visible;
+  /* A very faint neon bloom; the outline itself stays crisp */
+  filter: drop-shadow(0 0 5px rgb(57 255 20 / 0.22));
 }
 
-.bob {
-  animation: bob 3.6s ease-in-out infinite alternate;
-}
-
+/* Stroke weights: silhouette 3, features 2.4, creases 1.4 */
 .fill {
   fill: var(--stage);
 }
-.line {
-  fill: none;
+.outline,
+.horn,
+.finger {
   stroke: var(--accent);
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.horn {
+.outline {
+  fill: none;
+}
+.horn,
+.finger {
   fill: var(--stage);
+}
+.detail {
+  fill: none;
   stroke: var(--accent);
-  stroke-width: 3;
-  stroke-linejoin: round;
+  stroke-width: 2.6;
+  stroke-linecap: round;
 }
-.mouth {
-  fill: var(--ink);
+.hair {
+  fill: none;
   stroke: var(--accent);
-  stroke-width: 2.5;
-  stroke-linejoin: round;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.8;
 }
-.tooth {
-  fill: var(--light);
-}
+
 .sclera {
-  fill: #e9ffd9;
+  fill: #ecf7e2;
+}
+.eyeRim {
+  fill: none;
   stroke: var(--accent);
-  stroke-width: 2.5;
+  stroke-width: 2.4;
+  stroke-linejoin: round;
 }
 .pupil {
   fill: var(--ink);
 }
 .glint {
-  fill: var(--light);
+  fill: #ffffff;
 }
-
-/* Blink: each lid drops for a beat, slightly out of step */
 .lid {
   fill: var(--stage);
-  stroke: var(--accent);
-  stroke-width: 2.5;
-  transform-box: fill-box;
-  transform-origin: 50% 0%;
-  transform: scaleY(0);
-  animation: blink 5.2s ease-in-out var(--d, 0ms) infinite;
 }
 
-@keyframes bob {
-  from {
-    transform: translateY(-3px);
-  }
-  to {
-    transform: translateY(4px);
-  }
+.mouth {
+  fill: #000;
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
 }
-@keyframes blink {
+.tooth {
+  fill: #ecf7e2;
+}
+.fang {
+  fill: #f6fbf0;
+  stroke: var(--stage);
+  stroke-width: 0.8;
+}
+.lip {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+.claw {
+  fill: var(--accent);
+}
+
+/* A rare flex of the gripping fingers */
+.hand {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: flex 13s ease-in-out 4s infinite;
+}
+@keyframes flex {
   0%,
-  92%,
+  86%,
   100% {
-    transform: scaleY(0);
+    transform: none;
   }
-  95% {
-    transform: scaleY(1);
+  89% {
+    transform: translateX(-2px) rotate(-3deg);
+  }
+  92% {
+    transform: translateX(1px) rotate(1deg);
   }
 }
 
 @media (max-width: 640px) {
   .peeker {
-    top: 33%;
-    width: 72px;
+    top: 27%;
+    width: 92px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bob,
-  .lid {
-    animation: none;
-  }
   .peeker {
     transition: none;
+  }
+  .hand {
+    animation: none;
   }
 }
