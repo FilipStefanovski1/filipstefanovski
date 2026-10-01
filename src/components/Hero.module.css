@@ -38,7 +38,7 @@
 }
 .socials {
   display: flex;
-  gap: 20px;
+  gap: 32px;
 }
 .linkedin {
   pointer-events: auto;
