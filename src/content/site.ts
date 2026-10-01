@@ -85,15 +85,18 @@ export const site = {
     meta: ["Product Developer", "Macedonia / Belgium"],
   },
   about: {
-    intro:
-      "I'm Filip Stefanovski. I build products, idea to shipped. Founder of Aminta, co-founder of Q4 and Blockchain Skopje, creative designer at Playground AI.",
-    basedOutOf: "MK <> BE",
+    facts: [
+      { label: "From", value: "Macedonia" },
+      { label: "Based", value: "Belgium" },
+      { label: "Founder", value: "Aminta" },
+      { label: "Co-founder", value: "Q4, Blockchain Skopje" },
+      { label: "Creative designer", value: "Playground AI" },
+    ],
     story: [
       "the first thing i built was profesija.mk, a job platform for macedonia. it was 2020 and it failed. of course it failed. then came about twenty more projects, and those failed too. somewhere along the way it clicked. i stopped seeing a dead project as the end and started seeing it as tuition.",
       "before any of that, i was a basketball player. i moved to belgium for a better future and kept playing, first in the youth leagues, then in the top divisions. honestly, i thought my money would come from basketball. during my studies i even went back to macedonia to play division 1.",
-      "building started in high school. code and design showed up at the same time, at full speed, and nobody was going to do either one for me, so i learned both. that's why i call myself a product developer. i don't hand a design to someone and wait. i don't wait on a design to start coding. i take the idea and ship the thing.",
+      "building started in high school. code and design showed up at the same time, at full speed, and nobody was going to do either one for me, so i learned both. that's why i call myself a product developer. i don't hand a design to someone and wait. i don't wait on a design to start coding. i take the idea and ship the thing. right now i do it as a creative designer at playground ai.",
       "everything i've started came from something that bugged me. blockchain skopje happened because a close friend tuned me in to creating my own stuff and actually putting it out there. aminta happened because writing tweets was painful, so i built the tool that fixes it. q4 happened because saudi was missing something crucial and i knew i could build it. so i did.",
-      "these days i'm a creative designer at playground ai, working where the product meets the people using it. i make sure what goes out looks like it came from the future. good luck replacing that.",
       "i'm not going to pretend i'm doing this for the vibes. money drives me, and with money comes freedom. freedom is the actual goal. basketball taught me discipline. coding taught me patience. put the two together and you get someone who doesn't stop.",
       "people call me cocky. fair. i'm confident to the point some would call it narcissistic, and i'm fine with that, because confidence is what gets you to project twenty-one after twenty failures. you can be more talented than me. i will still outhustle you.",
     ],

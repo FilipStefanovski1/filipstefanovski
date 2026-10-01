@@ -1,51 +1,67 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/content/site";
 import SiteHeader from "@/components/SiteHeader";
 import Contact from "@/components/Contact";
+import Icon from "@/components/Icon";
 import styles from "./about.module.css";
+
+const description = "How Filip Stefanovski went from basketball in Belgium to building products.";
 
 export const metadata: Metadata = {
   title: "About",
-  description: site.about.intro,
+  description,
   alternates: { canonical: "/about" },
-  openGraph: { title: `About ${site.name}`, description: site.about.intro, url: "/about" },
+  openGraph: { title: `About ${site.name}`, description, url: "/about" },
 };
 
 export default function AboutPage() {
-  const { intro, basedOutOf, story, beliefs } = site.about;
+  const { facts, story, beliefs } = site.about;
   return (
     <>
       <div className={styles.page}>
         <SiteHeader />
         <main id="main">
-          <article className="wrap">
-            <header className={styles.head}>
-              <h1 className={`condensed ${styles.title}`}>About</h1>
-              <p className={styles.intro}>{intro}</p>
-              <dl className={styles.based}>
-                <dt>Based out of</dt>
-                <dd>{basedOutOf}</dd>
+          <article>
+            <header className={`wrap ${styles.head}`}>
+              <Link href="/" className={styles.back}>
+                <Icon name="arrow-left" size={14} />
+                Home
+              </Link>
+              <h1 className={`condensed ${styles.title}`}>So far.</h1>
+              <dl className={styles.spec}>
+                {facts.map((f) => (
+                  <div key={f.label}>
+                    <dt>{f.label}</dt>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))}
               </dl>
             </header>
 
-            <div className={styles.story}>
-              {story.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-
-            <section className={styles.beliefs} aria-labelledby="beliefs-title">
-              <h2 id="beliefs-title" className={styles.beliefsTitle}>
-                Some things I believe
+            <section className={`wrap ${styles.block}`} aria-labelledby="story-title">
+              <h2 id="story-title" className={`condensed ${styles.blockTitle}`}>
+                Story
               </h2>
-              <ol className={styles.list}>
+              <div className={styles.story}>
+                {story.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </section>
+
+            <section className={`wrap ${styles.block}`} aria-labelledby="rules-title">
+              <h2 id="rules-title" className={`condensed ${styles.blockTitle}`}>
+                Rules
+              </h2>
+              <ul className={styles.list}>
                 {beliefs.map((b) => (
                   <li key={b.title}>
-                    <strong className="condensed">{b.title}</strong>
-                    <span>{b.body}</span>
+                    <span className={styles.rule}>{b.title}</span>
+                    <span className={styles.ruleBody}>{b.body}</span>
                   </li>
                 ))}
-              </ol>
+              </ul>
             </section>
           </article>
         </main>
