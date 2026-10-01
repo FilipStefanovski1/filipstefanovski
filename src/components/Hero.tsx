@@ -1,6 +1,6 @@
 import { site } from "@/content/site";
 import BadgeStage from "./badge/BadgeStage";
-import Icon from "./Icon";
+import Icon, { XLogo } from "./Icon";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -44,6 +44,7 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
             >
+              <XLogo size={13} />
               {site.xHandle}
               <Icon name="arrow-up-right" size={14} />
               <span className="visually-hidden">

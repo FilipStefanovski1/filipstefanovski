@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import Icon from "./Icon";
+import Icon, { XLogo } from "./Icon";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
@@ -32,6 +32,7 @@ export default function Contact() {
             target="_blank"
             rel="noreferrer"
           >
+            <XLogo size={17} />
             {site.xHandle}
             <Icon name="arrow-up-right" size={18} />
             <span className="visually-hidden"> on X (opens in a new tab)</span>

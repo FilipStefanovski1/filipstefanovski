@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site } from "@/content/site";
-import Icon from "./Icon";
+import Icon, { XLogo } from "./Icon";
 import styles from "./SiteHeader.module.css";
 
 /** Header for inner pages, which sit on the dark stage. */
@@ -40,7 +40,8 @@ export default function SiteHeader() {
                 rel="noreferrer"
                 className={styles.linkedin}
               >
-                X
+                <XLogo size={13} />
+                <span className="visually-hidden">X</span>
                 <Icon name="arrow-up-right" size={13} />
                 <span className="visually-hidden">
                   {" "}
