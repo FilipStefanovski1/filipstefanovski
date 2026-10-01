@@ -40,12 +40,9 @@ export default function SiteHeader() {
                 rel="noreferrer"
                 className={styles.linkedin}
               >
-                <XLogo size={13} />
-                <span className="visually-hidden">X</span>
-                <Icon name="arrow-up-right" size={13} />
+                <XLogo size={14} />
                 <span className="visually-hidden">
-                  {" "}
-                  {site.xHandle} (opens in a new tab)
+                  {site.xHandle} on X (opens in a new tab)
                 </span>
               </a>
             </li>

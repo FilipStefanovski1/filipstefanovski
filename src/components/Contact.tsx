@@ -32,10 +32,8 @@ export default function Contact() {
             target="_blank"
             rel="noreferrer"
           >
-            <XLogo size={17} />
-            {site.xHandle}
-            <Icon name="arrow-up-right" size={18} />
-            <span className="visually-hidden"> on X (opens in a new tab)</span>
+            <XLogo size={22} />
+            <span className="visually-hidden">{site.xHandle} on X (opens in a new tab)</span>
           </a>
         </div>
         <div className={styles.base}>

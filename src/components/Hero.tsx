@@ -44,12 +44,9 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
             >
-              <XLogo size={13} />
-              {site.xHandle}
-              <Icon name="arrow-up-right" size={14} />
+              <XLogo size={15} />
               <span className="visually-hidden">
-                {" "}
-                on X (opens in a new tab)
+                {site.xHandle} on X (opens in a new tab)
               </span>
             </a>
           </span>
