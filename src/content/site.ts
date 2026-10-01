@@ -102,7 +102,7 @@ export const site = {
     ],
   },
   close: {
-    heading: "Say hi.",
+    heading: "Your move.",
   },
   /** Only verified links. */
   contact: {

@@ -1,9 +1,9 @@
 import { site } from "@/content/site";
 import Icon, { XLogo } from "./Icon";
+import LocalTime from "./LocalTime";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
-  const year = new Date().getFullYear();
   return (
     <footer
       id="contact"
@@ -40,7 +40,7 @@ export default function Contact() {
           <span>
             {site.name}, {site.role}
           </span>
-          <span>Macedonia / Belgium, {year}</span>
+          <LocalTime />
           <a href="#main" className={styles.top}>
             Back to top
             <Icon name="arrow-down" size={14} />

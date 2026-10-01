@@ -109,6 +109,12 @@ export const CARD_COPY = {
     { label: "Playground AI", style: "ink" as const },
     { label: "Blockchain Skopje", style: "ink" as const },
   ],
+  /** Player-card stat line */
+  stats: [
+    { label: "Shipped", value: "05" },
+    { label: "Buried", value: "~20" },
+    { label: "Hustle", value: "MAX" },
+  ],
 };
 
 /** Deterministic barcode from a string. */
@@ -219,6 +225,22 @@ export function drawFront(f: Fonts) {
     }
     x += pill(ctx, p.label, x, py, p.style, font) + 12;
   }
+
+  // Stat line, like the back of a player card
+  const sy = py + 66 + 38;
+  ctx.fillStyle = P.ink;
+  ctx.fillRect(M, sy, W, 2);
+  CARD_COPY.stats.forEach((s, i) => {
+    const sx = M + (i * W) / 3;
+    ctx.font = `600 34px ${f.name}`;
+    ctx.fillStyle = P.inkSoft;
+    ctx.fillText(s.label, sx, sy + 50);
+    ctx.fillStyle = P.ink;
+    cx.fontStretch = "condensed";
+    ctx.font = `800 84px ${f.name}`;
+    ctx.fillText(s.value, sx, sy + 138);
+    cx.fontStretch = "normal";
+  });
 
   // Barcode and ID number along the bottom
   ctx.fillStyle = P.ink;

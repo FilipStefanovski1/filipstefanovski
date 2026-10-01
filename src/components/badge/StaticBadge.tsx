@@ -66,6 +66,17 @@ export default function StaticBadge() {
                 </text>
               </g>
             ))}
+            <rect x="72" y="1262" width="936" height="2" />
+            {CARD_COPY.stats.map((s, i) => (
+              <g key={s.label}>
+                <text x={72 + i * 312} y="1312" fontSize="34" className={styles.sSoft}>
+                  {s.label}
+                </text>
+                <text x={72 + i * 312} y="1400" fontSize="84" className={styles.sCond}>
+                  {s.value}
+                </text>
+              </g>
+            ))}
             <rect x="72" y="1430" width="936" height="2" />
             <rect x="72" y="1470" width="520" height="150" fill="url(#bars)" />
             <text x="1008" y="1550" fontSize="64" textAnchor="end" className={styles.sCond}>
