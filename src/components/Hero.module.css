@@ -148,6 +148,13 @@
   }
 }
 
+/* On narrower screens the straps would cross the intro, so they hang from just under it */
+@media (max-width: 1100px) {
+  .stage {
+    top: calc(clamp(28px, 6vh, 64px) + 64px);
+  }
+}
+
 @media (max-width: 640px) {
   .top {
     flex-direction: column;
