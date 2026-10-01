@@ -562,6 +562,12 @@ export const projects: Project[] = [
   },
 ];
 
+/** Projects that didn't make it. Shown crossed out, on purpose. */
+export const graveyard = {
+  projects: [{ name: "profesija.mk", what: "Job platform", year: "2020" }],
+  rest: "+ 19ish more",
+};
+
 export const supporting: SupportingWork[] = [
   {
     title: "Playground AI",

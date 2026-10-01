@@ -103,6 +103,29 @@
   font-size: 15px;
 }
 
+/* Graveyard: dead projects, crossed out in neon */
+.grave {
+  padding-top: 0;
+}
+.dead {
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  color: var(--dim);
+}
+.what {
+  margin-left: 14px;
+  color: var(--dim);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.rest {
+  color: var(--dim);
+  font-size: 15px;
+  font-weight: 600;
+}
+
 @media (min-width: 900px) {
   .also {
     grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);

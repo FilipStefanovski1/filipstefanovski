@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projects, supporting } from "@/content/site";
+import { graveyard, projects, supporting } from "@/content/site";
 import ProjectFan from "./visuals/ProjectFan";
 import styles from "./Work.module.css";
 
@@ -36,6 +36,24 @@ export default function Work() {
               <span className={styles.alsoRole}>{w.role}</span>
             </li>
           ))}
+        </ul>
+      </div>
+
+      <div className={`wrap ${styles.also} ${styles.grave}`}>
+        <h3 className={`condensed ${styles.alsoTitle}`}>Graveyard</h3>
+        <ul className={styles.alsoList}>
+          {graveyard.projects.map((g) => (
+            <li key={g.name}>
+              <span className={styles.alsoName}>
+                <s className={styles.dead}>{g.name}</s>
+                <span className={styles.what}>{g.what}</span>
+              </span>
+              <span className={styles.alsoRole}>{g.year}</span>
+            </li>
+          ))}
+          <li>
+            <span className={styles.rest}>{graveyard.rest}</span>
+          </li>
         </ul>
       </div>
     </section>
