@@ -1,0 +1,95 @@
+/* A three-eyed blob peeking in from the right edge of the hero. */
+.peeker {
+  position: absolute;
+  right: 0;
+  top: 38%;
+  z-index: 4;
+  width: clamp(92px, 10vw, 156px);
+  pointer-events: none;
+  animation: peekIn 1100ms var(--ease-out) 1200ms both;
+}
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.bob {
+  animation: bob 3.6s ease-in-out infinite alternate;
+}
+
+.fill {
+  fill: var(--stage);
+}
+.line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sclera {
+  fill: var(--light);
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+.pupil {
+  fill: var(--ink);
+}
+.glint {
+  fill: var(--light);
+}
+
+/* Blink: each lid drops for a beat, slightly out of step */
+.lid {
+  fill: var(--stage);
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  transform: scaleY(0);
+  animation: blink 5.2s ease-in-out var(--d, 0ms) infinite;
+}
+
+@keyframes peekIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(16%);
+  }
+}
+@keyframes bob {
+  from {
+    transform: translateY(-3px);
+  }
+  to {
+    transform: translateY(4px);
+  }
+}
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(0);
+  }
+  95% {
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .peeker {
+    top: 46%;
+    width: 84px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .peeker,
+  .bob,
+  .lid {
+    animation: none;
+  }
+}
