@@ -1,7 +1,6 @@
 import { site } from "@/content/site";
 import BadgeStage from "./badge/BadgeStage";
 import Icon from "./Icon";
-import Peeker from "./Peeker";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -89,8 +88,6 @@ export default function Hero() {
         </svg>
         <span className="visually-hidden">{site.name}</span>
       </h1>
-
-      <Peeker />
 
       <div className={styles.stage}>
         <BadgeStage />
