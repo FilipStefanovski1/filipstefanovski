@@ -16,9 +16,11 @@ export default function Hero() {
             </Link>
           </p>
           <p className={styles.teaser}>
-            {site.hero.teaser}{" "}
-            <span role="img" aria-label="shh">
-              🤫
+            {site.hero.teaser}
+            <span className={styles.dots} aria-hidden>
+              <span>.</span>
+              <span>.</span>
+              <span>.</span>
             </span>
           </p>
         </div>

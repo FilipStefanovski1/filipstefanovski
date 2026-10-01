@@ -80,7 +80,7 @@ export const site = {
   x: "https://x.com/filiplesterr",
   xHandle: "filiplesterr",
   hero: {
-    intro: "I build products. Idea to shipped.",
+    intro: "I will outhustle you.",
     teaser: "Podcast coming soon",
     meta: ["Product Developer", "Macedonia / Belgium"],
   },

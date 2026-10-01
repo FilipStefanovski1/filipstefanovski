@@ -61,6 +61,34 @@
   color: var(--dim);
   font-size: clamp(14px, 1.15vw, 17px);
 }
+/* Typing dots: each one lights up in turn */
+.dots span {
+  animation: dot 1.4s infinite;
+}
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes dot {
+  0%,
+  20% {
+    opacity: 0.15;
+  }
+  40% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    opacity: 0.15;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dots span {
+    animation: none;
+  }
+}
 .more {
   pointer-events: auto;
   color: var(--dim);
