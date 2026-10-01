@@ -78,7 +78,7 @@ export const site = {
     "Filip Stefanovski is a product developer. He takes products from the first idea to the version people use: product thinking, interface, frontend and AI.",
   linkedin: "https://www.linkedin.com/in/filipstefanovskii/",
   x: "https://x.com/filiplesterr",
-  xHandle: "@filiplesterr",
+  xHandle: "filiplesterr",
   hero: {
     intro: "I build products. Idea to shipped.",
     teaser: "Podcast coming soon",
