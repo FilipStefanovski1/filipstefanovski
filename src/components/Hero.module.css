@@ -14,7 +14,7 @@
   z-index: 4;
   display: flex;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   padding: clamp(28px, 6vh, 64px) var(--gutter) 0;
   pointer-events: none;
   animation: fade 900ms var(--ease-out) 150ms both;
@@ -33,12 +33,12 @@
   gap: 10px;
   text-align: right;
 }
-.meta span {
+.meta p span {
   display: block;
 }
 .socials {
   display: flex;
-  gap: 32px;
+  gap: 24px;
 }
 .linkedin {
   pointer-events: auto;
