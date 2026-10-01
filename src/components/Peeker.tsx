@@ -4,6 +4,10 @@ import { useEffect, useRef } from "react";
 import styles from "./Peeker.module.css";
 
 /** Eye centres and pupil travel, in the SVG's own units. */
+/** Extra room above the body for the horns. */
+const VB_Y = -56;
+const VB_H = 296;
+
 const EYES = [
   { cx: 62, cy: 92, r: 21, pr: 9, travel: 9 },
   { cx: 108, cy: 70, r: 15, pr: 6.5, travel: 6 },
@@ -43,7 +47,7 @@ export default function Peeker() {
       const scale = box.width / 160; // viewBox width
       EYES.forEach((eye, i) => {
         const ex = box.left + eye.cx * scale;
-        const ey = box.top + eye.cy * scale;
+        const ey = box.top + (eye.cy - VB_Y) * scale;
         const dx = target.x - ex;
         const dy = target.y - ey;
         const d = Math.hypot(dx, dy) || 1;
@@ -83,9 +87,15 @@ export default function Peeker() {
 
   return (
     <div ref={root} className={styles.peeker} aria-hidden>
-      <svg ref={svg} viewBox="0 0 160 240" className={styles.svg}>
+      <svg ref={svg} viewBox={`0 ${VB_Y} 160 ${VB_H}`} className={styles.svg}>
         <g ref={body}>
           <g className={styles.bob}>
+            {/* Horns and back spikes sit behind the body so its fill hides their bases */}
+            <path className={styles.horn} d="M50 42 C 38 22, 30 0, 14 -22 C 40 -12, 62 6, 78 28 Z" />
+            <path className={styles.horn} d="M98 20 C 102 -4, 112 -26, 132 -46 C 132 -20, 130 0, 126 16 Z" />
+            <path className={styles.horn} d="M26 96 L 6 104 L 24 114 Z" />
+            <path className={styles.horn} d="M24 128 L 2 138 L 22 148 Z" />
+            <path className={styles.horn} d="M26 160 L 8 172 L 28 178 Z" />
             {/* Body: an uneven blob that runs off the right edge */}
             <path
               className={styles.fill}
@@ -98,9 +108,15 @@ export default function Peeker() {
             {/* Fingers gripping the edge */}
             <path className={styles.line} d="M40 186 c -14 2 -20 12 -12 18 c 8 6 18 0 22 -8" />
             <path className={styles.line} d="M56 196 c -12 6 -14 16 -5 20 c 9 4 17 -4 18 -12" />
-            {/* Smirk */}
-            <path className={styles.line} d="M62 158 q 16 12 34 2" />
-            <path className={styles.line} d="M92 158 l 6 -4" />
+            {/* Toothy grin */}
+            <path className={styles.mouth} d="M54 152 L 104 146 Q 84 182 54 152 Z" />
+            <path className={styles.tooth} d="M60 152 l 4 9 l 4 -9.4 Z" />
+            <path className={styles.tooth} d="M71 151 l 4.5 10 l 4.5 -10.6 Z" />
+            <path className={styles.tooth} d="M83 149.6 l 4.5 10 l 4.5 -10.6 Z" />
+            <path className={styles.tooth} d="M95 148.4 l 3.5 7 l 3.5 -7.6 Z" />
+            {/* Angry brows */}
+            <path className={styles.line} d="M38 62 L 82 74" />
+            <path className={styles.line} d="M94 56 L 128 46" />
             {/* Three eyes */}
             {EYES.map((eye, i) => (
               <g key={i} className={styles.eye} style={{ ["--d" as string]: `${i * 90}ms` }}>
@@ -110,8 +126,8 @@ export default function Peeker() {
                     pupils.current[i] = n;
                   }}
                 >
-                  <circle className={styles.pupil} cx={eye.cx} cy={eye.cy} r={eye.pr} />
-                  <circle className={styles.glint} cx={eye.cx - eye.pr * 0.35} cy={eye.cy - eye.pr * 0.4} r={eye.pr * 0.28} />
+                  <ellipse className={styles.pupil} cx={eye.cx} cy={eye.cy} rx={eye.pr * 0.42} ry={eye.pr * 1.25} />
+                  <circle className={styles.glint} cx={eye.cx - eye.pr * 0.1} cy={eye.cy - eye.pr * 0.6} r={eye.pr * 0.18} />
                 </g>
                 <circle className={styles.lid} cx={eye.cx} cy={eye.cy} r={eye.r} />
               </g>

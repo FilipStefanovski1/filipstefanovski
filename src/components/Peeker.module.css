@@ -29,8 +29,23 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.sclera {
+.horn {
+  fill: var(--stage);
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.mouth {
+  fill: var(--ink);
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.tooth {
   fill: var(--light);
+}
+.sclera {
+  fill: #e9ffd9;
   stroke: var(--accent);
   stroke-width: 2.5;
 }
