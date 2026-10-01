@@ -22,6 +22,9 @@ export default function SiteHeader() {
               <Link href="/#work">Work</Link>
             </li>
             <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
               <a
                 href={site.linkedin}
                 target="_blank"

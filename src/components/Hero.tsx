@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import BadgeStage from "./badge/BadgeStage";
 import Icon, { XLogo } from "./Icon";
@@ -10,9 +11,9 @@ export default function Hero() {
         <div className={styles.lead}>
           <p className={styles.intro}>
             {site.hero.intro}{" "}
-            <a href="#work" className={styles.more}>
+            <Link href="/about" className={styles.more}>
               [more]
-            </a>
+            </Link>
           </p>
           <p className={styles.teaser}>
             {site.hero.teaser}{" "}
