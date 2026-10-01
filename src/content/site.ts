@@ -85,13 +85,6 @@ export const site = {
     meta: ["Product Developer", "Macedonia / Belgium"],
   },
   about: {
-    facts: [
-      { label: "From", value: "Macedonia" },
-      { label: "Based", value: "Belgium" },
-      { label: "Founder", value: "Aminta" },
-      { label: "Co-founder", value: "Q4, Blockchain Skopje" },
-      { label: "Creative designer", value: "Playground AI" },
-    ],
     story: [
       "the first thing i built was profesija.mk, a job platform for macedonia. it was 2020 and it failed. of course it failed. then came about twenty more projects, and those failed too. somewhere along the way it clicked. i stopped seeing a dead project as the end and started seeing it as tuition.",
       "before any of that, i was a basketball player. i moved to belgium for a better future and kept playing, first in the youth leagues, then in the top divisions. honestly, i thought my money would come from basketball. during my studies i even went back to macedonia to play division 1.",

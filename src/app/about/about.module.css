@@ -4,12 +4,11 @@
   color: var(--light);
 }
 
-/* Same header as a case page: back link, big condensed title, spec rows */
+/* Back link, as on a case page */
 .head {
   display: grid;
   justify-items: start;
   padding-top: clamp(32px, 5vw, 64px);
-  padding-bottom: clamp(48px, 6vw, 88px);
 }
 .back {
   display: inline-flex;
@@ -31,33 +30,6 @@
 .back:hover svg {
   transform: translateX(-3px);
 }
-.title {
-  margin: clamp(40px, 6vw, 80px) 0 0;
-  font-size: clamp(88px, 17vw, 280px);
-  line-height: 0.8;
-}
-.spec {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0 24px;
-  width: 100%;
-  margin: clamp(40px, 5vw, 64px) 0 0;
-  border-top: 1px solid var(--line-stage);
-}
-.spec > div {
-  padding: 16px 0 18px;
-  border-bottom: 1px solid var(--line-stage);
-}
-.spec dt {
-  color: var(--dim);
-  font-size: 13.5px;
-  margin-bottom: 6px;
-}
-.spec dd {
-  margin: 0;
-  font-weight: 600;
-}
-
 /* Sections: condensed title on the left, content on the right */
 .block {
   display: grid;

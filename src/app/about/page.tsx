@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const { facts, story, beliefs } = site.about;
+  const { story, beliefs } = site.about;
   return (
     <>
       <div className={styles.page}>
@@ -28,21 +28,12 @@ export default function AboutPage() {
                 <Icon name="arrow-left" size={14} />
                 Home
               </Link>
-              <h1 className={`condensed ${styles.title}`}>So far.</h1>
-              <dl className={styles.spec}>
-                {facts.map((f) => (
-                  <div key={f.label}>
-                    <dt>{f.label}</dt>
-                    <dd>{f.value}</dd>
-                  </div>
-                ))}
-              </dl>
             </header>
 
             <section className={`wrap ${styles.block}`} aria-labelledby="story-title">
-              <h2 id="story-title" className={`condensed ${styles.blockTitle}`}>
+              <h1 id="story-title" className={`condensed ${styles.blockTitle}`}>
                 Story
-              </h2>
+              </h1>
               <div className={styles.story}>
                 {story.map((p, i) => (
                   <p key={i}>{p}</p>
