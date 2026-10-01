@@ -92,7 +92,9 @@ const CAM_Z = 15;
 const HALF_H = CAM_Z * Math.tan(THREE.MathUtils.degToRad(12.5)); // visible half height at z = 0
 const SPREAD = 0.55; // half distance between the two anchors
 const ANCHOR_Y = HALF_H + 1.0; // anchors sit just above the top edge
-const JOINT_REST_Y = HALF_H - 2.6; // where the clip hangs at rest
+// Phones get a shorter lanyard so the card hangs clear of the stacked name. Read once: this module only loads in the browser.
+const COMPACT = typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches;
+const JOINT_REST_Y = HALF_H - (COMPACT ? 1.4 : 2.6); // where the clip hangs at rest
 const JOINT_X = 0.035;
 const SEG = Math.hypot(SPREAD - JOINT_X, ANCHOR_Y - JOINT_REST_Y) / 3;
 

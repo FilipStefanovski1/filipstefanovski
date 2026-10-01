@@ -152,3 +152,22 @@
   font-weight: 600;
   fill: var(--accent);
 }
+
+/* Phones: shorter lanyard, matching the 3D scene, so the card hangs clear of the name */
+@media (max-width: 640px) {
+  .sStrap {
+    height: 22.8cqh;
+  }
+  .sStrapL {
+    transform: translateX(-0.5cqh) rotate(12.1deg);
+  }
+  .sStrapR {
+    transform: translateX(0.5cqh) rotate(-12.1deg);
+  }
+  .sClip {
+    top: 20.4cqh;
+  }
+  .sSleeve {
+    top: 24cqh;
+  }
+}
