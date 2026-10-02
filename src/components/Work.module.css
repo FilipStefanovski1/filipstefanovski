@@ -6,7 +6,7 @@
   padding-top: clamp(80px, 14vh, 160px);
 }
 
-/* A scoreboard: index, name, line, role. Hovering one dims the rest and floats its screen. */
+/* A scoreboard: index, name, line and role, screen, arrow */
 .list {
   margin: 0;
   padding: 0;
@@ -15,12 +15,6 @@
 }
 .row {
   border-bottom: 1px solid var(--line-stage);
-  transition: opacity 280ms var(--ease-out);
-}
-@media (hover: hover) {
-  .list:has(.row:hover) .row:not(:hover) {
-    opacity: 0.3;
-  }
 }
 
 .rowLink {
@@ -44,11 +38,6 @@
   margin: 0;
   font-size: clamp(56px, 6.4vw, 104px);
   line-height: 0.84;
-  transition: color 240ms ease;
-}
-.row:hover .name,
-.rowLink:focus-visible .name {
-  color: var(--accent);
 }
 .meta {
   display: grid;
@@ -79,7 +68,7 @@
   transform: translate(3px, -3px);
 }
 
-/* The project's screen, in its own slot: dimmed at rest, lit on hover */
+/* The project's screen, in its own slot */
 .thumb {
   position: relative;
   display: block;
@@ -88,26 +77,10 @@
   border-radius: 6px;
   background: #111;
   box-shadow: 0 0 0 1px var(--line-stage);
-  opacity: 0.85;
-  filter: grayscale(0.6) brightness(0.8);
-  transition:
-    opacity 300ms var(--ease-out),
-    filter 300ms var(--ease-out),
-    box-shadow 300ms var(--ease-out),
-    transform 500ms var(--ease-out);
 }
 .thumb img {
   object-fit: cover;
   object-position: top center;
-}
-.row:hover .thumb,
-.rowLink:focus-visible .thumb {
-  opacity: 1;
-  filter: none;
-  box-shadow:
-    0 0 0 1.5px var(--accent),
-    0 24px 50px -20px rgb(0 0 0 / 0.9);
-  transform: scale(1.04);
 }
 
 /* Narrow or touch: stacked rows, the screen sits inline */
@@ -132,8 +105,6 @@
   .thumb {
     grid-column: 1 / -1;
     margin-top: 12px;
-    opacity: 1;
-    filter: none;
   }
 }
 
