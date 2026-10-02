@@ -79,6 +79,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/filipstefanovskii/",
   x: "https://x.com/filiplesterr",
   xHandle: "filiplesterr",
+  /** Buttondown newsletter username, for the podcast waitlist */
+  buttondown: "filipstefanovski",
   hero: {
     intro: "I will outhustle you.",
     teaser: "Podcast coming soon",

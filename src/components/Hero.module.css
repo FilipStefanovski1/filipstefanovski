@@ -61,6 +61,67 @@
   color: var(--dim);
   font-size: clamp(14px, 1.15vw, 17px);
 }
+/* Podcast waitlist: the teaser opens into one email field */
+.waitOpen {
+  pointer-events: auto;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: color 160ms ease;
+}
+.waitOpen:hover {
+  color: var(--accent);
+}
+.waitForm {
+  pointer-events: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-top: 4px;
+}
+.waitInput {
+  width: min(220px, 60vw);
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  color: var(--light);
+  font: inherit;
+}
+.waitInput::placeholder {
+  color: var(--dim);
+}
+.waitInput:focus {
+  outline: none;
+}
+.waitSubmit {
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.waitSubmit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.waitDone {
+  color: var(--accent);
+}
+.waitError {
+  flex-basis: 100%;
+  color: #ff6b6b;
+  font-size: 13px;
+}
+
 /* Typing dots: each one lights up in turn */
 .dots span {
   animation: dot 1.4s infinite;

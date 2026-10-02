@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/content/site";
 import BadgeStage from "./badge/BadgeStage";
 import { LinkedInLogo, XLogo } from "./Icon";
+import PodcastWaitlist from "./PodcastWaitlist";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -15,14 +16,7 @@ export default function Hero() {
               [more]
             </Link>
           </p>
-          <p className={styles.teaser}>
-            {site.hero.teaser}
-            <span className={styles.dots} aria-hidden>
-              <span>.</span>
-              <span>.</span>
-              <span>.</span>
-            </span>
-          </p>
+          <PodcastWaitlist />
         </div>
         <div className={styles.meta}>
           <p>
