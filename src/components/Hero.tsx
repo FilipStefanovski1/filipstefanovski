@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/content/site";
 import BadgeStage from "./badge/BadgeStage";
-import Icon, { XLogo } from "./Icon";
+import { LinkedInLogo, XLogo } from "./Icon";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -37,8 +37,8 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
             >
+              <LinkedInLogo size={14} />
               LinkedIn
-              <Icon name="arrow-up-right" size={14} />
               <span className="visually-hidden"> (opens in a new tab)</span>
             </a>
             <a

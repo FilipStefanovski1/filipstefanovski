@@ -383,7 +383,7 @@ export const graveyard = {
     { name: "MKDiaspora", what: "Diaspora network", year: "2026" },
     { name: "profesija.mk", what: "Job platform", year: "2020" },
   ],
-  rest: "+ 17ish more",
+  rest: "+ 6ish more",
 };
 
 export const supporting: SupportingWork[] = [

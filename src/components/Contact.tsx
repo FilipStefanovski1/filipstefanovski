@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import Icon, { XLogo } from "./Icon";
+import { LinkedInLogo, XLogo } from "./Icon";
 import LocalTime from "./LocalTime";
 import styles from "./Contact.module.css";
 
@@ -22,8 +22,8 @@ export default function Contact() {
             target="_blank"
             rel="noreferrer"
           >
+            <LinkedInLogo size={18} />
             LinkedIn
-            <Icon name="arrow-up-right" size={18} />
             <span className="visually-hidden"> (opens in a new tab)</span>
           </a>
           <a
@@ -41,10 +41,6 @@ export default function Contact() {
             {site.name}, {site.role}
           </span>
           <LocalTime />
-          <a href="#main" className={styles.top}>
-            Back to top
-            <Icon name="arrow-down" size={14} />
-          </a>
         </div>
       </div>
     </footer>

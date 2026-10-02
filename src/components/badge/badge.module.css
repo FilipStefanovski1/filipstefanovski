@@ -66,9 +66,8 @@
   margin-left: -1.05cqh;
   transform-origin: 50% 100%;
   background:
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 4px),
-    #121212;
-  box-shadow: inset 2px 0 0 rgb(57 255 20 / 0.35), inset -2px 0 0 rgb(57 255 20 / 0.35);
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 4px),
+    #1a1a1a;
 }
 .sStrapL {
   transform: translateX(-0.5cqh) rotate(8.1deg);
@@ -153,21 +152,24 @@
   fill: var(--accent);
 }
 
-/* Phones: shorter lanyard, matching the 3D scene, so the card hangs clear of the name */
+/* Phones: the stage runs to the top of the screen; matches the pulled-back 3D camera */
 @media (max-width: 640px) {
+  .static {
+    --h: 33cqh;
+  }
   .sStrap {
-    height: 22.8cqh;
+    height: 40.6cqh;
   }
   .sStrapL {
-    transform: translateX(-0.5cqh) rotate(12.1deg);
+    transform: translateX(-0.5cqh) rotate(6.7deg);
   }
   .sStrapR {
-    transform: translateX(0.5cqh) rotate(-12.1deg);
+    transform: translateX(0.5cqh) rotate(-6.7deg);
   }
   .sClip {
-    top: 20.4cqh;
+    top: 38.6cqh;
   }
   .sSleeve {
-    top: 24cqh;
+    top: 41.3cqh;
   }
 }

@@ -6,6 +6,7 @@ const fmt = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/Skopje",
   hour: "2-digit",
   minute: "2-digit",
+  second: "2-digit",
   hourCycle: "h23",
 });
 
@@ -15,7 +16,7 @@ export default function LocalTime() {
   useEffect(() => {
     const tick = () => setNow(new Date());
     const first = setTimeout(tick, 0);
-    const id = setInterval(tick, 30_000);
+    const id = setInterval(tick, 1000);
     return () => {
       clearTimeout(first);
       clearInterval(id);

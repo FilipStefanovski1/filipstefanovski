@@ -62,28 +62,21 @@
   color: var(--ink-soft);
   font-size: 14px;
 }
-.top {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-}
-.top:hover {
-  text-decoration: underline;
-}
-
 .finale :focus-visible {
   outline-color: var(--ink);
+}
+
+.base > :first-child {
+  justify-self: start;
+  text-align: left;
 }
 
 @media (max-width: 640px) {
   .base {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
-  .top {
-    justify-self: start;
+  .base > :first-child {
+    justify-self: center;
   }
 }

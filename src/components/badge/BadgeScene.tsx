@@ -58,7 +58,7 @@ function useArtwork(maxAnisotropy: number) {
         if (wrap) t.wrapS = t.wrapT = THREE.RepeatWrapping;
         return t;
       };
-      setTex({ front: make(drawFront(fonts)), back: make(drawBack(fonts)), strap: make(drawStrap(fonts), true) });
+      setTex({ front: make(drawFront(fonts)), back: make(drawBack(fonts)), strap: make(drawStrap(), true) });
     });
     return () => {
       cancelled = true;
@@ -88,13 +88,14 @@ type Grab = { local: THREE.Vector3; target: THREE.Vector3; pointerId: number };
 type Body = React.RefObject<RapierRigidBody>;
 
 /* Lanyard geometry: two straps from above the frame meet at the clip (a V). */
-const CAM_Z = 15;
+// Phones: the canvas runs to the top of the screen, so the camera pulls back to keep the card the same size
+// and the straps reach the top edge. Read once: this module only loads in the browser.
+const COMPACT = typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches;
+const CAM_Z = COMPACT ? 19.5 : 15;
 const HALF_H = CAM_Z * Math.tan(THREE.MathUtils.degToRad(12.5)); // visible half height at z = 0
 const SPREAD = 0.55; // half distance between the two anchors
 const ANCHOR_Y = HALF_H + 1.0; // anchors sit just above the top edge
-// Phones get a shorter lanyard so the card hangs clear of the stacked name. Read once: this module only loads in the browser.
-const COMPACT = typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches;
-const JOINT_REST_Y = HALF_H - (COMPACT ? 1.4 : 2.6); // where the clip hangs at rest
+const JOINT_REST_Y = HALF_H - (COMPACT ? 3.38 : 2.6); // where the clip hangs at rest
 const JOINT_X = 0.035;
 const SEG = Math.hypot(SPREAD - JOINT_X, ANCHOR_Y - JOINT_REST_Y) / 3;
 
@@ -343,6 +344,8 @@ function Badge({
       color="white"
       depthTest={false}
       resolution={new THREE.Vector2(size.width, size.height)}
+      transparent={false}
+      depthWrite={false}
       useMap={1}
       map={textures.strap}
       repeat={new THREE.Vector2(-2.2, 1)}
@@ -441,11 +444,12 @@ function Badge({
             </group>
           </group>
         </RigidBody>
-      <mesh ref={bandL}>
+      {/* Straps render first, so the clip and card always sit over their ends */}
+      <mesh ref={bandL} renderOrder={-1}>
         <meshLineGeometry />
         {bandMaterial}
       </mesh>
-      <mesh ref={bandR}>
+      <mesh ref={bandR} renderOrder={-1}>
         <meshLineGeometry />
         {bandMaterial}
       </mesh>

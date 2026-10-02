@@ -289,37 +289,19 @@ export function drawBack(f: Fonts) {
   return c;
 }
 
-/** Woven strap: one tile, repeated along the strap length. */
-export function drawStrap(f: Fonts) {
+/** Plain black woven strap: one tile, repeated along the strap length. */
+export function drawStrap() {
   const w = 560;
   const h = 160;
   const { c, ctx } = makeCanvas(w, h);
-  // Near-black woven strap
-  ctx.fillStyle = "#121212";
+  ctx.fillStyle = "#1a1a1a";
   ctx.fillRect(0, 0, w, h);
+  // A faint weave so it reads as fabric, not a flat band
   ctx.fillStyle = "#ffffff";
-  ctx.globalAlpha = 0.045;
+  ctx.globalAlpha = 0.035;
   for (let x = 0; x < w; x += 5) ctx.fillRect(x, 0, 2, h);
-  ctx.globalAlpha = 0.03;
+  ctx.globalAlpha = 0.02;
   for (let y = 0; y < h; y += 5) ctx.fillRect(0, y, w, 2);
-  // Neon stitched edges
-  ctx.globalAlpha = 0.55;
-  ctx.fillStyle = PALETTE.accent;
-  for (let x = 0; x < w; x += 20) {
-    ctx.fillRect(x, 12, 11, 3);
-    ctx.fillRect(x, h - 15, 11, 3);
-  }
   ctx.globalAlpha = 1;
-  // The name is fitted to a fixed box so it never crosses the tile seam,
-  // whether or not the browser supports condensed canvas text.
-  ctx.textBaseline = "middle";
-  (ctx as Ctx).fontStretch = "condensed";
-  ctx.font = `800 76px ${f.name}`;
-  ctx.fillStyle = PALETTE.accent;
-  fitText(ctx, "FILIP STEFANOVSKI", w * 0.06, h / 2 + 4, w * 0.78);
-  (ctx as Ctx).fontStretch = "normal";
-  ctx.beginPath();
-  ctx.arc(w * 0.93, h / 2, 9, 0, Math.PI * 2);
-  ctx.fill();
   return c;
 }

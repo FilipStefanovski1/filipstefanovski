@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site } from "@/content/site";
-import Icon, { XLogo } from "./Icon";
+import { LinkedInLogo, XLogo } from "./Icon";
 import styles from "./SiteHeader.module.css";
 
 /** Header for inner pages, which sit on the dark stage. */
@@ -31,8 +31,8 @@ export default function SiteHeader() {
                 rel="noreferrer"
                 className={styles.linkedin}
               >
+                <LinkedInLogo size={13} />
                 LinkedIn
-                <Icon name="arrow-up-right" size={13} />
                 <span className="visually-hidden"> (opens in a new tab)</span>
               </a>
             </li>
