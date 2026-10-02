@@ -31,6 +31,10 @@ export default function Work() {
               <span className={styles.alsoName}>
                 <s className={styles.dead}>{g.name}</s>
                 <span className={styles.what}>{g.what}</span>
+                <span className={styles.death}>
+                  <span className="visually-hidden">Cause of death: </span>
+                  {g.death}
+                </span>
               </span>
               <span className={styles.alsoRole}>{g.year}</span>
             </li>

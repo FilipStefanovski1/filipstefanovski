@@ -208,6 +208,14 @@
   font-weight: 600;
   letter-spacing: 0;
 }
+.death {
+  display: block;
+  margin-top: 6px;
+  color: var(--light);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
 .rest {
   color: var(--dim);
   font-size: 15px;

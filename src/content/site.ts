@@ -381,9 +381,9 @@ export const projects: Project[] = [
 /** Projects that didn't make it. Shown crossed out, on purpose. */
 export const graveyard = {
   projects: [
-    { name: "Micori", what: "Safety status app", year: "2026" },
-    { name: "MKDiaspora", what: "Diaspora network", year: "2026" },
-    { name: "profesija.mk", what: "Job platform", year: "2020" },
+    { name: "Micori", what: "Safety status app", year: "2026", death: "Too small to take on Life360." },
+    { name: "MKDiaspora", what: "Diaspora network", year: "2026", death: "Nobody cared." },
+    { name: "profesija.mk", what: "Job platform", year: "2020", death: "Fully built. Couldn't sell it." },
   ],
   rest: "+ 6ish more",
 };
