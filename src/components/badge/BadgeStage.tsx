@@ -39,6 +39,9 @@ export default function BadgeStage() {
   const [pageVisible, setPageVisible] = useState(true);
   const [spin, setSpin] = useState(0);
   const [dragging, setDragging] = useState(false);
+  const [throws, setThrows] = useState(0);
+  const [showThrows, setShowThrows] = useState(false);
+  const hideThrows = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   // Decide between the live scene and the static badge.
   useEffect(() => {
@@ -64,6 +67,13 @@ export default function BadgeStage() {
   }, []);
 
   const onReady = useCallback(() => setReady(true), []);
+  const onThrow = useCallback(() => {
+    setThrows((n) => n + 1);
+    setShowThrows(true);
+    clearTimeout(hideThrows.current);
+    hideThrows.current = setTimeout(() => setShowThrows(false), 3200);
+  }, []);
+  useEffect(() => () => clearTimeout(hideThrows.current), []);
   const onError = useCallback(() => setMode("static"), []);
   const live = mode === "live";
 
@@ -85,10 +95,21 @@ export default function BadgeStage() {
               spin={spin}
               onReady={onReady}
               onDragChange={setDragging}
+              onThrow={onThrow}
             />
           </SceneBoundary>
         </div>
       )}
+      {/* Easter egg: flick the badge hard enough and it keeps count */}
+      <p className={styles.throws} data-on={showThrows ? "true" : "false"} aria-live="polite">
+        {throws > 0 && (
+          <>
+            thrown {throws === 1 ? "once" : `${throws} times`}.
+            <br />
+            still here.
+          </>
+        )}
+      </p>
       {live && (
         <button
           type="button"

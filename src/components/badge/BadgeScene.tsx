@@ -1,7 +1,7 @@
 "use client";
 
 import * as THREE from "three";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, extend, useFrame, useThree, type ThreeElement, type ThreeEvent } from "@react-three/fiber";
 import { Environment, Lightformer, RoundedBox } from "@react-three/drei";
 import {
@@ -33,6 +33,7 @@ const SPRING_K = 240; // drag spring stiffness (per unit mass)
 const SPRING_C = 26; // drag spring damping
 const MAX_ACCEL = 420;
 const MAX_LINVEL = 12;
+const THROW_SPEED = 7; // release speed that counts as a throw
 const MAX_ANGVEL = 7;
 const YAW_RETURN = 3.2; // how strongly the face turns back to the viewer
 
@@ -41,6 +42,8 @@ export type BadgeSceneProps = {
   spin: number;
   onReady: () => void;
   onDragChange?: (dragging: boolean) => void;
+  /** Fired when the card is let go at speed */
+  onThrow?: () => void;
 };
 
 type Textures = { front: THREE.Texture; back: THREE.Texture; strap: THREE.Texture };
@@ -121,11 +124,13 @@ function Badge({
   spin,
   onReady,
   onDragChange,
+  onThrow,
 }: {
   textures: Textures;
   spin: number;
   onReady: () => void;
   onDragChange?: (d: boolean) => void;
+  onThrow?: () => void;
 }) {
   const fixedL = useRef<RapierRigidBody>(null!);
   const l1 = useRef<RapierRigidBody>(null!);
@@ -171,13 +176,20 @@ function Badge({
     };
   }, [hovered, dragging]);
 
+  // Let go of the card; a fast release counts as a throw.
+  const endDrag = useCallback(() => {
+    grab.current = null;
+    setDragging(false);
+    onDragChange?.(false);
+    const v = card.current?.linvel();
+    if (v && Math.hypot(v.x, v.y, v.z) > THROW_SPEED) onThrow?.();
+  }, [onDragChange, onThrow]);
+
   // Release on any global end of interaction (belt and braces for capture loss).
   useEffect(() => {
     const release = () => {
       if (!grab.current) return;
-      grab.current = null;
-      setDragging(false);
-      onDragChange?.(false);
+      endDrag();
     };
     const el = gl.domElement;
     const blockScroll = (e: TouchEvent) => {
@@ -193,7 +205,7 @@ function Badge({
       window.removeEventListener("blur", release);
       el.removeEventListener("touchmove", blockScroll);
     };
-  }, [gl, onDragChange]);
+  }, [gl, endDrag]);
 
   // Keyboard / button spin: a real torque impulse.
   useEffect(() => {
@@ -321,9 +333,7 @@ function Badge({
   const onUp = (e: ThreeEvent<PointerEvent>) => {
     if (!grab.current || grab.current.pointerId !== e.pointerId) return;
     (e.target as unknown as Element).releasePointerCapture?.(e.pointerId);
-    grab.current = null;
-    setDragging(false);
-    onDragChange?.(false);
+    endDrag();
   };
 
   const segProps = {
@@ -491,6 +501,7 @@ function Scene(props: BadgeSceneProps & { physicsOn: boolean }) {
             spin={props.spin}
             onReady={props.onReady}
             onDragChange={props.onDragChange}
+            onThrow={props.onThrow}
           />
         )}
       </Physics>
