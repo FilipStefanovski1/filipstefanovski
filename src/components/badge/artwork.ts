@@ -112,7 +112,7 @@ export const CARD_COPY = {
   /** Player-card stat line */
   stats: [
     { label: "Shipped", value: "03" },
-    { label: "Buried", value: "~20" },
+    { label: "Buried", value: "~10" },
     { label: "Hustle", value: "MAX" },
   ],
 };

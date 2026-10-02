@@ -88,13 +88,13 @@ export const site = {
     story: [
       "i'm from macedonia, and for a long time basketball was the plan. i moved to belgium for a better future and kept playing, first in the youth leagues, then in the top divisions. honestly, i thought my money would come from basketball. during my studies i even went back to macedonia to play division 1.",
       "building started on the side, in high school. code and design showed up at the same time, at full speed, and nobody was going to do either for me, so i learned both. that's still how i work. i don't hand a design to someone and wait, and i don't wait on a design to start coding. i take the idea and ship it.",
-      "the first thing i shipped was profesija.mk, a job platform for macedonia, in 2020. it failed. so did the next twenty or so projects. somewhere along the way it clicked: a dead project isn't the end, it's tuition.",
+      "the first thing i shipped was profesija.mk, a job platform for macedonia, in 2020. it failed. so did the next ten or so projects. somewhere along the way it clicked: a dead project isn't the end, it's tuition.",
       "the ones that stuck all started with something that bugged me. a close friend tuned me in to making my own stuff and actually putting it out there, and that became blockchain skopje. writing tweets was painful, so i built aminta to fix it. saudi was missing something crucial and i knew i could build it, so q4 happened. on top of that, i'm a creative designer at playground ai.",
       "i'm not doing this for the vibes. money drives me, because money buys freedom, and freedom is the real goal. basketball gave me discipline. coding gave me patience. put the two together and you get someone who doesn't stop.",
-      "people call me cocky. fair. i'm confident to the point some call it narcissistic, and i'm fine with that. confidence is what gets you to project twenty-one after twenty failures. you can be more talented than me. i will still outhustle you.",
+      "people call me cocky. fair. i'm confident to the point some call it narcissistic, and i'm fine with that. confidence is what gets you to project eleven after ten failures. you can be more talented than me. i will still outhustle you.",
     ],
     beliefs: [
-      { title: "Fail more.", body: "The more you fail, the better you get. Twenty dead projects is a curriculum, not a record." },
+      { title: "Fail more.", body: "The more you fail, the better you get. Ten dead projects is a curriculum, not a record." },
       { title: "Confidence is a skill.", body: "Believe in yourself to the point people call it narcissism. Then prove them right about the results." },
       { title: "Discipline over talent.", body: "Basketball taught me that showing up every day beats showing off once." },
       { title: "Patience ships.", body: "Code doesn't care how you feel. You stay with it until it works." },
