@@ -9,6 +9,7 @@ import LightUp from "@/components/LightUp";
 import Icon from "@/components/Icon";
 import ProjectVisual from "@/components/visuals/ProjectVisual";
 import { Illustration } from "@/components/visuals/Illustrations";
+import Clip from "@/components/Clip";
 import styles from "./case.module.css";
 
 export const dynamicParams = false;
@@ -104,7 +105,9 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
                     className={`${styles.figureWrap} ${e.kind === "illustration" && narrowIds.has(e.id) ? styles.narrow : ""}`}
                   >
                     <figure className={styles.figure}>
-                      {e.kind === "screenshot" ? (
+                      {e.kind === "video" ? (
+                        <Clip src={e.src} poster={e.poster} label={e.alt} width={e.width} height={e.height} />
+                      ) : e.kind === "screenshot" ? (
                         <Image src={e.src} alt={e.alt} width={e.width} height={e.height} sizes="(max-width: 900px) 92vw, 1100px" />
                       ) : (
                         <Illustration id={e.id} />

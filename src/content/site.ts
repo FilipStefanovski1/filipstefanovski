@@ -20,6 +20,16 @@ export type Evidence =
       narrow?: boolean;
     }
   | {
+      kind: "video";
+      src: string;
+      poster: string;
+      /** Describes what plays, for screen readers. */
+      alt: string;
+      caption: string;
+      width: number;
+      height: number;
+    }
+  | {
       kind: "illustration";
       /** Key of an illustrative composition rendered in code with synthetic data. */
       id: IllustrationId;
@@ -165,6 +175,15 @@ export const projects: Project[] = [
       ],
       evidence: [
         {
+          kind: "video",
+          src: "/work/q4-demo.mp4",
+          poster: "/work/q4-demo.jpg",
+          alt: "Q4 AI Chat answering how the Saudi healthcare sector performed in Q1 2026, building a revenue table and opening the source financial report.",
+          caption: "Ask. Answer. Source.",
+          width: 1240,
+          height: 640,
+        },
+        {
           kind: "screenshot",
           src: "/work/q4-laptop.jpg",
           alt: "Q4 on a laptop: an answer about Al Rajhi Financials beside the cited source document.",
@@ -250,6 +269,15 @@ export const projects: Project[] = [
         },
       ],
       evidence: [
+        {
+          kind: "video",
+          src: "/work/aminta-demo.mp4",
+          poster: "/work/aminta-demo.jpg",
+          alt: "A scroll through the Aminta website: the X companion, how it works, the creature forms and features.",
+          caption: "The site, top to bottom",
+          width: 1280,
+          height: 800,
+        },
         {
           kind: "screenshot",
           src: "/work/aminta-extension.jpg",
