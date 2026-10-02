@@ -126,19 +126,19 @@
   font-family: var(--font-name);
   font-weight: 800;
   font-stretch: 75%;
-  animation: undercover 11s cubic-bezier(0.65, 0, 0.35, 1) 4s infinite;
+  animation: undercover 20s cubic-bezier(0.45, 0, 0.55, 1) 4s infinite;
 }
 /* The name slips into the dark, waits, then comes back */
 @keyframes undercover {
   0%,
-  50% {
+  32% {
     fill: var(--light);
   }
-  64%,
-  80% {
+  56%,
+  66% {
     fill: var(--stage);
   }
-  94%,
+  92%,
   100% {
     fill: var(--light);
   }

@@ -49,10 +49,11 @@
 .action:active {
   transform: translateY(1px);
 }
+/* Three columns with equal outer tracks, so the middle item sits on the true center */
 .base {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
   gap: 12px 24px;
   width: 100%;
   margin-top: clamp(120px, 18vh, 200px);
@@ -62,6 +63,7 @@
   font-size: 14px;
 }
 .top {
+  justify-self: end;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -75,4 +77,13 @@
 
 .finale :focus-visible {
   outline-color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .base {
+    grid-template-columns: 1fr;
+  }
+  .top {
+    justify-self: start;
+  }
 }
