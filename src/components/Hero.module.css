@@ -119,9 +119,34 @@
 }
 .name text {
   fill: var(--light);
+  /* A hairline that keeps the silhouette barely there while the fill is undercover */
+  stroke: rgb(242 242 238 / 0.09);
+  stroke-width: 1.2px;
+  paint-order: stroke;
   font-family: var(--font-name);
   font-weight: 800;
   font-stretch: 75%;
+  animation: undercover 11s cubic-bezier(0.65, 0, 0.35, 1) 4s infinite;
+}
+/* The name slips into the dark, waits, then comes back */
+@keyframes undercover {
+  0%,
+  50% {
+    fill: var(--light);
+  }
+  64%,
+  80% {
+    fill: var(--stage);
+  }
+  94%,
+  100% {
+    fill: var(--light);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .name text {
+    animation: none;
+  }
 }
 .nameWide text {
   font-size: 172.5px;
