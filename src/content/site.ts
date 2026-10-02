@@ -85,7 +85,7 @@ export const site = {
   role: "Product Developer",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://filipstefanovski.vercel.app",
   description:
-    "Filip Stefanovski is a product developer. He takes products from the first idea to the version people use: product thinking, interface, frontend and AI.",
+    "Product developer from Macedonia. Founder of Aminta, co-founder of Q4 and Blockchain Skopje. I will outhustle you.",
   linkedin: "https://www.linkedin.com/in/filipstefanovskii/",
   x: "https://x.com/filiplesterr",
   xHandle: "filiplesterr",
