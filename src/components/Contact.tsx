@@ -22,9 +22,8 @@ export default function Contact() {
             target="_blank"
             rel="noreferrer"
           >
-            <LinkedInLogo size={18} />
-            LinkedIn
-            <span className="visually-hidden"> (opens in a new tab)</span>
+            <LinkedInLogo size={22} />
+            <span className="visually-hidden">LinkedIn (opens in a new tab)</span>
           </a>
           <a
             href={site.x}

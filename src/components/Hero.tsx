@@ -37,9 +37,8 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
             >
-              <LinkedInLogo size={14} />
-              LinkedIn
-              <span className="visually-hidden"> (opens in a new tab)</span>
+              <LinkedInLogo size={15} />
+              <span className="visually-hidden">LinkedIn (opens in a new tab)</span>
             </a>
             <a
               href={site.x}

@@ -31,9 +31,8 @@ export default function SiteHeader() {
                 rel="noreferrer"
                 className={styles.linkedin}
               >
-                <LinkedInLogo size={13} />
-                LinkedIn
-                <span className="visually-hidden"> (opens in a new tab)</span>
+                <LinkedInLogo size={14} />
+                <span className="visually-hidden">LinkedIn (opens in a new tab)</span>
               </a>
             </li>
             <li>
