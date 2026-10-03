@@ -89,6 +89,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/filipstefanovskii/",
   x: "https://x.com/filiplesterr",
   xHandle: "filiplesterr",
+  /** Public GitHub account, for "Last shipped" */
+  github: "FilipStefanovski1",
   /** Buttondown newsletter username, for the podcast waitlist */
   buttondown: "filipstefanovski",
   hero: {

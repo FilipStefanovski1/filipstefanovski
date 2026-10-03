@@ -44,6 +44,8 @@ export type BadgeSceneProps = {
   onDragChange?: (dragging: boolean) => void;
   /** Fired when the card is let go at speed */
   onThrow?: () => void;
+  /** While dragging: the card's centre in canvas pixels, every frame */
+  onCardScreen?: (x: number, y: number) => void;
 };
 
 type Textures = { front: THREE.Texture; back: THREE.Texture; strap: THREE.Texture };
@@ -86,6 +88,7 @@ const _w = new THREE.Vector3();
 const _q = new THREE.Quaternion();
 const _f = new THREE.Vector3();
 const _ray = new THREE.Vector3();
+const _scr = new THREE.Vector3();
 
 type Grab = { local: THREE.Vector3; target: THREE.Vector3; pointerId: number };
 type Body = React.RefObject<RapierRigidBody>;
@@ -125,12 +128,14 @@ function Badge({
   onReady,
   onDragChange,
   onThrow,
+  onCardScreen,
 }: {
   textures: Textures;
   spin: number;
   onReady: () => void;
   onDragChange?: (d: boolean) => void;
   onThrow?: () => void;
+  onCardScreen?: (x: number, y: number) => void;
 }) {
   const fixedL = useRef<RapierRigidBody>(null!);
   const l1 = useRef<RapierRigidBody>(null!);
@@ -284,6 +289,13 @@ function Badge({
 
     updateBand(bandL.current, curveL, fixedL.current, l1.current, l2.current, l3.current, 0, dt);
     updateBand(bandR.current, curveR, fixedR.current, r1.current, r2.current, r3.current, 2, dt);
+
+    // Report where the card is on screen while it's held (for the scanner)
+    if (g && onCardScreen) {
+      const t = card.current.translation();
+      _scr.set(t.x, t.y, t.z).project(state.camera);
+      onCardScreen(((_scr.x + 1) / 2) * size.width, ((1 - _scr.y) / 2) * size.height);
+    }
 
     // Settle: cap runaway velocities, and gently return the printed face to the viewer.
     const b = card.current;
@@ -502,6 +514,7 @@ function Scene(props: BadgeSceneProps & { physicsOn: boolean }) {
             onReady={props.onReady}
             onDragChange={props.onDragChange}
             onThrow={props.onThrow}
+            onCardScreen={props.onCardScreen}
           />
         )}
       </Physics>

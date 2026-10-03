@@ -3,9 +3,12 @@ import { site } from "@/content/site";
 import BadgeStage from "./badge/BadgeStage";
 import { LinkedInLogo, XLogo } from "./Icon";
 import PodcastWaitlist from "./PodcastWaitlist";
+import LastShipped from "./LastShipped";
+import { lastPushedAt } from "@/lib/github";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
+export default async function Hero() {
+  const pushedAt = await lastPushedAt(site.github);
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.top}>
@@ -24,6 +27,7 @@ export default function Hero() {
               <span key={l}>{l}</span>
             ))}
           </p>
+          {pushedAt && <LastShipped at={pushedAt} />}
           <span className={styles.socials}>
             <a
               href={site.linkedin}
