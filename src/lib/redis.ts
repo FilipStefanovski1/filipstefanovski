@@ -6,3 +6,6 @@ const token = process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TO
 
 /** Null until a database is connected; every feature that uses it hides itself. */
 export const redis = url && token ? new Redis({ url, token }) : null;
+
+/** Local dev, previews and production share one database, so each keeps its own keys. */
+export const ns = (key: string) => `${process.env.VERCEL_ENV ?? "local"}:${key}`;

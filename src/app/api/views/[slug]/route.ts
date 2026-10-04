@@ -1,8 +1,8 @@
-import { redis } from "@/lib/redis";
+import { ns, redis } from "@/lib/redis";
 import { projects } from "@/content/site";
 
 const known = new Set(projects.map((p) => p.slug));
-const key = (slug: string) => `views:${slug}`;
+const key = (slug: string) => ns(`views:${slug}`);
 
 /** Current view count for a project page. */
 export async function GET(_req: Request, ctx: RouteContext<"/api/views/[slug]">) {

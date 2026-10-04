@@ -1,6 +1,6 @@
-import { redis } from "@/lib/redis";
+import { ns, redis } from "@/lib/redis";
 
-const KEY = "presence";
+const KEY = ns("presence");
 const WINDOW_MS = 45_000; // a visitor counts as here for 45s after their last heartbeat
 const ID = /^[a-z0-9]{8,24}$/;
 
