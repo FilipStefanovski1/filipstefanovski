@@ -50,35 +50,23 @@ export default function Hero() {
       </div>
 
       <h1 id="hero-title" className={styles.name}>
+        {/* Set in Macedonian Cyrillic. x and textLength offset each line's side bearings so the ink spans edge to edge */}
         <svg
           className={styles.nameWide}
-          viewBox="0 0 1000 116"
+          viewBox="0 0 1000 89"
           preserveAspectRatio="xMidYMax meet"
           aria-hidden
         >
-          <text x="-3.45" y="115" textLength="1006.9" lengthAdjust="spacing">
-            {site.name.toUpperCase()}
+          <text x="-0.22" y="83.5" textLength="1003.35" lengthAdjust="spacing">
+            ФИЛИП СТЕФАНОВСКИ
           </text>
         </svg>
-        {/* x and textLength offset each line's side bearings so the ink, not the advance box, spans edge to edge */}
-        <svg className={styles.nameStacked} viewBox="0 0 1000 646" aria-hidden>
-          <text
-            x="-13.7"
-            y="451"
-            textLength="1018.5"
-            lengthAdjust="spacing"
-            fontSize="683"
-          >
-            FILIP
+        <svg className={styles.nameStacked} viewBox="0 0 1000 438" aria-hidden>
+          <text x="-0.7" y="258" textLength="1010.47" lengthAdjust="spacing" fontSize="348.8">
+            ФИЛИП
           </text>
-          <text
-            x="-2.4"
-            y="645"
-            textLength="1007.2"
-            lengthAdjust="spacing"
-            fontSize="239"
-          >
-            STEFANOVSKI
+          <text x="-2.93" y="430" textLength="1007.76" lengthAdjust="spacing" fontSize="172.6">
+            СТЕФАНОВСКИ
           </text>
         </svg>
         <span className="visually-hidden">{site.name}</span>

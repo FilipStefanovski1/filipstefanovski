@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Bricolage_Grotesque, Fira_Sans_Extra_Condensed } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -9,6 +9,14 @@ const bricolage = Bricolage_Grotesque({
   subsets: ["latin", "latin-ext"],
   weight: "variable",
   axes: ["wdth", "opsz"],
+  display: "swap",
+});
+
+/** The big hero name is set in Macedonian Cyrillic; Bricolage has no Cyrillic, so it gets its own face. */
+const firaCyr = Fira_Sans_Extra_Condensed({
+  variable: "--font-cyr",
+  subsets: ["cyrillic"],
+  weight: "900",
   display: "swap",
 });
 
@@ -45,7 +53,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={bricolage.variable} suppressHydrationWarning>
+    <html lang="en" className={`${bricolage.variable} ${firaCyr.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>

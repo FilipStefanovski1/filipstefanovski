@@ -184,9 +184,8 @@
   stroke: rgb(242 242 238 / 0.09);
   stroke-width: 1.2px;
   paint-order: stroke;
-  font-family: var(--font-name);
-  font-weight: 800;
-  font-stretch: 75%;
+  font-family: var(--font-cyr), var(--font-name);
+  font-weight: 900;
   animation: undercover 20s cubic-bezier(0.45, 0, 0.55, 1) 4s infinite;
 }
 /* The name slips into the dark, waits, then comes back */
@@ -210,7 +209,7 @@
   }
 }
 .nameWide text {
-  font-size: 172.5px;
+  font-size: 111.84px;
 }
 .nameStacked {
   display: none !important;
