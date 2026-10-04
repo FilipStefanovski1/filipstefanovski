@@ -29,11 +29,11 @@ declare module "@react-three/fiber" {
 
 /* ---------- Tuning ---------- */
 const GRAVITY: [number, number, number] = [0, -24, 0]; // lighter pull: slower, heavier-feeling swings
-const SPRING_K = 240; // drag spring stiffness (per unit mass)
-const SPRING_C = 26; // drag spring damping
-const MAX_ACCEL = 420;
-const MAX_LINVEL = 12;
-const THROW_SPEED = 7; // release speed that counts as a throw
+const SPRING_K = 130; // drag spring stiffness (per unit mass): lower = the card lags the pointer, feels heavier
+const SPRING_C = 24; // drag spring damping
+const MAX_ACCEL = 200;
+const MAX_LINVEL = 9;
+const THROW_SPEED = 4.5; // release speed that counts as a throw
 const MAX_ANGVEL = 7;
 const YAW_RETURN = 3.2; // how strongly the face turns back to the viewer
 
