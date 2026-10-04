@@ -421,7 +421,7 @@ export const graveyard = {
 export const supporting: SupportingWork[] = [
   {
     title: "Playground AI",
-    role: "Designer",
+    role: "Creative Designer",
     body: "",
   },
   {
