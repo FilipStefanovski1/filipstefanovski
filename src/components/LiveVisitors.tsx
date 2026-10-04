@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./Hero.module.css";
 
 type Presence = { count: number; city: string; others: Record<string, number> } | null;
 
@@ -63,7 +62,7 @@ export default function LiveVisitors() {
 
   if (!p) return null;
   return (
-    <span className={styles.visitors} aria-live="polite">
+    <span aria-live="polite">
       {line(p)}
     </span>
   );

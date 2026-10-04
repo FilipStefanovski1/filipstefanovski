@@ -61,42 +61,6 @@
   color: var(--dim);
   font-size: clamp(14px, 1.15vw, 17px);
 }
-/* Last shipped: a live dot and a relative time */
-.shipped {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--dim);
-  font-size: clamp(13px, 1.05vw, 15px);
-}
-.liveDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 rgb(57 255 20 / 0.6);
-  animation: pulse 2.4s ease-out infinite;
-}
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgb(57 255 20 / 0.55);
-  }
-  70%,
-  100% {
-    box-shadow: 0 0 0 8px rgb(57 255 20 / 0);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .liveDot {
-    animation: none;
-  }
-}
-
-.visitors {
-  color: var(--dim);
-  font-size: clamp(13px, 1.05vw, 15px);
-}
-
 /* Podcast waitlist: the teaser opens into one email field */
 .waitOpen {
   pointer-events: auto;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./Hero.module.css";
+import styles from "./live.module.css";
 
 function ago(iso: string, now: number) {
   const m = Math.max(0, Math.round((now - Date.parse(iso)) / 60000));
@@ -27,7 +27,7 @@ export default function LastShipped({ at }: { at: string }) {
   if (now === null) return null;
   return (
     <span className={styles.shipped}>
-      <span className={styles.liveDot} aria-hidden />
+      <span className={styles.dot} aria-hidden />
       Last shipped {ago(at, now)}
     </span>
   );

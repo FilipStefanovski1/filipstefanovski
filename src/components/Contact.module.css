@@ -70,6 +70,14 @@
   justify-self: start;
   text-align: left;
 }
+.live {
+  justify-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 18px;
+  text-align: right;
+}
 
 @media (max-width: 640px) {
   .base {
@@ -78,5 +86,10 @@
   }
   .base > :first-child {
     justify-self: center;
+  }
+  .live {
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
   }
 }
