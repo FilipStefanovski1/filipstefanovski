@@ -31,16 +31,22 @@
 }
 .nav {
   display: flex;
+  align-items: center;
   gap: clamp(16px, 2.6vw, 32px);
   margin: 0;
   padding: 0;
   list-style: none;
 }
+.nav li {
+  display: flex;
+}
+/* Text links and icon links share one height, so everything sits on the same centre line */
 .nav a {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 10px 0;
+  height: 40px;
+  line-height: 1;
   font-size: 15px;
   font-weight: 550;
   text-decoration: none;
