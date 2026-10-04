@@ -116,7 +116,8 @@
 }
 .alsoTitle {
   margin: 0;
-  font-size: clamp(56px, 7vw, 104px);
+  font-size: clamp(48px, 5vw, 88px);
+  white-space: nowrap;
 }
 .alsoList {
   margin: 0;
@@ -176,7 +177,7 @@
 
 @media (min-width: 900px) {
   .also {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
     column-gap: 24px;
   }
 }
