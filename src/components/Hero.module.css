@@ -92,6 +92,11 @@
   }
 }
 
+.visitors {
+  color: var(--dim);
+  font-size: clamp(13px, 1.05vw, 15px);
+}
+
 /* Podcast waitlist: the teaser opens into one email field */
 .waitOpen {
   pointer-events: auto;

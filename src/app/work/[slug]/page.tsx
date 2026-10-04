@@ -10,6 +10,7 @@ import Icon from "@/components/Icon";
 import ProjectVisual from "@/components/visuals/ProjectVisual";
 import { Illustration } from "@/components/visuals/Illustrations";
 import Clip from "@/components/Clip";
+import ViewCount from "@/components/ViewCount";
 import styles from "./case.module.css";
 
 export const dynamicParams = false;
@@ -62,6 +63,7 @@ export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
                   <dt>Areas</dt>
                   <dd>{p.tags.join(", ")}</dd>
                 </div>
+                <ViewCount slug={p.slug} />
                 {p.url && (
                   <div>
                     <dt>Live</dt>
